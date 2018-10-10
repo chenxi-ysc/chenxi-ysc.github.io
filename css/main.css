@@ -1053,6 +1053,7 @@ pre .javascript .function {
   text-align: center;
 }
 .tag-cloud a {
+  text-decoration: none;
   display: inline-block;
   margin: 10px;
 }
@@ -1679,16 +1680,6 @@ pre .javascript .function {
   display: inline-block;
   margin: 0.8em 2em 0 2em;
 }
-#wechat:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
-}
-#alipay:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
-}
 #bitcoin:hover p {
   animation: roll 0.1s infinite linear;
   -webkit-animation: roll 0.1s infinite linear;
@@ -1939,7 +1930,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bbf758;
+  background: #fc8c4e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3236,4 +3227,26 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+.site-author-image {
+  border: 2px solid #fff;
+  border-radius: 100%;
+  transition: transform 1s ease-out;
+}
+img:hover {
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  -ms-transform: rotateZ(360deg);
+  -o-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
+}
+.posts-expand .post-body img:hover {
+  -webkit-transform: initial;
+  -moz-transform: initial;
+  -ms-transform: initial;
+  -o-transform: initial;
+  transform: initial;
+}
+.posts-expand .post-eof {
+  width: 100%;
 }
