@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="情感," />
+  <meta name="keywords" content="概念,AI,神经网络,激活函数," />
 
 
 
@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="嘻嘻嘻">
-<meta name="keywords" content="情感">
+<meta name="description" content="神经网络有哪些？现阶段，神经网络大致分为以下几类。">
+<meta name="keywords" content="概念,AI,神经网络,激活函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="嘻嘻嘻">
-<meta property="og:url" content="http://ysccx.top/2016/07/28/xixixi/index.html">
+<meta property="og:title" content="浅谈神经网络">
+<meta property="og:url" content="http://ysccx.top/2018/10/14/浅谈神经网络/index.html">
 <meta property="og:site_name" content="chenxi">
-<meta property="og:description" content="嘻嘻嘻">
+<meta property="og:description" content="神经网络有哪些？现阶段，神经网络大致分为以下几类。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-09T13:54:20.612Z">
+<meta property="og:image" content="http://ysccx.top/images/NN.jpg">
+<meta property="og:image" content="http://ysccx.top/images/sjy.jpg">
+<meta property="og:image" content="http://ysccx.top/images/jhhs.jpg">
+<meta property="og:image" content="http://ysccx.top/images/NN1.jpg">
+<meta property="og:image" content="http://ysccx.top/images/NN2.jpg">
+<meta property="og:updated_time" content="2018-10-14T07:04:01.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嘻嘻嘻">
-<meta name="twitter:description" content="嘻嘻嘻">
+<meta name="twitter:title" content="浅谈神经网络">
+<meta name="twitter:description" content="神经网络有哪些？现阶段，神经网络大致分为以下几类。">
+<meta name="twitter:image" content="http://ysccx.top/images/NN.jpg">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://ysccx.top/2016/07/28/xixixi/"/>
+  <link rel="canonical" href="http://ysccx.top/2018/10/14/浅谈神经网络/"/>
 
 
 
 
 
-  <title>嘻嘻嘻 | chenxi</title>
+  <title>浅谈神经网络 | chenxi</title>
   
 
 
@@ -264,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2016/07/28/xixixi/">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/14/浅谈神经网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxi">
@@ -281,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">嘻嘻嘻</h1>
+          <h1 class="post-title" itemprop="name headline">浅谈神经网络</h1>
         
 
         <div class="post-meta">
@@ -293,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-28T19:22:22+08:00">
-                2016-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-14T11:55:37+08:00">
+                2018-10-14
               </time>
             
 
@@ -316,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/情感/" itemprop="url" rel="index">
-                    <span itemprop="name">情感</span>
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
                   </a>
                 </span>
 
@@ -347,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3
+                  639
                 </span>
               
 
@@ -363,7 +369,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -384,8 +390,18 @@
       
 
       
-        <blockquote class="blockquote-center"><p>嘻嘻嘻</p>
-</blockquote>
+        <h3 id="神经网络有哪些？"><a href="#神经网络有哪些？" class="headerlink" title="神经网络有哪些？"></a>神经网络有哪些？</h3><p>现阶段，神经网络大致分为以下几类。<br><img src="/images/NN.jpg" alt=""><br><a id="more"></a></p>
+<h3 id="重点介绍一下其中的前馈神经网络"><a href="#重点介绍一下其中的前馈神经网络" class="headerlink" title="重点介绍一下其中的前馈神经网络"></a>重点介绍一下其中的前馈神经网络</h3><h4 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h4><p>神经网络由大量的神经元相互连接而成。每个神经元接受线性组合的输入后，最开始只是简单的线性加权，后来给每个神经元加上了非线性的激活函数，从而进行非线性变换后输出。每两个神经元之间的连接代表加权值，称之为权重（weight）。不同的权重和激活函数，则会导致神经网络不同的输出。<br>神经网络的每个神经元的结构如下：<br><img src="/images/sjy.jpg" alt=""><br>其中</p>
+<ul>
+<li>x1,x2表示输入向量</li>
+<li>w1,w2为权重，几个输入则意味着有几个权重，即每个输入都被赋予一个权重</li>
+<li>b为偏置bias</li>
+<li>g(z)为激活函数</li>
+<li>a为输出</li>
+</ul>
+<h4 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h4><p>常用的非线性激活函数有sigmoid、tanh、relu等等，前两者sigmoid/tanh比较常见于全连接层，后者relu常见于卷积层。这里先简要介绍下最基础的sigmoid函数。<br>sigmoid的函数表达式如下<br><img src="/images/jhhs.jpg" alt=""><br>sigmoid函数的功能是相当于把一个实数压缩至0到1之间。当z是非常大的正数时，g(z)会趋近于1，而z是非常小的负数时，则g(z)会趋近于0。<br>压缩至0到1有何用处呢？用处是这样一来便可以把激活函数看作一种“分类的概率”，比如激活函数的输出为0.9的话便可以解释为90%的概率为正样本。</p>
+<h4 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h4><p>将下图的这种单个神经元<br><img src="/images/NN1.jpg" alt=""><br>组织在一起，便形成了神经网络。下图便是一个三层神经网络结构<br><img src="/images/NN2.jpg" alt=""><br>上图中最左边的原始输入信息称之为输入层，最右边的神经元称之为输出层（上图中输出层只有一个神经元），中间的叫隐藏层。<br>什么输入层、输出层、隐藏层呢？<br>输入层（Input layer），众多神经元（Neuron）接受大量非线形输入讯息。输入的讯息称为输入向量。<br>输出层（Output layer），讯息在神经元链接中传输、分析、权衡，形成输出结果。输出的讯息称为输出向量。<br>隐藏层（Hidden layer），是输入层和输出层之间众多神经元和链接组成的各个层面。如果有多个隐藏层，则意味着多个激活函数。</p>
+
       
     </div>
     
@@ -431,7 +447,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/情感/" <i class="fa fa-tag"></i> 情感</a>
+            <a href="/tags/概念/" <i class="fa fa-tag"></i> 概念</a>
+          
+            <a href="/tags/AI/" <i class="fa fa-tag"></i> AI</a>
+          
+            <a href="/tags/神经网络/" <i class="fa fa-tag"></i> 神经网络</a>
+          
+            <a href="/tags/激活函数/" <i class="fa fa-tag"></i> 激活函数</a>
           
         </div>
       
@@ -444,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/25/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/10/09/hashmap/" rel="next" title="浅谈对hashmap的理解">
+                <i class="fa fa-chevron-left"></i> 浅谈对hashmap的理解
               </a>
             
           </div>
@@ -453,10 +475,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/17/代码起手式/" rel="prev" title="代码起手">
-                代码起手 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -594,6 +621,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络有哪些？"><span class="nav-number">1.</span> <span class="nav-text">神经网络有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点介绍一下其中的前馈神经网络"><span class="nav-number">2.</span> <span class="nav-text">重点介绍一下其中的前馈神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#神经元"><span class="nav-number">2.1.</span> <span class="nav-text">神经元</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#激活函数"><span class="nav-number">2.2.</span> <span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#神经网络"><span class="nav-number">2.3.</span> <span class="nav-text">神经网络</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
