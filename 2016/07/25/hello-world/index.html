@@ -538,7 +538,7 @@
           </nav>
 
           
-          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863481092&auto=1&height=66"></iframe>
+          
 
           
             <div class="links-of-author motion-element">
@@ -569,10 +569,11 @@
                 
             </div>
           
-
           
           
+          
 
+          
           
           
           
@@ -597,7 +598,7 @@
         </section>
       <!--/noindex-->
       
-      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863481092&auto=1&height=66"></iframe>
       
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
@@ -786,6 +787,7 @@
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: '3c4b5fb6b5741d1fde62',
@@ -793,7 +795,7 @@
           repo: 'chenxi-ysc.github.io',
           owner: 'chenxi-ysc',
           admin: ['chenxi-ysc'],
-          id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
