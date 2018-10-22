@@ -1036,7 +1036,21 @@
       </section>
       
       
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863481092&auto=1&height=66"></iframe>
+      <link rel="stylesheet" href="/lib/aplayer/dist/APlayer.min.css">
+      <div id="aplayer"></div>
+      <script src="/lib/aplayer/dist/APlayer.min.js"></script>
+      <script>
+        const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        audio: [{
+          name: '心做し',
+          artist: '双笙',
+          autoplay: true,
+          url: '/music/xz.mp3',
+          cover: '/images/xz.jpg'
+          }]
+        });
+      </script>
       
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
