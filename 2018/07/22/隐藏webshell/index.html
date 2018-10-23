@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="大概有以下几种方式 SetHandler可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。 SetHandler application/x-httpd-php连接x.jpg即可启动后门木马。   AddHandler、AddType可将php代码存于非php后缀文件，例: x.logs将以下代码写入.htaccess中AddHandler php5-scri">
+<meta name="description" content="大概有以下几种方式 SetHandler可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。 SetHandler application/x-httpd-php    然后连接x.jpg即可启动后门木马。  AddHandler、AddType可将php代码存于非php后缀文件，例: x.logs将以下代码写入.htaccess中AddHandler php5">
 <meta name="keywords" content="web渗透,php,webshell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web渗透之隐藏webshell">
 <meta property="og:url" content="http://ysccx.top/2018/07/22/隐藏webshell/index.html">
 <meta property="og:site_name" content="chenxi">
-<meta property="og:description" content="大概有以下几种方式 SetHandler可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。 SetHandler application/x-httpd-php连接x.jpg即可启动后门木马。   AddHandler、AddType可将php代码存于非php后缀文件，例: x.logs将以下代码写入.htaccess中AddHandler php5-scri">
+<meta property="og:description" content="大概有以下几种方式 SetHandler可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。 SetHandler application/x-httpd-php    然后连接x.jpg即可启动后门木马。  AddHandler、AddType可将php代码存于非php后缀文件，例: x.logs将以下代码写入.htaccess中AddHandler php5">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T08:43:03.344Z">
+<meta property="og:updated_time" content="2018-10-23T11:57:01.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web渗透之隐藏webshell">
-<meta name="twitter:description" content="大概有以下几种方式 SetHandler可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。 SetHandler application/x-httpd-php连接x.jpg即可启动后门木马。   AddHandler、AddType可将php代码存于非php后缀文件，例: x.logs将以下代码写入.htaccess中AddHandler php5-scri">
+<meta name="twitter:description" content="大概有以下几种方式 SetHandler可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。 SetHandler application/x-httpd-php    然后连接x.jpg即可启动后门木马。  AddHandler、AddType可将php代码存于非php后缀文件，例: x.logs将以下代码写入.htaccess中AddHandler php5">
 
 
 
@@ -355,9 +355,12 @@
       
         <h4 id="大概有以下几种方式"><a href="#大概有以下几种方式" class="headerlink" title="大概有以下几种方式"></a>大概有以下几种方式</h4><ol>
 <li>SetHandler<br>可将php代码存于非php后缀文件，例: x.jpg将以下代码写入.htaccess中。<blockquote>
-<p>SetHandler application/x-httpd-php<br>连接x.jpg即可启动后门木马。</p>
+<p>SetHandler application/x-httpd-php</p>
 </blockquote>
 </li>
+</ol>
+<p>然后连接x.jpg即可启动后门木马。</p>
+<ol start="2">
 <li>AddHandler、AddType<br>可将php代码存于非php后缀文件，例: x.logs<br>将以下代码写入.htaccess中<br>AddHandler php5-script .logs<br>AddType text/html .logs<br>连接x.logs，此时x.logs会被apache当成PHP脚本进行解析。</li>
 <li>php_value<br>将以下代码写入.htaccess中, 文件路径必须是绝对路径，访问网站上任何php文件都会启动该php后门木马<br>php_value auto_append_file E:/wamp/www/***.php</li>
 </ol>
@@ -531,7 +534,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
