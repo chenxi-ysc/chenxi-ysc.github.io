@@ -258,6 +258,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/23/ifname/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/23/ifname/" itemprop="url">python中的if __name__ == '__main__' 的作用及原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T22:24:20+08:00">
+                2018-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>由于每个python模块（python文件）都包含内置的变量<strong>name</strong>，当模块被单独运行的时候，<strong>name</strong>等于文件名（包含了后缀.py）。如果import到其他模块中，则<strong>name</strong>等于模块名称（不包含后缀.py）。而“<strong>main</strong>”等于当前执行文件的名称（包含了后缀.py）。所以当模块被单独运行时，<strong>name</strong> == ‘<strong>main</strong>‘结果为真；而当模块被import到其他模块中时，<strong>name</strong> == ‘<strong>main</strong>‘结果为假，就是不调用对应的方法。</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>简而言之就是：当模块被单独运行时，该if语句为真，后面的代码将被运行；当模块是被导入时，该if语句为假，后面的代码不被运行。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/14/无重复字符串的最长字串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3104,7 +3247,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
