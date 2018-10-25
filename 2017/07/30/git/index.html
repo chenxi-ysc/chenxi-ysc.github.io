@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="概念,git," />
+  <meta name="keywords" content="git,概念," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="什么是git？分布式版本控制系统。git几乎是所有程序员必备的技能之一，而git教程在网上更是琳琅满目。 git版本库图解">
-<meta name="keywords" content="概念,git">
+<meta name="keywords" content="git,概念">
 <meta property="og:type" content="article">
 <meta property="og:title" content="how to 优雅地使用 git?">
 <meta property="og:url" content="http://ysccx.top/2017/07/30/git/index.html">
@@ -415,9 +415,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/概念/" <i class="fa fa-tag"></i> 概念</a>
-          
             <a href="/tags/git/" <i class="fa fa-tag"></i> git</a>
+          
+            <a href="/tags/概念/" <i class="fa fa-tag"></i> 概念</a>
           
         </div>
       
@@ -526,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -617,7 +617,21 @@
         </section>
       <!--/noindex-->
       
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=478303470&auto=1&height=66"></iframe>
+      <link rel="stylesheet" href="/dist/APlayer.min.css">
+      <div id="aplayer"></div>
+      <script src="/dist/APlayer.min.js"></script>
+      <script>
+      const ap = new APlayer({
+          container: document.getElementById('aplayer'),
+          audio: [{
+              name: '心做し',
+              artist: '双笙',
+              url: '/images/xz.mp3',
+              autoplay: false,
+              cover: '/images/xz.jpg'
+          }]
+      });
+      </script>
       
         <div class="back-to-top">
           <i class="fa fa-arrow-up"></i>
