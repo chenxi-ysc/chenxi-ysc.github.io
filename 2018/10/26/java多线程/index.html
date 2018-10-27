@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="情感,初心,人生," />
+  <meta name="keywords" content="java,同步,多线程," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="还有什么事想去做？为什么不放弃？为什么不自暴自弃？为什么不一走了之？…… 命运它很吝啬，希望从来都是自己找给自己的。或许你问过了，追求过了，才有答案。 人最艰难的日子，或许连最依赖的人都会远去，或许已经心如死灰万念俱灭，或许连上帝都不会再背负你前行。你永远不知道生命还会给你哪些苦难，你永远不知道自己还会经历多少难熬的岁月。 内心茫然也好，心怀执念也好，痛苦煎熬也好。一步一步，一天一天，一秒一秒，只">
-<meta name="keywords" content="情感,初心,人生">
+<meta name="description" content="线程状态 基础前提 Java中的每个对象都有一个监视器，来监测并发代码的重入。 synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。 synchronized(this){}等同于public synchronized void method(){}。 当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchro">
+<meta name="keywords" content="java,同步,多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人生苦短">
-<meta property="og:url" content="http://ysccx.top/2018/08/25/life/index.html">
+<meta property="og:title" content="java线程的暂停和恢复">
+<meta property="og:url" content="http://ysccx.top/2018/10/26/java多线程/index.html">
 <meta property="og:site_name" content="chenxi">
-<meta property="og:description" content="还有什么事想去做？为什么不放弃？为什么不自暴自弃？为什么不一走了之？…… 命运它很吝啬，希望从来都是自己找给自己的。或许你问过了，追求过了，才有答案。 人最艰难的日子，或许连最依赖的人都会远去，或许已经心如死灰万念俱灭，或许连上帝都不会再背负你前行。你永远不知道生命还会给你哪些苦难，你永远不知道自己还会经历多少难熬的岁月。 内心茫然也好，心怀执念也好，痛苦煎熬也好。一步一步，一天一天，一秒一秒，只">
+<meta property="og:description" content="线程状态 基础前提 Java中的每个对象都有一个监视器，来监测并发代码的重入。 synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。 synchronized(this){}等同于public synchronized void method(){}。 当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchro">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T11:43:42.457Z">
+<meta property="og:image" content="http://ysccx.top/images/thread.png">
+<meta property="og:updated_time" content="2018-10-27T01:45:47.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人生苦短">
-<meta name="twitter:description" content="还有什么事想去做？为什么不放弃？为什么不自暴自弃？为什么不一走了之？…… 命运它很吝啬，希望从来都是自己找给自己的。或许你问过了，追求过了，才有答案。 人最艰难的日子，或许连最依赖的人都会远去，或许已经心如死灰万念俱灭，或许连上帝都不会再背负你前行。你永远不知道生命还会给你哪些苦难，你永远不知道自己还会经历多少难熬的岁月。 内心茫然也好，心怀执念也好，痛苦煎熬也好。一步一步，一天一天，一秒一秒，只">
+<meta name="twitter:title" content="java线程的暂停和恢复">
+<meta name="twitter:description" content="线程状态 基础前提 Java中的每个对象都有一个监视器，来监测并发代码的重入。 synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。 synchronized(this){}等同于public synchronized void method(){}。 当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchro">
+<meta name="twitter:image" content="http://ysccx.top/images/thread.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://ysccx.top/2018/08/25/life/"/>
+  <link rel="canonical" href="http://ysccx.top/2018/10/26/java多线程/"/>
 
 
 
 
 
-  <title>人生苦短 | chenxi</title>
+  <title>java线程的暂停和恢复 | chenxi</title>
   
 
 
@@ -264,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/08/25/life/">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/26/java多线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxi">
@@ -281,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">人生苦短</h1>
+          <h1 class="post-title" itemprop="name headline">java线程的暂停和恢复</h1>
         
 
         <div class="post-meta">
@@ -293,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-25T00:00:00+08:00">
-                2018-08-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T21:04:02+08:00">
+                2018-10-26
               </time>
             
 
@@ -316,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/摘录/" itemprop="url" rel="index">
-                    <span itemprop="name">摘录</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -353,16 +355,19 @@
       
 
       
-        <p>还有什么事想去做？<br>为什么不放弃？<br>为什么不自暴自弃？<br>为什么不一走了之？<br>……</p>
-<p>命运它很吝啬，希望从来都是自己找给自己的。<br>或许你问过了，追求过了，才有答案。</p>
-<p>人最艰难的日子，或许连最依赖的人都会远去，或许已经心如死灰万念俱灭，或许连上帝都不会再背负你前行。<br>你永远不知道生命还会给你哪些苦难，你永远不知道自己还会经历多少难熬的岁月。</p>
-<p>内心茫然也好，心怀执念也好，痛苦煎熬也好。<br>一步一步，一天一天，一秒一秒，只能靠自己活下去，去感受，去经历，去撑，去熬。<br>一步也少不了，一天也少不了，一秒也少不了。<br>你只能活着，照顾好自己。<br>你只能等，等时间过去。</p>
-<p>当路途够长，你已慢慢卸下了绝望，<br>当岁月够久，你已开始看到光亮。<br>再回首，又是一道风景。</p>
-<p>你看，世界上还有那么比你更悲惨的人，还在坚强地活着，不是吗？</p>
-<p>人生苦短，你敢不敢笑着走完？</p>
-<p>我敢。</p>
-<p>你呢？</p>
-
+        <h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><p><img src="/images/thread.png" alt=""></p>
+<h4 id="基础前提"><a href="#基础前提" class="headerlink" title="基础前提"></a>基础前提</h4><ul>
+<li>Java中的每个对象都有一个监视器，来监测并发代码的重入。</li>
+<li>synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。</li>
+<li>synchronized(this){}等同于public synchronized void method(){}。</li>
+<li>当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchronized(obj)代码中。</li>
+<li>在while循环里而不是if语句下使用wait，这样，会在线程暂停恢复后都检查wait的条件，并在条件实际上并未改变的情况下处理唤醒通知</li>
+<li>notify()方法只会通知等待队列中的第一个相关线程（不会通知优先级比较高的线程）。</li>
+<li>notifyAll()通知所有等待该竞争资源的线程（也不会按照线程的优先级来执行）。<a id="more"></a>
+</li>
+</ul>
+<h4 id="利用wait-和notify-实现线程的暂停和恢复"><a href="#利用wait-和notify-实现线程的暂停和恢复" class="headerlink" title="利用wait()和notify()实现线程的暂停和恢复"></a>利用wait()和notify()实现线程的暂停和恢复</h4><p>让目标线程轮询一个自定义锁对象。当需要挂起状态时，线程将使用 Object.wait 进行等待。当线程恢复时，将使用 Object.notify 通知目标线程。<br>实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Object lock = new Object();</span><br><span class="line">boolean isPause = false;</span><br><span class="line">public void run()&#123;</span><br><span class="line">    synchronized (lock)&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(600);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        while(isPause)&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                lock.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="经典生产者消费者问题"><a href="#经典生产者消费者问题" class="headerlink" title="经典生产者消费者问题"></a>经典生产者消费者问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 生产者生产出来的产品交给店员</span><br><span class="line">*/</span><br><span class="line">public synchronized void produce()</span><br><span class="line">&#123;</span><br><span class="line">    if(this.product &gt;= MAX_PRODUCT)</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            wait();  </span><br><span class="line">            System.out.println(&quot;产品已满,请稍候再生产&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        catch(InterruptedException e)</span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.product++;</span><br><span class="line">    System.out.println(&quot;生产者生产第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">    notifyAll();   //通知等待区的消费者可以取出产品了</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 消费者从店员取产品</span><br><span class="line">*/</span><br><span class="line">public synchronized void consume()</span><br><span class="line">&#123;</span><br><span class="line">    if(this.product &lt;= MIN_PRODUCT)</span><br><span class="line">    &#123;</span><br><span class="line">        try </span><br><span class="line">        &#123;</span><br><span class="line">            wait(); </span><br><span class="line">            System.out.println(&quot;缺货,稍候再取&quot;);</span><br><span class="line">        &#125; </span><br><span class="line">        catch (InterruptedException e) </span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;消费者取走了第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">    this.product--;</span><br><span class="line">    notifyAll();   //通知等待去的生产者可以生产产品了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -408,11 +413,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/情感/" <i class="fa fa-tag"></i> 情感</a>
+            <a href="/tags/java/" <i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/初心/" <i class="fa fa-tag"></i> 初心</a>
+            <a href="/tags/同步/" <i class="fa fa-tag"></i> 同步</a>
           
-            <a href="/tags/人生/" <i class="fa fa-tag"></i> 人生</a>
+            <a href="/tags/多线程/" <i class="fa fa-tag"></i> 多线程</a>
           
         </div>
       
@@ -425,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/22/隐藏webshell/" rel="next" title="web渗透之隐藏webshell">
-                <i class="fa fa-chevron-left"></i> web渗透之隐藏webshell
+              <a href="/2018/10/25/求素数/" rel="next" title="求素数个数的几种解法">
+                <i class="fa fa-chevron-left"></i> 求素数个数的几种解法
               </a>
             
           </div>
@@ -434,10 +439,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/05/poem/" rel="prev" title="步入诗境">
-                步入诗境 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -491,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -586,6 +596,22 @@
         </div>
       </section>
       
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程状态"><span class="nav-number">1.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础前提"><span class="nav-number">2.</span> <span class="nav-text">基础前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用wait-和notify-实现线程的暂停和恢复"><span class="nav-number">3.</span> <span class="nav-text">利用wait()和notify()实现线程的暂停和恢复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经典生产者消费者问题"><span class="nav-number">4.</span> <span class="nav-text">经典生产者消费者问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
       
         <div class="back-to-top">
