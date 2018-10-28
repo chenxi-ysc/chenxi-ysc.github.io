@@ -68,7 +68,6 @@
 
 
 
-  <meta name="keywords" content="java,同步,多线程," />
 
 
 
@@ -78,21 +77,17 @@
 
 
 
-
-<meta name="description" content="线程状态 基础前提 Java中的每个对象都有一个监视器，来监测并发代码的重入。 synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。 synchronized(this){}等同于public synchronized void method(){}。 当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchro">
-<meta name="keywords" content="java,同步,多线程">
+<meta name="description" content="解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n) 实现如下1234567891011121314int findK(int[] nums1, int i, int[] nums2, int j, int k)&amp;#123;    int i = 0;    int j = 0;    in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java线程的暂停和恢复">
-<meta property="og:url" content="http://ysccx.top/2018/10/26/java多线程/index.html">
+<meta property="og:title" content="两个排序数组找第k大的数">
+<meta property="og:url" content="http://ysccx.top/2018/10/27/两个排序数组找第k大的数/index.html">
 <meta property="og:site_name" content="chenxi">
-<meta property="og:description" content="线程状态 基础前提 Java中的每个对象都有一个监视器，来监测并发代码的重入。 synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。 synchronized(this){}等同于public synchronized void method(){}。 当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchro">
+<meta property="og:description" content="解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n) 实现如下1234567891011121314int findK(int[] nums1, int i, int[] nums2, int j, int k)&amp;#123;    int i = 0;    int j = 0;    in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ysccx.top/images/thread.png">
-<meta property="og:updated_time" content="2018-10-27T01:45:47.680Z">
+<meta property="og:updated_time" content="2018-10-28T02:47:31.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java线程的暂停和恢复">
-<meta name="twitter:description" content="线程状态 基础前提 Java中的每个对象都有一个监视器，来监测并发代码的重入。 synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。 synchronized(this){}等同于public synchronized void method(){}。 当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchro">
-<meta name="twitter:image" content="http://ysccx.top/images/thread.png">
+<meta name="twitter:title" content="两个排序数组找第k大的数">
+<meta name="twitter:description" content="解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n) 实现如下1234567891011121314int findK(int[] nums1, int i, int[] nums2, int j, int k)&amp;#123;    int i = 0;    int j = 0;    in">
 
 
 
@@ -122,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://ysccx.top/2018/10/26/java多线程/"/>
+  <link rel="canonical" href="http://ysccx.top/2018/10/27/两个排序数组找第k大的数/"/>
 
 
 
 
 
-  <title>java线程的暂停和恢复 | chenxi</title>
+  <title>两个排序数组找第k大的数 | chenxi</title>
   
 
 
@@ -266,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/26/java多线程/">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/27/两个排序数组找第k大的数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chenxi">
@@ -283,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java线程的暂停和恢复</h1>
+          <h1 class="post-title" itemprop="name headline">两个排序数组找第k大的数</h1>
         
 
         <div class="post-meta">
@@ -295,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T21:04:02+08:00">
-                2018-10-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-27T22:15:30+08:00">
+                2018-10-27
               </time>
             
 
@@ -305,28 +300,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -355,19 +328,21 @@
       
 
       
-        <h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><p><img src="/images/thread.png" alt=""></p>
-<h4 id="基础前提"><a href="#基础前提" class="headerlink" title="基础前提"></a>基础前提</h4><ul>
-<li>Java中的每个对象都有一个监视器，来监测并发代码的重入。</li>
-<li>synchronized(obj):对obj加上同步锁并获取该obj的监视器（monitor）。</li>
-<li>synchronized(this){}等同于public synchronized void method(){}。</li>
-<li>当想要调用wait()进行线程等待时，必须要取得这个锁对象的控制权（监视器），一般是放到synchronized(obj)代码中。</li>
-<li>在while循环里而不是if语句下使用wait，这样，会在线程暂停恢复后都检查wait的条件，并在条件实际上并未改变的情况下处理唤醒通知</li>
-<li>notify()方法只会通知等待队列中的第一个相关线程（不会通知优先级比较高的线程）。</li>
-<li>notifyAll()通知所有等待该竞争资源的线程（也不会按照线程的优先级来执行）。<a id="more"></a>
+        <h4 id="解法一：游标计数"><a href="#解法一：游标计数" class="headerlink" title="解法一：游标计数"></a>解法一：游标计数</h4><p>定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。<br><strong>时间复杂度O(m+n)</strong></p>
+<h5 id="实现如下"><a href="#实现如下" class="headerlink" title="实现如下"></a>实现如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int findK(int[] nums1, int i, int[] nums2, int j, int k)&#123;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    int count = 1;</span><br><span class="line">    while(count&lt;k)</span><br><span class="line">    &#123;</span><br><span class="line">        if( nums1[i]&lt;=nums2[j] )</span><br><span class="line">            i++;</span><br><span class="line">        else</span><br><span class="line">            j++;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    return nums1[i]&lt;=nums2[j]?nums1[j]:nums2[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="解法二：类二分查找"><a href="#解法二：类二分查找" class="headerlink" title="解法二：类二分查找"></a>解法二：类二分查找</h4><p>充分利用两个数组都是有序的条件：</p>
+<ul>
+<li>当array1[k/2-1] &gt;= array2[k/2-1]  则array2在[0,k/2-1]范围内的元素一定比array1、array2合并后第k个元素小，可以不用考虑array2在[0,k/2-1]范围内的元素</li>
+<li>当array1[k/2-1] &lt; array2[k/2-1]  则array1在[0,k/2-1]范围内的元素一定比array1、array2合并后第k个元素小，可以不用考虑array1在[0,k/2-1]范围内的元素</li>
+</ul>
+<p>因此算法可以写成一个递归的形式，递归结束的条件为：</p>
+<ul>
+<li>array1或者array2为空时，return array1[k-1]或者array2[k-1]</li>
+<li>k==1时，return min(array1[0],array2[0])<br><strong>时间复杂度O(log(m+n))</strong><h5 id="实现如下-1"><a href="#实现如下-1" class="headerlink" title="实现如下"></a>实现如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int findK(int[] nums1, int i, int[] nums2, int j, int k)&#123;</span><br><span class="line">    int mid1=0, mid2=0;</span><br><span class="line">    if(i&gt;=nums1.length) return nums2[j+k-1];</span><br><span class="line">    if(j&gt;=nums2.length) return nums1[i+k-1];</span><br><span class="line">    if(k==1) return Math.min(nums1[i], nums2[j]);</span><br><span class="line">    if(i+k/2-1&lt;nums1.length)&#123;</span><br><span class="line">        mid1 = nums1[i+k/2-1];</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return findK(nums1,i,nums2,j+k/2,k-k/2);</span><br><span class="line">    if(j+k/2-1&lt;nums2.length)&#123;</span><br><span class="line">        mid2 = nums2[j+k/2-1];</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return findK(nums1,i+k/2,nums2,j,k-k/2);</span><br><span class="line">    if(mid1&lt;mid2)&#123;</span><br><span class="line">        return findK(nums1,i+k/2,nums2,j,k-k/2);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        return findK(nums1,i,nums2,j+k/2,k-k/2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="利用wait-和notify-实现线程的暂停和恢复"><a href="#利用wait-和notify-实现线程的暂停和恢复" class="headerlink" title="利用wait()和notify()实现线程的暂停和恢复"></a>利用wait()和notify()实现线程的暂停和恢复</h4><p>让目标线程轮询一个自定义锁对象。当需要挂起状态时，线程将使用 Object.wait 进行等待。当线程恢复时，将使用 Object.notify 通知目标线程。<br>实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Object lock = new Object();</span><br><span class="line">boolean isPause = false;</span><br><span class="line">public void run()&#123;</span><br><span class="line">    synchronized (lock)&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(600);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        while(isPause)&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                lock.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="经典生产者消费者问题"><a href="#经典生产者消费者问题" class="headerlink" title="经典生产者消费者问题"></a>经典生产者消费者问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 生产者生产出来的产品交给店员</span><br><span class="line">*/</span><br><span class="line">public synchronized void produce()</span><br><span class="line">&#123;</span><br><span class="line">    if(this.product &gt;= MAX_PRODUCT)</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            wait();  </span><br><span class="line">            System.out.println(&quot;产品已满,请稍候再生产&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        catch(InterruptedException e)</span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.product++;</span><br><span class="line">    System.out.println(&quot;生产者生产第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">    notifyAll();   //通知等待区的消费者可以取出产品了</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 消费者从店员取产品</span><br><span class="line">*/</span><br><span class="line">public synchronized void consume()</span><br><span class="line">&#123;</span><br><span class="line">    if(this.product &lt;= MIN_PRODUCT)</span><br><span class="line">    &#123;</span><br><span class="line">        try </span><br><span class="line">        &#123;</span><br><span class="line">            wait(); </span><br><span class="line">            System.out.println(&quot;缺货,稍候再取&quot;);</span><br><span class="line">        &#125; </span><br><span class="line">        catch (InterruptedException e) </span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;消费者取走了第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">    this.product--;</span><br><span class="line">    notifyAll();   //通知等待去的生产者可以生产产品了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -411,16 +386,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" <i class="fa fa-tag"></i> java</a>
-          
-            <a href="/tags/同步/" <i class="fa fa-tag"></i> 同步</a>
-          
-            <a href="/tags/多线程/" <i class="fa fa-tag"></i> 多线程</a>
-          
-        </div>
-      
 
       
       
@@ -430,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/25/求素数/" rel="next" title="求素数个数的几种解法">
-                <i class="fa fa-chevron-left"></i> 求素数个数的几种解法
+              <a href="/2018/10/26/java多线程/" rel="next" title="java线程的暂停和恢复">
+                <i class="fa fa-chevron-left"></i> java线程的暂停和恢复
               </a>
             
           </div>
@@ -439,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/27/两个排序数组找第k大的数/" rel="prev" title="两个排序数组找第k大的数">
-                两个排序数组找第k大的数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -610,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程状态"><span class="nav-number">1.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基础前提"><span class="nav-number">2.</span> <span class="nav-text">基础前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用wait-和notify-实现线程的暂停和恢复"><span class="nav-number">3.</span> <span class="nav-text">利用wait()和notify()实现线程的暂停和恢复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经典生产者消费者问题"><span class="nav-number">4.</span> <span class="nav-text">经典生产者消费者问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#解法一：游标计数"><span class="nav-number">1.</span> <span class="nav-text">解法一：游标计数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现如下"><span class="nav-number">1.1.</span> <span class="nav-text">实现如下</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法二：类二分查找"><span class="nav-number">2.</span> <span class="nav-text">解法二：类二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现如下-1"><span class="nav-number">2.1.</span> <span class="nav-text">实现如下</span></a></li></ol></li></ol></div>
             
 
           </div>
