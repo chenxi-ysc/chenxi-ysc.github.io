@@ -1933,7 +1933,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #44ffb1;
+  background: #b1372d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3267,6 +3267,10 @@ a {
 .tag-cloud a {
   border-radius: 4px;
 }
+.tag-cloud a:before {
+  font-family: 'FontAwesome';
+  content: "\f02b";
+}
 .tag-cloud a:hover {
   background: #eee;
 }
@@ -3276,6 +3280,10 @@ a {
 }
 .posts-expand .post-tags a:hover {
   background: #eee;
+}
+.category-list-item {
+  list-style: none !important;
+  text-align: center;
 }
 .category-list-link {
   text-align: center;
