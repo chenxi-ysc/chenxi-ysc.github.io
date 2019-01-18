@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="概念,AI,自我编程," />
+  <meta name="keywords" content="mvc,框架," />
 
 
 
@@ -77,18 +77,21 @@
 
 
 
-<meta name="description" content="到底何为人工智能？能否用编程实现真正的人工智能？ 答案是：很难。  机器要执行一个连贯的动作的话，是需要人类给它编程的，也就是说，需要人类告诉它，它该怎么做。如果我们不改变它的程序，它将永远这么做下去。也就是说机器只有执行能力，没有学习能力，它不可能自己给自己编写程序。它不可能从一个勤勤恳恳的农民，变成一个手拿兵器冲锋陷阵的士兵。">
-<meta name="keywords" content="概念,AI,自我编程">
+<meta name="description" content="概述SpringMVC是一种基于Java，实现了Web MVC设计模式，请求驱动类型的轻量级Web框架，即使用了MVC架构模式的思想，将Web层进行职责解耦。基于请求驱动指的就是使用请求-响应模型，框架的目的就是方便解耦，简化开发，SpringMVC也是要简化我们日常Web开发。SpringMVC框架主要由DispatcherServlet、HandlerMapping、Controller、Vi">
+<meta name="keywords" content="mvc,框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Artificial Intelligence">
-<meta property="og:url" content="http://ysccx.top/2018/09/25/人工智能/index.html">
+<meta property="og:title" content="Spring MVC总结">
+<meta property="og:url" content="http://ysccx.top/2019/01/18/springmvc/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="到底何为人工智能？能否用编程实现真正的人工智能？ 答案是：很难。  机器要执行一个连贯的动作的话，是需要人类给它编程的，也就是说，需要人类告诉它，它该怎么做。如果我们不改变它的程序，它将永远这么做下去。也就是说机器只有执行能力，没有学习能力，它不可能自己给自己编写程序。它不可能从一个勤勤恳恳的农民，变成一个手拿兵器冲锋陷阵的士兵。">
+<meta property="og:description" content="概述SpringMVC是一种基于Java，实现了Web MVC设计模式，请求驱动类型的轻量级Web框架，即使用了MVC架构模式的思想，将Web层进行职责解耦。基于请求驱动指的就是使用请求-响应模型，框架的目的就是方便解耦，简化开发，SpringMVC也是要简化我们日常Web开发。SpringMVC框架主要由DispatcherServlet、HandlerMapping、Controller、Vi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T07:58:05.972Z">
+<meta property="og:image" content="http://ysccx.top/images/springmvc.png">
+<meta property="og:image" content="http://ysccx.top/images/springmvchelloworld.png">
+<meta property="og:updated_time" content="2019-01-18T10:35:27.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Artificial Intelligence">
-<meta name="twitter:description" content="到底何为人工智能？能否用编程实现真正的人工智能？ 答案是：很难。  机器要执行一个连贯的动作的话，是需要人类给它编程的，也就是说，需要人类告诉它，它该怎么做。如果我们不改变它的程序，它将永远这么做下去。也就是说机器只有执行能力，没有学习能力，它不可能自己给自己编写程序。它不可能从一个勤勤恳恳的农民，变成一个手拿兵器冲锋陷阵的士兵。">
+<meta name="twitter:title" content="Spring MVC总结">
+<meta name="twitter:description" content="概述SpringMVC是一种基于Java，实现了Web MVC设计模式，请求驱动类型的轻量级Web框架，即使用了MVC架构模式的思想，将Web层进行职责解耦。基于请求驱动指的就是使用请求-响应模型，框架的目的就是方便解耦，简化开发，SpringMVC也是要简化我们日常Web开发。SpringMVC框架主要由DispatcherServlet、HandlerMapping、Controller、Vi">
+<meta name="twitter:image" content="http://ysccx.top/images/springmvc.png">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://ysccx.top/2018/09/25/人工智能/"/>
+  <link rel="canonical" href="http://ysccx.top/2019/01/18/springmvc/"/>
 
 
 
 
 
-  <title>Artificial Intelligence | chasen</title>
+  <title>Spring MVC总结 | chasen</title>
   
 
 
@@ -262,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/09/25/人工智能/">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/01/18/springmvc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chasen">
@@ -279,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Artificial Intelligence</h1>
+          <h1 class="post-title" itemprop="name headline">Spring MVC总结</h1>
         
 
         <div class="post-meta">
@@ -291,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T09:06:01+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T12:50:53+08:00">
+                2019-01-18
               </time>
             
 
@@ -314,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -332,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/25/人工智能/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/25/人工智能/" itemprop="commentCount"></span>
+                <a href="/2019/01/18/springmvc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/18/springmvc/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,12 +364,43 @@
       
 
       
-        <h3 id="到底何为人工智能？能否用编程实现真正的人工智能？"><a href="#到底何为人工智能？能否用编程实现真正的人工智能？" class="headerlink" title="到底何为人工智能？能否用编程实现真正的人工智能？"></a>到底何为人工智能？能否用编程实现真正的人工智能？</h3><blockquote>
-<p>答案是：很难。</p>
-</blockquote>
-<p>机器要执行一个连贯的动作的话，是需要人类给它编程的，也就是说，需要人类告诉它，它该怎么做。如果我们不改变它的程序，它将永远这么做下去。也就是说机器只有执行能力，没有学习能力，它不可能自己给自己编写程序。它不可能从一个勤勤恳恳的农民，变成一个手拿兵器冲锋陷阵的士兵。</p>
-<a id="more"></a>
-<p>2016年3月9日，谷歌的智能机器人战胜了韩国的围棋大师李世石，从中可以看出机器人的阴险狡诈和诡计多端。有些人就因此感到害怕了，但是我觉得完全没必要，它的那些能力都是人类赋予给它的，是人类给它编写的程序。如果人类不改变它的程序的话，它将一辈子做一个棋手，永远不可能成为音乐家。<br>有时候，我也觉得人类是一个机器，我们有潜意识和条件反射这些说法。我觉得这些东西就是大脑自己给自己编写好的程序，然后储存起来用的。<br>人的能力不是生来就有的，都是通过后天学习而来的。一种能力就代表一种程序，都是人类自己给自己编写出来的。比如写字，以前我们都不会，都是通过慢慢练习学会的，这个练习的过程就是学习，就是自己在给自己编程。<br>通过学习我们可以掌握很多的技能，这些技能就是我们储存在大脑里的程序。大脑是一个强大的磁盘，它可以储存很多的东西。每一条信息都储存在磁盘的不同位置，大脑也一样，每一个区域储存不同的东西。有些人因为大脑受到创伤，所以会出现一下子失去语言能力的病症，这就是他储存语言能力这个程序的磁盘被破坏了，这条程序没了，所以他突然就不会说话了。<br>因此人工智能最大的障碍就是机器的学习能力，到底要怎样做才能让他们实现自我编程？<br>一旦人工智能实现了自我学习的能力，那他就和人类一样了，所以机器的学习能力才是人类最应该恐惧的能力，学习就意味着变化，就意味着琢磨不透，就意味着潜在的威胁。<br>因此人类最应该遵循的定律就是：千万不能让人工智能拥有自我学习（自我编程）的能力。<br>一旦做到了这一点，无论人工智能多么的强大，我们都不用害怕。一个家政机器人，永远只会给你买菜、做饭、洗衣服，它不可能变成战士去烧杀抢掠；一个工业机器人，永远只会搬运货物，它不可能变成歌手去高声歌唱；一个战争机器人，永远只会杀人，它不可能变成天使去拯救小动物……<br>没有变化就意味着很好掌控，没有学习能力的智能机器人永远都是人类的工具。同理，自己不知道学习，不愿意学习的人，永远都不可能改变自己，永远都只是别人的工具。</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>SpringMVC是一种基于Java，实现了Web MVC设计模式，请求驱动类型的轻量级Web框架，即使用了MVC架构模式的思想，将Web层进行职责解耦。基于请求驱动指的就是使用请求-响应模型，框架的目的就是方便解耦，简化开发，SpringMVC也是要简化我们日常Web开发。<br>SpringMVC框架主要由DispatcherServlet、HandlerMapping、Controller、ViewResolver四个部分组成。</p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p><img src="/images/springmvc.png" alt=""><br><a id="more"></a></p>
+<h3 id="前端控制器DispatcherServlet"><a href="#前端控制器DispatcherServlet" class="headerlink" title="前端控制器DispatcherServlet"></a>前端控制器DispatcherServlet</h3><p>前端控制器是整个springmvc的核心，它是一个servlet，负责统一分发请求。</p>
+<h3 id="处理器映射HandlerMapping"><a href="#处理器映射HandlerMapping" class="headerlink" title="处理器映射HandlerMapping"></a>处理器映射HandlerMapping</h3><p>负责完成请求到控制器的映射。在servlet的配置文件中，进行uri与控制器的映射。</p>
+<h3 id="控制器Controller"><a href="#控制器Controller" class="headerlink" title="控制器Controller"></a>控制器Controller</h3><p>负责处理用户请求，完成之后返回ModelAndView对象给前端控制器。</p>
+<h3 id="视图解析器ViewResolver"><a href="#视图解析器ViewResolver" class="headerlink" title="视图解析器ViewResolver"></a>视图解析器ViewResolver</h3><p>负责对ModelAndView对象的解析，并查找对应的View对象。</p>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><ol>
+<li>将客户端请求提交给DispatcherServlet</li>
+<li>根据<servlet-name>servlet.xml的配置，查找HandlerMapping</servlet-name></li>
+<li>通过HandlerMapping找到处理请求的具体Controller</li>
+<li>Controller调用业务逻辑处理</li>
+<li>处理完成之后，返回ModelAndView对象给DispatcherServlet</li>
+<li>通过ViewResolver找到负责显示的具体View</li>
+<li>由View将结果进行渲染</li>
+<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户，到此一个流程结束。</li>
+</ol>
+<h3 id="helloworld"><a href="#helloworld" class="headerlink" title="helloworld"></a>helloworld</h3><ol>
+<li>web.xml<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app&gt;</span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果不指定<param-value>的值，则默认配置文件为/WEB-INF/<servlet-name>-servlet.xml。<load-on-startup>是启动顺序，通常让Servlet跟随Servlet容器一起启动。</load-on-startup></servlet-name></param-value></p>
+<p><url-pattern>定义要拦截的URL请求。</url-pattern></p>
+<ol start="2">
+<li>springmvc-servlet.xml<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE beans PUBLIC &quot;-//SPRING//DTD BEAN//EN&quot; &quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;&gt;</span><br><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;bean id=&quot;simpleUrlHandlerMapping&quot;</span><br><span class="line">          class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;mappings&quot;&gt;</span><br><span class="line">            &lt;props&gt;</span><br><span class="line">                &lt;prop key=&quot;/index&quot;&gt;helloWorld&lt;/prop&gt;</span><br><span class="line">            &lt;/props&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;helloWorld&quot; class=&quot;top.ysccx.springmvc.HelloWorld&quot;&gt;&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>表示访问路径/index会交给id=helloworld的bean处理</p>
+<ol start="3">
+<li><p>IndexController.java<br>控制类 IndexController实现接口Controller ，提供方法handleRequest处理请求<br>SpringMVC通过 ModelAndView 对象把模型和视图结合在一起<br>ModelAndView mav = new ModelAndView(“/index.jsp”);<br>mav.addObject(“message”, “hello,world!”);<br>表示视图是index.jsp<br>模型数据是message，内容是 “hello,world!”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld implements Controller&#123;</span><br><span class="line">    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) &#123;</span><br><span class="line">        ModelAndView mav = new ModelAndView(&quot;/index.jsp&quot;);</span><br><span class="line">        mav.addObject(&quot;message&quot;, &quot;hello,world!&quot;);</span><br><span class="line">        return mav;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index.jsp<br>index.jsp通过EL表达式显示message的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;$&#123;message&#125;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果<br><img src="/images/springmvchelloworld.png" alt=""></p>
+</li>
+</ol>
 
       
     </div>
@@ -413,11 +447,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/概念/" <i class="fa fa-tag"></i> 概念</a>
+            <a href="/tags/mvc/" <i class="fa fa-tag"></i> mvc</a>
           
-            <a href="/tags/AI/" <i class="fa fa-tag"></i> AI</a>
-          
-            <a href="/tags/自我编程/" <i class="fa fa-tag"></i> 自我编程</a>
+            <a href="/tags/框架/" <i class="fa fa-tag"></i> 框架</a>
           
         </div>
       
@@ -430,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/18/关于系统引导/" rel="next" title="关于系统引导">
-                <i class="fa fa-chevron-left"></i> 关于系统引导
+              <a href="/2019/01/16/spring/" rel="next" title="深入理解spring">
+                <i class="fa fa-chevron-left"></i> 深入理解spring
               </a>
             
           </div>
@@ -439,10 +471,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/29/python实现字符画/" rel="prev" title="python实现字符画">
-                python实现字符画 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -612,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#到底何为人工智能？能否用编程实现真正的人工智能？"><span class="nav-number">1.</span> <span class="nav-text">到底何为人工智能？能否用编程实现真正的人工智能？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理图"><span class="nav-number">2.</span> <span class="nav-text">原理图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端控制器DispatcherServlet"><span class="nav-number">3.</span> <span class="nav-text">前端控制器DispatcherServlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理器映射HandlerMapping"><span class="nav-number">4.</span> <span class="nav-text">处理器映射HandlerMapping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器Controller"><span class="nav-number">5.</span> <span class="nav-text">控制器Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图解析器ViewResolver"><span class="nav-number">6.</span> <span class="nav-text">视图解析器ViewResolver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">7.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#helloworld"><span class="nav-number">8.</span> <span class="nav-text">helloworld</span></a></li></ol></div>
             
 
           </div>
