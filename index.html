@@ -358,51 +358,17 @@
 
       
         
-          
-            <h3 id="反射基础"><a href="#反射基础" class="headerlink" title="反射基础"></a>反射基础</h3><p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
+          <h3 id="反射基础"><a href="#反射基础" class="headerlink" title="反射基础"></a>反射基础</h3><p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
 <p>类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法， 有多少属性，有哪些方法。</p>
 <p>获取类对象的方法有三种：<br>(1) 使用 Class 类的 forName 静态方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//注意，forName()需要传入类的全路径</span><br><span class="line">//如果当前类与参数类在同一包下即可省略包名</span><br><span class="line">Class.forName(driver);</span><br></pre></td></tr></table></figure></p>
-<p>(2)直接获取某一个对象的 class，比如:<br><code>Class class = MyClass.class;</code><br>(3)调用某个对象的 getClass() 方法，比如:<br><code>Class class = mClass.getClass();</code></p>
-<h3 id="通过反射来创建实例"><a href="#通过反射来创建实例" class="headerlink" title="通过反射来创建实例"></a>通过反射来创建实例</h3><p>通过反射来生成对象主要有两种方式。</p>
-<ul>
-<li><p>使用Class对象的newInstance()方法来创建Class对象对应类的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c = String.class;</span><br><span class="line">Object str = c.newInstance();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建实例。这种方法可以用指定的构造器构造类的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//获取String所对应的Class对象</span><br><span class="line">Class c = String.class;</span><br><span class="line">//获取String类带一个String参数的构造器</span><br><span class="line">Constructor constructor = c.getConstructor(String.class);</span><br><span class="line">//根据构造器创建实例</span><br><span class="line">Object obj = constructor.newInstance(&quot;233&quot;);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="通过反射来获取方法"><a href="#通过反射来获取方法" class="headerlink" title="通过反射来获取方法"></a>通过反射来获取方法</h3><p>获取某个Class对象的方法集合，主要有以下几个方法：</p>
-<ul>
-<li><p>getDeclaredMethods 方法返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。<br><code>public Method[] getDeclaredMethods() throws SecurityException</code></p>
-</li>
-<li><p>getMethods 方法返回某个类的所有公用（public）方法，包括其继承类的公用方法。<br><code>public Method[] getMethods() throws SecurityException</code></p>
-</li>
-<li><p>getMethod 方法返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应的Class对象。<br><code>public Method getMethod(String name, Class class)</code></p>
-</li>
-</ul>
-<h3 id="通过反射来获取属性"><a href="#通过反射来获取属性" class="headerlink" title="通过反射来获取属性"></a>通过反射来获取属性</h3><ul>
-<li>getDeclaredFields 方法返回类或接口所有已声明的成员变量，但不能得到其父类的成员变量。</li>
-<li>getFields 方法返回类的所有公有属性，包括其继承的公有方法。</li>
-<li>getField 方法返回特定的属性。</li>
-</ul>
-<h3 id="通过反射来调用方法"><a href="#通过反射来调用方法" class="headerlink" title="通过反射来调用方法"></a>通过反射来调用方法</h3><p>用invoke方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class myClass = MyClass.class;</span><br><span class="line">//创建实例</span><br><span class="line">Object obj = mClass.newInstance();</span><br><span class="line">//获取方法</span><br><span class="line">Method method = mClass.getMethod(&quot;add&quot;,int.class,int.class);</span><br><span class="line">//调用method对应的方法</span><br><span class="line">Object result = method.invoke(obj,1,4);</span><br></pre></td></tr></table></figure></p>
-<h3 id="反射的优点："><a href="#反射的优点：" class="headerlink" title="反射的优点："></a>反射的优点：</h3><ul>
-<li>可扩展性 ：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。</li>
-<li>类浏览器和可视化开发环境 ：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。</li>
-<li>调试器和测试工具 ： 调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。</li>
-</ul>
-<h3 id="反射的缺点："><a href="#反射的缺点：" class="headerlink" title="反射的缺点："></a>反射的缺点：</h3><p>尽管反射非常强大，但也不能滥用。如果一个功能可以不用反射完成，那么最好就不用。在我们使用反射技术时，下面几条内容应该牢记于心。</p>
-<ul>
-<li><p>性能开销 ：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。</p>
-</li>
-<li><p>安全限制 ：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。</p>
-</li>
-<li><p>内部暴露 ：由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用，这可能导致代码功能失调并破坏可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。</p>
-</li>
-</ul>
-
-          
+<p>(2)直接获取某一个对象的 class，比如:<br><code>Class class = MyClass.class;</code><br>(3)调用某个对象的 getClass() 方法，比如:<br><code>Class class = mClass.getClass();</code><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/24/反射/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -551,8 +517,7 @@
 
       
         
-          
-            <h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+          <h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
 <li><p>byte：Java中最小的数据类型，占1个字节，取值范围-128~127，默认值0</p>
 </li>
 <li><p>short：短整型，占2个字节，取值范围-32768~32717，默认值0</p>
@@ -568,129 +533,13 @@
 <li><p>char：字符型，占2个字节，取值范围0~65535，默认值为空</p>
 </li>
 <li><p>boolean：布尔型，占1个字节，用于判断真或假（仅有两个值，即true、false），默认值false</p>
-</li>
-</ul>
-<h3 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h3><p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer x = 2;     // 装箱</span><br><span class="line">int y = x;         // 拆箱</span><br></pre></td></tr></table></figure></p>
-<h3 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h3><p>new Integer(123) 与 Integer.valueOf(123) 的区别在于：</p>
-<ul>
-<li>new Integer(123) 每次都会新建一个对象；</li>
-<li>Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。</li>
-</ul>
-<h3 id="String-StringBuffer-and-StringBuilder"><a href="#String-StringBuffer-and-StringBuilder" class="headerlink" title="String, StringBuffer and StringBuilder"></a>String, StringBuffer and StringBuilder</h3><ol>
-<li>可变性</li>
-</ol>
-<ul>
-<li>String 不可变</li>
-<li>StringBuffer 和 StringBuilder 可变</li>
-</ul>
-<ol start="2">
-<li>线程安全</li>
-</ol>
-<ul>
-<li>String 不可变，因此是线程安全的</li>
-<li>StringBuilder 不是线程安全的</li>
-<li>StringBuffer 是线程安全的，内部使用 synchronized 进行同步</li>
-</ul>
-<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><p>Java 的参数是以值传递的形式传入方法中，而不是引用传递。</p>
-<p><strong>值传递与引用传递的区别在于值传递的形参不等于实参，引用传递的形参等于实参。而不是看它们传递的数据类型是什么。</strong></p>
-<p>在将一个参数传入一个方法时，本质上是将对象的地址以值的方式传递到形参中。因此在方法中使指针引用其它对象，那么这两个指针此时指向的是完全不同的对象，在一方改变其所指向对象的内容时对另一方没有影响。</p>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p><img src="/images/jibie.png" alt=""></p>
-<p>数据类型转换要注意以下几点：</p>
-<ul>
-<li><p>低级到高级是自动转换，即隐式类型转换，也叫上转型。</p>
-</li>
-<li><p>不能对boolean类型进行类型转换。</p>
-</li>
-<li><p>不能把对象类型转换成不相关类的对象。</p>
-</li>
-<li><p>在把容量大的类型转换为容量小的类型时必须使用强制类型转换。</p>
-</li>
-<li><p>转换过程中可能导致溢出或损失精度。</p>
-</li>
-<li><p>浮点数到整数是通过舍弃小数得到的，而不是四舍五入。</p>
-</li>
-</ul>
-<h3 id="Object通用方法"><a href="#Object通用方法" class="headerlink" title="Object通用方法"></a>Object通用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public native int hashCode()</span><br><span class="line"></span><br><span class="line">public boolean equals(Object obj)</span><br><span class="line"></span><br><span class="line">protected native Object clone() throws CloneNotSupportedException</span><br><span class="line"></span><br><span class="line">public String toString()</span><br><span class="line"></span><br><span class="line">public final native Class&lt;?&gt; getClass()</span><br><span class="line"></span><br><span class="line">protected void finalize() throws Throwable &#123;&#125;</span><br><span class="line"></span><br><span class="line">public final native void notify()</span><br><span class="line"></span><br><span class="line">public final native void notifyAll()</span><br><span class="line"></span><br><span class="line">public final native void wait(long timeout) throws InterruptedException</span><br><span class="line"></span><br><span class="line">public final void wait(long timeout, int nanos) throws InterruptedException</span><br><span class="line"></span><br><span class="line">public final void wait() throws InterruptedException</span><br></pre></td></tr></table></figure>
-<h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><ol>
-<li>数据</li>
-</ol>
-<p>声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。</p>
-<ul>
-<li>对于基本类型，final 使数值不变；</li>
-<li>对于引用类型，final 使引用不变，也就不能引用其它对象，但是被引用的对象本身是可以修改的。</li>
-</ul>
-<ol start="2">
-<li>方法</li>
-</ol>
-<p>声明方法不能被子类重写。</p>
-<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
-<ol start="3">
-<li>类</li>
-</ol>
-<p>声明类不允许被继承。</p>
-<h3 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h3><ol>
-<li>静态变量</li>
-</ol>
-<ul>
-<li><p>静态变量：又称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</p>
-</li>
-<li><p>实例变量：每创建一个实例就会产生一个实例变量，它与该实例同生共死。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line"></span><br><span class="line">    private int x;         // 实例变量</span><br><span class="line">    private static int y;  // 静态变量</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // int x = A.x;  // Non-static field &apos;x&apos; cannot be referenced from a static context</span><br><span class="line">        A a = new A();</span><br><span class="line">        int x = a.x;</span><br><span class="line">        int y = A.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>静态方法</li>
-</ol>
-<ul>
-<li><p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-</li>
-<li><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字。</p>
-</li>
-</ul>
-<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
-<p>类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法， 有多少属性，有哪些方法。</p>
-<p>获取类对象的方法有三种：<br>(1) 使用 Class 类的 forName 静态方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//注意，forName()需要传入类的全路径</span><br><span class="line">//如果当前类与参数类在同一包下即可省略包名</span><br><span class="line">Class.forName(driver);</span><br></pre></td></tr></table></figure></p>
-<p>(2)直接获取某一个对象的 class，比如:<br><code>Class class = MyClass.class;</code><br>(3)调用某个对象的 getClass() 方法，比如:<br><code>Class class = mClass.getClass();</code></p>
-<h4 id="通过反射来创建实例"><a href="#通过反射来创建实例" class="headerlink" title="通过反射来创建实例"></a>通过反射来创建实例</h4><p>通过反射来生成对象主要有两种方式。</p>
-<ul>
-<li><p>使用Class对象的newInstance()方法来创建Class对象对应类的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c = String.class;</span><br><span class="line">Object str = c.newInstance();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建实例。这种方法可以用指定的构造器构造类的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//获取String所对应的Class对象</span><br><span class="line">Class c = String.class;</span><br><span class="line">//获取String类带一个String参数的构造器</span><br><span class="line">Constructor constructor = c.getConstructor(String.class);</span><br><span class="line">//根据构造器创建实例</span><br><span class="line">Object obj = constructor.newInstance(&quot;233&quot;);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="通过反射来获取方法"><a href="#通过反射来获取方法" class="headerlink" title="通过反射来获取方法"></a>通过反射来获取方法</h4><p>获取某个Class对象的方法集合，主要有以下几个方法：</p>
-<ul>
-<li><p>getDeclaredMethods 方法返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。<br><code>public Method[] getDeclaredMethods() throws SecurityException</code></p>
-</li>
-<li><p>getMethods 方法返回某个类的所有公用（public）方法，包括其继承类的公用方法。<br><code>public Method[] getMethods() throws SecurityException</code></p>
-</li>
-<li><p>getMethod 方法返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应的Class对象。<br><code>public Method getMethod(String name, Class class)</code></p>
-</li>
-</ul>
-<h4 id="通过反射来获取属性"><a href="#通过反射来获取属性" class="headerlink" title="通过反射来获取属性"></a>通过反射来获取属性</h4><ul>
-<li>getDeclaredFields 方法返回类或接口所有已声明的成员变量，但不能得到其父类的成员变量。</li>
-<li>getFields 方法返回类的所有公有属性，包括其继承的公有方法。</li>
-<li>getField 方法返回特定的属性。</li>
-</ul>
-<h4 id="通过反射来调用方法"><a href="#通过反射来调用方法" class="headerlink" title="通过反射来调用方法"></a>通过反射来调用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class myClass = MyClass.class;</span><br><span class="line">//创建实例</span><br><span class="line">Object obj = mClass.newInstance();</span><br><span class="line">//获取方法</span><br><span class="line">Method method = mClass.getMethod(&quot;add&quot;,int.class,int.class);</span><br><span class="line">//调用method对应的方法</span><br><span class="line">Object result = method.invoke(obj,1,4);</span><br></pre></td></tr></table></figure>
-<h4 id="反射的优点："><a href="#反射的优点：" class="headerlink" title="反射的优点："></a>反射的优点：</h4><ul>
-<li>可扩展性 ：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。</li>
-<li>类浏览器和可视化开发环境 ：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。</li>
-<li>调试器和测试工具 ： 调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。</li>
-</ul>
-<h4 id="反射的缺点："><a href="#反射的缺点：" class="headerlink" title="反射的缺点："></a>反射的缺点：</h4><p>尽管反射非常强大，但也不能滥用。如果一个功能可以不用反射完成，那么最好就不用。在我们使用反射技术时，下面几条内容应该牢记于心。</p>
-<ul>
-<li><p>性能开销 ：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。</p>
-</li>
-<li><p>安全限制 ：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。</p>
-</li>
-<li><p>内部暴露 ：由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用，这可能导致代码功能失调并破坏可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/23/java基础总结/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
