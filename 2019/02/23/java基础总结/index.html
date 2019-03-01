@@ -86,7 +86,8 @@
 <meta property="og:description" content="基本数据类型 byte：Java中最小的数据类型，占1个字节，取值范围-128~127，默认值0  short：短整型，占2个字节，取值范围-32768~32717，默认值0  int：整型，占4个字节，取值范围-2147483648~2147483647，默认值0  long：长整型，占8个字节-2^63~2^63-1，默认值0L  float：浮点型，占4个字节，默认值0.0  double：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/jibie.png">
-<meta property="og:updated_time" content="2019-02-24T09:20:05.659Z">
+<meta property="og:image" content="http://ysccx.top/images/throwable.png">
+<meta property="og:updated_time" content="2019-03-01T07:54:54.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础总结">
 <meta name="twitter:description" content="基本数据类型 byte：Java中最小的数据类型，占1个字节，取值范围-128~127，默认值0  short：短整型，占2个字节，取值范围-32768~32717，默认值0  int：整型，占4个字节，取值范围-2147483648~2147483647，默认值0  long：长整型，占8个字节-2^63~2^63-1，默认值0L  float：浮点型，占4个字节，默认值0.0  double：">
@@ -363,7 +364,7 @@
       
 
       
-        <h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+        <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><ul>
 <li><p>byte：Java中最小的数据类型，占1个字节，取值范围-128~127，默认值0</p>
 </li>
 <li><p>short：短整型，占2个字节，取值范围-32768~32717，默认值0</p>
@@ -382,13 +383,13 @@
 <a id="more"></a>
 </li>
 </ul>
-<h3 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h3><p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer x = 2;     // 装箱</span><br><span class="line">int y = x;         // 拆箱</span><br></pre></td></tr></table></figure></p>
-<h3 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h3><p>new Integer(123) 与 Integer.valueOf(123) 的区别在于：</p>
+<h1 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h1><p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer x = <span class="number">2</span>;     <span class="comment">// 装箱</span></span><br><span class="line"><span class="keyword">int</span> y = x;         <span class="comment">// 拆箱</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h1><p>new Integer(123) 与 Integer.valueOf(123) 的区别在于：</p>
 <ul>
 <li>new Integer(123) 每次都会新建一个对象；</li>
 <li>Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。</li>
 </ul>
-<h3 id="String-StringBuffer-and-StringBuilder"><a href="#String-StringBuffer-and-StringBuilder" class="headerlink" title="String, StringBuffer and StringBuilder"></a>String, StringBuffer and StringBuilder</h3><ol>
+<h1 id="String-StringBuffer-and-StringBuilder"><a href="#String-StringBuffer-and-StringBuilder" class="headerlink" title="String, StringBuffer and StringBuilder"></a>String, StringBuffer and StringBuilder</h1><ol>
 <li>可变性</li>
 </ol>
 <ul>
@@ -403,10 +404,10 @@
 <li>StringBuilder 不是线程安全的</li>
 <li>StringBuffer 是线程安全的，内部使用 synchronized 进行同步</li>
 </ul>
-<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><p>Java 的参数是以值传递的形式传入方法中，而不是引用传递。</p>
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><p>Java 的参数是以值传递的形式传入方法中，而不是引用传递。</p>
 <p><strong>值传递与引用传递的区别在于值传递的形参不等于实参，引用传递的形参等于实参。而不是看它们传递的数据类型是什么。</strong></p>
 <p>在将一个参数传入一个方法时，本质上是将对象的地址以值的方式传递到形参中。因此在方法中使指针引用其它对象，那么这两个指针此时指向的是完全不同的对象，在一方改变其所指向对象的内容时对另一方没有影响。</p>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p><img src="/images/jibie.png" alt=""></p>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><p><img src="/images/jibie.png" alt=""></p>
 <p>数据类型转换要注意以下几点：</p>
 <ul>
 <li><p>低级到高级是自动转换，即隐式类型转换，也叫上转型。</p>
@@ -422,8 +423,8 @@
 <li><p>浮点数到整数是通过舍弃小数得到的，而不是四舍五入。</p>
 </li>
 </ul>
-<h3 id="Object通用方法"><a href="#Object通用方法" class="headerlink" title="Object通用方法"></a>Object通用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public native int hashCode()</span><br><span class="line"></span><br><span class="line">public boolean equals(Object obj)</span><br><span class="line"></span><br><span class="line">protected native Object clone() throws CloneNotSupportedException</span><br><span class="line"></span><br><span class="line">public String toString()</span><br><span class="line"></span><br><span class="line">public final native Class&lt;?&gt; getClass()</span><br><span class="line"></span><br><span class="line">protected void finalize() throws Throwable &#123;&#125;</span><br><span class="line"></span><br><span class="line">public final native void notify()</span><br><span class="line"></span><br><span class="line">public final native void notifyAll()</span><br><span class="line"></span><br><span class="line">public final native void wait(long timeout) throws InterruptedException</span><br><span class="line"></span><br><span class="line">public final void wait(long timeout, int nanos) throws InterruptedException</span><br><span class="line"></span><br><span class="line">public final void wait() throws InterruptedException</span><br></pre></td></tr></table></figure>
-<h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><ol>
+<h1 id="Object通用方法"><a href="#Object通用方法" class="headerlink" title="Object通用方法"></a>Object通用方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; <span class="title">getClass</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span></span><br></pre></td></tr></table></figure>
+<h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><ol>
 <li>数据</li>
 </ol>
 <ul>
@@ -444,67 +445,51 @@
 <ul>
 <li>声明类不允许被继承。</li>
 </ul>
-<h3 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h3><ol>
+<h1 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h1><ol>
 <li>静态变量</li>
 </ol>
 <ul>
-<li><p>静态变量：又称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</p>
-</li>
-<li><p>实例变量：每创建一个实例就会产生一个实例变量，它与该实例同生共死。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line"></span><br><span class="line">    private int x;         // 实例变量</span><br><span class="line">    private static int y;  // 静态变量</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // int x = A.x;  // Non-static field &apos;x&apos; cannot be referenced from a static context</span><br><span class="line">        A a = new A();</span><br><span class="line">        int x = a.x;</span><br><span class="line">        int y = A.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>静态变量：又称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
+<li>实例变量：每创建一个实例就会产生一个实例变量，它与该实例同生共死。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;         <span class="comment">// 实例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> y;  <span class="comment">// 静态变量</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// int x = A.x;  // Non-static field 'x' cannot be referenced from a static context</span></span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        <span class="keyword">int</span> x = a.x;</span><br><span class="line">        <span class="keyword">int</span> y = A.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol start="2">
 <li>静态方法</li>
 </ol>
 <ul>
-<li><p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
-</li>
-<li><p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字。</p>
-</li>
+<li>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</li>
+<li>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字。</li>
 </ul>
-<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
-<p>类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法， 有多少属性，有哪些方法。</p>
-<p>获取类对象的方法有三种：<br>(1) 使用 Class 类的 forName 静态方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//注意，forName()需要传入类的全路径</span><br><span class="line">//如果当前类与参数类在同一包下即可省略包名</span><br><span class="line">Class.forName(driver);</span><br></pre></td></tr></table></figure></p>
-<p>(2)直接获取某一个对象的 class，比如:<br><code>Class class = MyClass.class;</code><br>(3)调用某个对象的 getClass() 方法，比如:<br><code>Class class = mClass.getClass();</code></p>
-<h4 id="通过反射来创建实例"><a href="#通过反射来创建实例" class="headerlink" title="通过反射来创建实例"></a>通过反射来创建实例</h4><p>通过反射来生成对象主要有两种方式。</p>
+<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><ul>
+<li>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</li>
+<li><a href="/2019/02/24/反射/">详细介绍请点这里</a></li>
+</ul>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><ol>
+<li><p>Java中的异常可以是函数中的语句执行时引发的，也可以是程序员通过throw 语句手动抛出的，只要在Java程序中产生了异常，就会用一个对应类型的异常对象来封装异常，JRE就会试图寻找异常处理程序来处理异常。</p>
+</li>
+<li><p>Java的异常处理有抛出异常和捕获异常。</p>
+</li>
+<li><p>Throwable类是Java异常类型的顶层父类，一个对象只有是 Throwable 类的（直接或者间接）实例，他才是一个异常对象，才能被异常处理机制识别。JDK中内建了一些常用的异常类，当然也可以自定义异常。</p>
+</li>
+<li><p>Throwable又派生出Error类和Exception类。</p>
+</li>
+</ol>
 <ul>
-<li><p>使用Class对象的newInstance()方法来创建Class对象对应类的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c = String.class;</span><br><span class="line">Object str = c.newInstance();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建实例。这种方法可以用指定的构造器构造类的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//获取String所对应的Class对象</span><br><span class="line">Class c = String.class;</span><br><span class="line">//获取String类带一个String参数的构造器</span><br><span class="line">Constructor constructor = c.getConstructor(String.class);</span><br><span class="line">//根据构造器创建实例</span><br><span class="line">Object obj = constructor.newInstance(&quot;233&quot;);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure>
-</li>
+<li>Error类以及他的子类，代表了JVM本身的错误。错误不能通过代码处理，Error很少出现。</li>
+<li>Exception类以及他的子类，代表程序运行时发送的各种不期望发生的事件。可以被Java异常处理机制使用，是异常处理的核心。</li>
 </ul>
-<h4 id="通过反射来获取方法"><a href="#通过反射来获取方法" class="headerlink" title="通过反射来获取方法"></a>通过反射来获取方法</h4><p>获取某个Class对象的方法集合，主要有以下几个方法：</p>
+<ol start="5">
+<li>Java异常又有检查异常和不受检查异常之分。不受检查异常为编译器不要求强制处理的异常，检查异常则是编译器要求必须处置的异常。</li>
+</ol>
 <ul>
-<li><p>getDeclaredMethods 方法返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。<br><code>public Method[] getDeclaredMethods() throws SecurityException</code></p>
-</li>
-<li><p>getMethods 方法返回某个类的所有公用（public）方法，包括其继承类的公用方法。<br><code>public Method[] getMethods() throws SecurityException</code></p>
-</li>
-<li><p>getMethod 方法返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应的Class对象。<br><code>public Method getMethod(String name, Class class)</code></p>
-</li>
+<li>检查异常：在正确的程序运行过程中，很容易出现的、情理可容的异常状况，在一定程度上这种异常的发生是可以预测的，并且一旦发生该种异常，就必须采取某种方式进行处理。</li>
+<li>不受检查异常：包括RuntimeException及其子类和Error。</li>
 </ul>
-<h4 id="通过反射来获取属性"><a href="#通过反射来获取属性" class="headerlink" title="通过反射来获取属性"></a>通过反射来获取属性</h4><ul>
-<li>getDeclaredFields 方法返回类或接口所有已声明的成员变量，但不能得到其父类的成员变量。</li>
-<li>getFields 方法返回类的所有公有属性，包括其继承的公有方法。</li>
-<li>getField 方法返回特定的属性。</li>
-</ul>
-<h4 id="通过反射来调用方法"><a href="#通过反射来调用方法" class="headerlink" title="通过反射来调用方法"></a>通过反射来调用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Class myClass = MyClass.class;</span><br><span class="line">//创建实例</span><br><span class="line">Object obj = mClass.newInstance();</span><br><span class="line">//获取方法</span><br><span class="line">Method method = mClass.getMethod(&quot;add&quot;,int.class,int.class);</span><br><span class="line">//调用method对应的方法</span><br><span class="line">Object result = method.invoke(obj,1,4);</span><br></pre></td></tr></table></figure>
-<h4 id="反射的优点："><a href="#反射的优点：" class="headerlink" title="反射的优点："></a>反射的优点：</h4><ul>
-<li>可扩展性 ：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。</li>
-<li>类浏览器和可视化开发环境 ：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。</li>
-<li>调试器和测试工具 ： 调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。</li>
-</ul>
-<h4 id="反射的缺点："><a href="#反射的缺点：" class="headerlink" title="反射的缺点："></a>反射的缺点：</h4><p>尽管反射非常强大，但也不能滥用。如果一个功能可以不用反射完成，那么最好就不用。在我们使用反射技术时，下面几条内容应该牢记于心。</p>
-<ul>
-<li><p>性能开销 ：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。</p>
-</li>
-<li><p>安全限制 ：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。</p>
-</li>
-<li><p>内部暴露 ：由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用，这可能导致代码功能失调并破坏可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。</p>
-</li>
-</ul>
+<ol start="6">
+<li>Java异常层次结构图如下图所示：</li>
+</ol>
+<p><img src="/images/throwable.png" alt=""></p>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>类似c++里的模板函数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T t;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T t)</span> </span>&#123; <span class="keyword">this</span>.t = t; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> t; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -664,7 +649,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -675,7 +660,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -686,7 +671,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -748,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包装类型"><span class="nav-number">2.</span> <span class="nav-text">包装类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存池"><span class="nav-number">3.</span> <span class="nav-text">缓存池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-StringBuffer-and-StringBuilder"><span class="nav-number">4.</span> <span class="nav-text">String, StringBuffer and StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数传递"><span class="nav-number">5.</span> <span class="nav-text">参数传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">6.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object通用方法"><span class="nav-number">7.</span> <span class="nav-text">Object通用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字"><span class="nav-number">8.</span> <span class="nav-text">final关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static关键字"><span class="nav-number">9.</span> <span class="nav-text">static关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射"><span class="nav-number">10.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射来创建实例"><span class="nav-number">10.1.</span> <span class="nav-text">通过反射来创建实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射来获取方法"><span class="nav-number">10.2.</span> <span class="nav-text">通过反射来获取方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射来获取属性"><span class="nav-number">10.3.</span> <span class="nav-text">通过反射来获取属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射来调用方法"><span class="nav-number">10.4.</span> <span class="nav-text">通过反射来调用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射的优点："><span class="nav-number">10.5.</span> <span class="nav-text">反射的优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射的缺点："><span class="nav-number">10.6.</span> <span class="nav-text">反射的缺点：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包装类型"><span class="nav-number">2.</span> <span class="nav-text">包装类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存池"><span class="nav-number">3.</span> <span class="nav-text">缓存池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String-StringBuffer-and-StringBuilder"><span class="nav-number">4.</span> <span class="nav-text">String, StringBuffer and StringBuilder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数传递"><span class="nav-number">5.</span> <span class="nav-text">参数传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型转换"><span class="nav-number">6.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object通用方法"><span class="nav-number">7.</span> <span class="nav-text">Object通用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final关键字"><span class="nav-number">8.</span> <span class="nav-text">final关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#static关键字"><span class="nav-number">9.</span> <span class="nav-text">static关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射"><span class="nav-number">10.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">11.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">12.</span> <span class="nav-text">泛型</span></a></li></ol></div>
             
 
           </div>
@@ -827,6 +812,8 @@
   
 
 
+  
+
 
 
 
@@ -865,6 +852,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 

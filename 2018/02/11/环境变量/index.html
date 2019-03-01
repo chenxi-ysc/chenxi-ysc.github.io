@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="CLASSPATH环境变量它是javac编译器的一个环境变量。它的作用与import、package关键字有关。当你写下improt java.util.*时，编译器面对import关键字时，就知道你要引入java.util这个package中的类；但是编译器如何知道你把这个package放在哪里了呢？所以你首先得告诉编译器这个package的所在位置；如何告诉它呢？就是设置CLASSPATH。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-16T07:59:59.319Z">
+<meta property="og:updated_time" content="2019-03-01T08:14:22.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java环境变量的介绍与配置">
 <meta name="twitter:description" content="CLASSPATH环境变量它是javac编译器的一个环境变量。它的作用与import、package关键字有关。当你写下improt java.util.*时，编译器面对import关键字时，就知道你要引入java.util这个package中的类；但是编译器如何知道你把这个package放在哪里了呢？所以你首先得告诉编译器这个package的所在位置；如何告诉它呢？就是设置CLASSPATH。">
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -365,16 +365,7 @@
 <h4 id="PATH环境变量"><a href="#PATH环境变量" class="headerlink" title="PATH环境变量"></a>PATH环境变量</h4><p>顾名思义，path翻译过来有小路的意思。作用是指定命令搜索路径，在命令行下面执行命令如javac编译java程序时，它会到PATH变量所指定的路径中查找看是否能找到相应的命令程序。我们需要把jdk安装目录下的bin目录增加到现有的PATH变量中，bin目录中包含经常要用到的可执行文件如javac/java/javadoc等待，设置好PATH变量后，就可以在任何目录下执行javac/java等工具了。</p>
 <h4 id="JAVA-HOME环境变量"><a href="#JAVA-HOME环境变量" class="headerlink" title="JAVA_HOME环境变量"></a>JAVA_HOME环境变量</h4><p>它指向jdk的安装目录，Eclipse/NetBeans/Tomcat等软件就是通过搜索JAVA_HOME变量来找到并使用安装好的jdk。</p>
 <hr>
-<p>java环境变量配置步骤：<br>在windows桌面上右击“我的电脑” —&gt; “属性” —&gt; “高级” —&gt; “环境变量”，在“系统变量”里我们可以看到系统的各个环境变量的值。双击某个变量名可以修改变量值，变量值之间用“;”隔开。我们还可以“新建”原先没有的变量。与jdk有关的有3个环境变量；“JAVA_HOME”，“PATH”，“CLASSPATH”。</p>
-<blockquote>
-<p>CLASSPATH= .;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/tools.jar</p>
-</blockquote>
-<blockquote>
-<p>JAVA_HOME = C:/Program Files/Java/jdk1.8.0</p>
-</blockquote>
-<blockquote>
-<p>PATH  = %JAVA_HOME%/bin;%JAVA_HOME%/jre/bin</p>
-</blockquote>
+<p>java环境变量配置步骤：<br>在windows桌面上右击“我的电脑” —&gt; “属性” —&gt; “高级” —&gt; “环境变量”，在“系统变量”里我们可以看到系统的各个环境变量的值。双击某个变量名可以修改变量值，变量值之间用“;”隔开。我们还可以“新建”原先没有的变量。与jdk有关的有3个环境变量；“JAVA_HOME”，“PATH”，“CLASSPATH”。<br><code>CLASSPATH= .;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/tools.jar</code><br><code>JAVA_HOME = C:/Program Files/Java/jdk1.8.0</code><br><code>PATH  = %JAVA_HOME%/bin;%JAVA_HOME%/jre/bin</code></p>
 <p>从上面我们可以看出，PATH和CLASSPATH都使用到了JAVA_HOME，也可以使用绝对路径，两者皆可。</p>
 
       
@@ -437,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/deadlock/" rel="next" title="死锁的通俗解释">
-                <i class="fa fa-chevron-left"></i> 死锁的通俗解释
+              <a href="/2018/01/05/deadlock/" rel="next" title="死锁">
+                <i class="fa fa-chevron-left"></i> 死锁
               </a>
             
           </div>
@@ -535,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +537,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -557,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -698,6 +689,8 @@
   
 
 
+  
+
 
 
 
@@ -736,6 +729,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
