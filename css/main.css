@@ -1924,7 +1924,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #dfd5b0;
+  background: #29afff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3293,8 +3293,8 @@ a.category-list-link {
   width: 30px;
 }
 .site-meta {
-  background-image: url("/images/head.jpg");
-  background-size: 100% 100%;
+  background-image: url("/images/head1.jpg");
+  background-size: cover;
 }
 body ul li {
   list-style-type: disc !important;
