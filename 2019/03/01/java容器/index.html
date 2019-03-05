@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="集和,容器,框架," />
+  <meta name="keywords" content="Java,集和,框架," />
 
 
 
@@ -84,19 +84,23 @@
 
 
 
-<meta name="description" content="概述Java容器，又称为Java集和框架。包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection1.List  ArrayList：基于动态数组实现，支持随机访问。 Vector：和 ArrayList 类似，但它是线程安全的。 LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在">
-<meta name="keywords" content="集和,容器,框架">
+<meta name="description" content="概述Java集和框架，包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection">
+<meta name="keywords" content="Java,集和,框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java容器">
+<meta property="og:title" content="Java集和框架">
 <meta property="og:url" content="http://ysccx.top/2019/03/01/java容器/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述Java容器，又称为Java集和框架。包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection1.List  ArrayList：基于动态数组实现，支持随机访问。 Vector：和 ArrayList 类似，但它是线程安全的。 LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在">
+<meta property="og:description" content="概述Java集和框架，包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/collection.png">
-<meta property="og:updated_time" content="2019-03-01T09:33:26.490Z">
+<meta property="og:image" content="http://ysccx.top/images/list.jpg">
+<meta property="og:image" content="http://ysccx.top/images/set.jpg">
+<meta property="og:image" content="http://ysccx.top/images/map.png">
+<meta property="og:image" content="http://ysccx.top/images/map.jpg">
+<meta property="og:updated_time" content="2019-03-05T02:31:16.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java容器">
-<meta name="twitter:description" content="概述Java容器，又称为Java集和框架。包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection1.List  ArrayList：基于动态数组实现，支持随机访问。 Vector：和 ArrayList 类似，但它是线程安全的。 LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在">
+<meta name="twitter:title" content="Java集和框架">
+<meta name="twitter:description" content="概述Java集和框架，包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection">
 <meta name="twitter:image" content="http://ysccx.top/images/collection.png">
 
 
@@ -133,7 +137,7 @@
 
 
 
-  <title>java容器 | chasen</title>
+  <title>Java集和框架 | chasen</title>
   
 
 
@@ -288,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java容器</h1>
+          <h1 class="post-title" itemprop="name headline">Java集和框架</h1>
         
 
         <div class="post-meta">
@@ -323,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -370,14 +374,14 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Java容器，又称为Java集和框架。包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。</p>
-<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p><img src="/images/collection.png" alt=""><br><strong>1.List</strong></p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Java集和框架，包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。</p>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p><img src="/images/collection.png" alt=""><br><a id="more"></a><br><strong>1.List</strong><br><img src="/images/list.jpg" alt=""></p>
 <ul>
-<li>ArrayList：基于动态数组实现，支持随机访问。</li>
+<li>ArrayList：基于数组实现，支持随机访问。</li>
 <li>Vector：和 ArrayList 类似，但它是线程安全的。</li>
 <li>LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列。</li>
 </ul>
-<p><strong>2.Set</strong></p>
+<p><strong>2.Set</strong><br><img src="/images/set.jpg" alt=""></p>
 <ul>
 <li>HashSet：无序且唯一，基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</li>
 <li>TreeSet：有序且唯一，基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet,HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。</li>
@@ -387,6 +391,13 @@
 <ul>
 <li>LinkedList：可以用它来实现双向队列。</li>
 <li>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</li>
+</ul>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><img src="/images/map.png" alt=""><br>Map的常用方法：<br><img src="/images/map.jpg" alt=""></p>
+<ul>
+<li>TreeMap:基于红黑树实现。</li>
+<li>HashMap:基于哈希表实现。</li>
+<li>HashTable:和HashMap类似，但它是线程安全的。</li>
+<li>LinkedHashMap:使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</li>
 </ul>
 
       
@@ -434,9 +445,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/集和/" <i class="fa fa-tag"></i> 集和</a>
+            <a href="/tags/Java/" <i class="fa fa-tag"></i> Java</a>
           
-            <a href="/tags/容器/" <i class="fa fa-tag"></i> 容器</a>
+            <a href="/tags/集和/" <i class="fa fa-tag"></i> 集和</a>
           
             <a href="/tags/框架/" <i class="fa fa-tag"></i> 框架</a>
           
@@ -451,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/24/反射/" rel="next" title="反射">
-                <i class="fa fa-chevron-left"></i> 反射
+              <a href="/2019/02/24/反射/" rel="next" title="Java反射">
+                <i class="fa fa-chevron-left"></i> Java反射
               </a>
             
           </div>
@@ -460,6 +471,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/05/sort/" rel="prev" title="十大排序算法总结">
+                十大排序算法总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -545,7 +560,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -556,7 +571,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -567,7 +582,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -629,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">3.</span> <span class="nav-text">Map</span></a></li></ol></div>
             
 
           </div>
