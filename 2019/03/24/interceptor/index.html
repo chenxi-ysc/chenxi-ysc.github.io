@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="概述 自定义拦截器的使用场景处理所有请求的共性问题：   解决权限验证问题 处理乱码问题   拦截器与过滤器的区别   拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求 过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大">
+<meta name="description" content="概述1.自定义拦截器的使用场景:处理所有请求的共性问题  解决权限验证问题 处理乱码问题  2.拦截器与过滤器的区别  拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求 过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大">
 <meta name="keywords" content="拦截器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot添加自定义拦截器">
 <meta property="og:url" content="http://ysccx.top/2019/03/24/interceptor/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述 自定义拦截器的使用场景处理所有请求的共性问题：   解决权限验证问题 处理乱码问题   拦截器与过滤器的区别   拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求 过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大">
+<meta property="og:description" content="概述1.自定义拦截器的使用场景:处理所有请求的共性问题  解决权限验证问题 处理乱码问题  2.拦截器与过滤器的区别  拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求 过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T07:06:09.584Z">
+<meta property="og:updated_time" content="2019-03-25T00:50:46.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot添加自定义拦截器">
-<meta name="twitter:description" content="概述 自定义拦截器的使用场景处理所有请求的共性问题：   解决权限验证问题 处理乱码问题   拦截器与过滤器的区别   拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求 过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大">
+<meta name="twitter:description" content="概述1.自定义拦截器的使用场景:处理所有请求的共性问题  解决权限验证问题 处理乱码问题  2.拦截器与过滤器的区别  拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求 过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大">
 
 
 
@@ -368,28 +368,19 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ol>
-<li>自定义拦截器的使用场景<br><strong>处理所有请求的共性问题：</strong></li>
-</ol>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>1.自定义拦截器的使用场景:<strong>处理所有请求的共性问题</strong></p>
 <ul>
 <li>解决权限验证问题</li>
 <li>处理乱码问题</li>
 </ul>
-<ol start="2">
-<li>拦截器与过滤器的区别</li>
-</ol>
+<p>2.拦截器与过滤器的区别</p>
 <ul>
 <li>拦截器Interceptor依赖于框架容器，基于反射机制，只过滤请求</li>
 <li>过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大</li>
 </ul>
 <a id="more"></a>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
-<li><p>自定义拦截器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 返回值说明是否需要将当前的请求拦截下来</span></span><br><span class="line"><span class="comment">    * false：请求将被终止</span></span><br><span class="line"><span class="comment">    * true：请求会被继续运行</span></span><br><span class="line"><span class="comment">    * Object handler 表示的是被拦截的请求的目标对象</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TestInterceptor.preHandle()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * modelAndView：</span></span><br><span class="line"><span class="comment">    *  可以通过modelAndView参数改变显示的视图，或者修改发往视图的方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler,</span></span></span><br><span class="line"><span class="function"><span class="params">    ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TestInterceptor.postHandle()"</span>); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 在视图加载完毕之后调用</span></span><br><span class="line"><span class="comment">    * 常用于作于资源的销毁，流等</span></span><br><span class="line"><span class="comment">    * 类似于析构函数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TestInterceptor.afterCompletion()"</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义MVC配置类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> TestInterceptor testInterceptor;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(testInterceptor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>1.自定义拦截器<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 返回值说明是否需要将当前的请求拦截下来</span></span><br><span class="line"><span class="comment">    * false：请求将被终止</span></span><br><span class="line"><span class="comment">    * true：请求会被继续运行</span></span><br><span class="line"><span class="comment">    * Object handler 表示的是被拦截的请求的目标对象</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TestInterceptor.preHandle()"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * modelAndView：</span></span><br><span class="line"><span class="comment">    *  可以通过modelAndView参数改变显示的视图，或者修改发往视图的方法</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler,</span></span></span><br><span class="line"><span class="function"><span class="params">    ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TestInterceptor.postHandle()"</span>); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 在视图加载完毕之后调用</span></span><br><span class="line"><span class="comment">    * 常用于作于资源的销毁，流等</span></span><br><span class="line"><span class="comment">    * 类似于析构函数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TestInterceptor.afterCompletion()"</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.自定义MVC配置类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> TestInterceptor testInterceptor;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(testInterceptor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -458,6 +449,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/什么是前后端分离？/" rel="prev" title="什么是前后端分离？">
+                什么是前后端分离？ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -543,7 +538,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -565,7 +560,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
