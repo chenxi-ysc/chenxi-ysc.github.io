@@ -73,7 +73,6 @@
 
 
 
-  <meta name="keywords" content="字符串,Java," />
 
 
 
@@ -83,19 +82,17 @@
 
 
 
-
-<meta name="description" content="题目给定一个字符串，找出不含有重复字符的最长子串的长度。 思路滑动窗口。 通过使用 HashSet 作为滑动窗口，我们可以用O(1)的时间来完成对字符是否在当前的子字符串中的检查。 滑动窗口是数组/字符串问题中常用的抽象概念。窗口通常是在数组/字符串中由开始和结束索引定义的一系列元素的集合，即 [i, j]。而滑动窗口是可以将两个边界向某一方向“滑动”的窗口。例如，我们将[i, j]向右滑动1个元">
-<meta name="keywords" content="字符串,Java">
+<meta name="description" content="概述axios是一个基于promise可以用于浏览器和node.js的HTTP库。它具有以下特点：  支持浏览器和node.js 支持promise 能拦截请求和响应 能转换请求和响应数据 能取消请求 自动转换JSON数据 浏览器端支持防止CSRF(跨站请求伪造)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无重复字符串的最长字串">
-<meta property="og:url" content="http://ysccx.top/2018/10/14/无重复字符串的最长字串/index.html">
+<meta property="og:title" content="axios的基本使用">
+<meta property="og:url" content="http://ysccx.top/2019/03/29/axios/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="题目给定一个字符串，找出不含有重复字符的最长子串的长度。 思路滑动窗口。 通过使用 HashSet 作为滑动窗口，我们可以用O(1)的时间来完成对字符是否在当前的子字符串中的检查。 滑动窗口是数组/字符串问题中常用的抽象概念。窗口通常是在数组/字符串中由开始和结束索引定义的一系列元素的集合，即 [i, j]。而滑动窗口是可以将两个边界向某一方向“滑动”的窗口。例如，我们将[i, j]向右滑动1个元">
+<meta property="og:description" content="概述axios是一个基于promise可以用于浏览器和node.js的HTTP库。它具有以下特点：  支持浏览器和node.js 支持promise 能拦截请求和响应 能转换请求和响应数据 能取消请求 自动转换JSON数据 浏览器端支持防止CSRF(跨站请求伪造)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T09:30:07.897Z">
+<meta property="og:updated_time" content="2019-03-29T05:43:08.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无重复字符串的最长字串">
-<meta name="twitter:description" content="题目给定一个字符串，找出不含有重复字符的最长子串的长度。 思路滑动窗口。 通过使用 HashSet 作为滑动窗口，我们可以用O(1)的时间来完成对字符是否在当前的子字符串中的检查。 滑动窗口是数组/字符串问题中常用的抽象概念。窗口通常是在数组/字符串中由开始和结束索引定义的一系列元素的集合，即 [i, j]。而滑动窗口是可以将两个边界向某一方向“滑动”的窗口。例如，我们将[i, j]向右滑动1个元">
+<meta name="twitter:title" content="axios的基本使用">
+<meta name="twitter:description" content="概述axios是一个基于promise可以用于浏览器和node.js的HTTP库。它具有以下特点：  支持浏览器和node.js 支持promise 能拦截请求和响应 能转换请求和响应数据 能取消请求 自动转换JSON数据 浏览器端支持防止CSRF(跨站请求伪造)">
 
 
 
@@ -125,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://ysccx.top/2018/10/14/无重复字符串的最长字串/"/>
+  <link rel="canonical" href="http://ysccx.top/2019/03/29/axios/"/>
 
 
 
 
 
-  <title>无重复字符串的最长字串 | chasen</title>
+  <title>axios的基本使用 | chasen</title>
   
 
 
@@ -269,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2018/10/14/无重复字符串的最长字串/">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/03/29/axios/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chasen">
@@ -286,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">无重复字符串的最长字串</h1>
+          <h1 class="post-title" itemprop="name headline">axios的基本使用</h1>
         
 
         <div class="post-meta">
@@ -298,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-14T15:21:04+08:00">
-                2018-10-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T13:07:02+08:00">
+                2019-03-29
               </time>
             
 
@@ -309,28 +306,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -339,8 +314,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/14/无重复字符串的最长字串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/14/无重复字符串的最长字串/" itemprop="commentCount"></span>
+                <a href="/2019/03/29/axios/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/axios/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,11 +343,27 @@
       
 
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串，找出不含有重复字符的最长子串的长度。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>滑动窗口。</p>
-<p>通过使用 HashSet 作为滑动窗口，我们可以用O(1)的时间来完成对字符是否在当前的子字符串中的检查。</p>
-<p>滑动窗口是数组/字符串问题中常用的抽象概念。窗口通常是在数组/字符串中由开始和结束索引定义的一系列元素的集合，即 [i, j]。而滑动窗口是可以将两个边界向某一方向“滑动”的窗口。例如，我们将[i, j]向右滑动1个元素，则它将变为 [i+1, j+1]。<br><a id="more"></a><br>回到我们的问题，我们使用 HashSet 将字符存储在当前窗口 [i, j]（最初 j = i）中。 然后我们向右侧滑动索引j，如果它不在 HashSet 中，我们会继续滑动j。如果s.charAt(j)已经存在于 HashSet 中，则将索引i向右滑动一格。直到j不小于字符串的length就可以得到答案。</p>
-<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public int lengthOfLongestSubstring(String s) &#123;</span><br><span class="line">        HashSet&lt;Character&gt; set = new HashSet&lt;&gt;();</span><br><span class="line">        int i = 0, j = 0, max = 0;</span><br><span class="line">        while(i&lt;s.length()&amp;&amp;j&lt;s.length())&#123;</span><br><span class="line">            if (!set.contains(s.charAt(j))) &#123;</span><br><span class="line">                set.add(s.charAt(j));</span><br><span class="line">                max = Math.max(max,j-i+1);</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                set.remove(s.charAt(i));</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>axios是一个基于promise可以用于浏览器和node.js的HTTP库。<br>它具有以下特点：</p>
+<ul>
+<li>支持浏览器和node.js</li>
+<li>支持promise</li>
+<li>能拦截请求和响应</li>
+<li>能转换请求和响应数据</li>
+<li>能取消请求</li>
+<li>自动转换JSON数据</li>
+<li>浏览器端支持防止CSRF(跨站请求伪造)</li>
+</ul>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>npm:<code>$ npm install axios</code></li>
+<li>bower:<code>$ bower install axios</code></li>
+<li>cdn:<code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1.发起一个GET请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Make a request for a user with a given ID</span></span><br><span class="line">axios.get(<span class="string">'/user?ID=12345'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Optionally the request above could also be done as</span></span><br><span class="line">axios.get(<span class="string">'/user'</span>, &#123;</span><br><span class="line">    params: &#123;</span><br><span class="line">      ID: <span class="number">12345</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>2.发送一个POST请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.post(<span class="string">'/user'</span>, &#123;</span><br><span class="line">    firstName: <span class="string">'Fred'</span>,</span><br><span class="line">    lastName: <span class="string">'Flintstone'</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="响应组成"><a href="#响应组成" class="headerlink" title="响应组成"></a>响应组成</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 服务端返回的数据</span></span><br><span class="line">  data: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 服务端返回的状态码</span></span><br><span class="line">  status: <span class="number">200</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 服务端返回的状态信息</span></span><br><span class="line">  statusText: <span class="string">'OK'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 响应头</span></span><br><span class="line">  <span class="comment">// 所有的响应头名称都是小写</span></span><br><span class="line">  headers: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// axios请求配置</span></span><br><span class="line">  config: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 请求</span></span><br><span class="line">  request: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -416,14 +407,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/字符串/" <i class="fa fa-tag"></i> 字符串</a>
-          
-            <a href="/tags/Java/" <i class="fa fa-tag"></i> Java</a>
-          
-        </div>
-      
 
       
       
@@ -433,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/14/浅谈神经网络/" rel="next" title="浅谈神经网络">
-                <i class="fa fa-chevron-left"></i> 浅谈神经网络
+              <a href="/2019/03/27/什么是前后端分离？/" rel="next" title="什么是前后端分离？">
+                <i class="fa fa-chevron-left"></i> 什么是前后端分离？
               </a>
             
           </div>
@@ -442,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/23/ifname/" rel="prev" title="python中的if __name__ == '__main__' 的作用及原理">
-                python中的if __name__ == '__main__' 的作用及原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应组成"><span class="nav-number">4.</span> <span class="nav-text">响应组成</span></a></li></ol></div>
             
 
           </div>
