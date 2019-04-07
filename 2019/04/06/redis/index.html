@@ -93,7 +93,7 @@
 <meta property="og:description" content="概述Redis是一个基于内存的高性能key-value数据库。因此 redis 被广泛应用于缓存方向。另外，redis 也经常用来做分布式锁。redis 提供了多种数据类型来支持不同的业务场景。除此之外，redis 支持事务 、持久化、LUA脚本、LRU驱动事件、多种集群方案。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/redis.jpg">
-<meta property="og:updated_time" content="2019-04-07T05:00:41.658Z">
+<meta property="og:updated_time" content="2019-04-07T05:12:40.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis总结">
 <meta name="twitter:description" content="概述Redis是一个基于内存的高性能key-value数据库。因此 redis 被广泛应用于缓存方向。另外，redis 也经常用来做分布式锁。redis 提供了多种数据类型来支持不同的业务场景。除此之外，redis 支持事务 、持久化、LUA脚本、LRU驱动事件、多种集群方案。">
@@ -383,6 +383,7 @@
 </li>
 </ul>
 <h1 id="redis-和-memcached-的区别"><a href="#redis-和-memcached-的区别" class="headerlink" title="redis 和 memcached 的区别"></a>redis 和 memcached 的区别</h1><p><img src="/images/redis.jpg" alt=""></p>
+<h1 id="Redis为什么是单线程的"><a href="#Redis为什么是单线程的" class="headerlink" title="Redis为什么是单线程的"></a>Redis为什么是单线程的</h1><p>因为CPU不是Redis的瓶颈。Redis的瓶颈最有可能是机器内存或者网络带宽。</p>
 
       
     </div>
@@ -620,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Redis有哪些好处"><span class="nav-number">2.</span> <span class="nav-text">使用Redis有哪些好处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis-和-memcached-的区别"><span class="nav-number">3.</span> <span class="nav-text">redis 和 memcached 的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Redis有哪些好处"><span class="nav-number">2.</span> <span class="nav-text">使用Redis有哪些好处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis-和-memcached-的区别"><span class="nav-number">3.</span> <span class="nav-text">redis 和 memcached 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis为什么是单线程的"><span class="nav-number">4.</span> <span class="nav-text">Redis为什么是单线程的</span></a></li></ol></div>
             
 
           </div>
@@ -857,5 +858,5 @@
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"react":{"opacityDefault":1},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":100,"height":200},"react":{"opacityDefault":1},"mobile":{"show":false},"log":false});</script></body>
 </html>

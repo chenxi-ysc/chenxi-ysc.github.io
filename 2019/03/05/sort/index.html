@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="概述排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。可以用一张图概括： 冒泡排序算法描述 比较相邻的元素。如果第一个比第二个大，就交换它们两个； 针对所有的元素重复以上的步骤，除了最后一个； 重复步骤1~2，直到排序完成。  算法实现123456789101112public static void bubbleSort(int[] arr) &amp;#123;    int temp =">
+<meta name="description" content="概述排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。可以用一张图概括：">
 <meta name="keywords" content="Java,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="十大排序算法总结">
 <meta property="og:url" content="http://ysccx.top/2019/03/05/sort/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。可以用一张图概括： 冒泡排序算法描述 比较相邻的元素。如果第一个比第二个大，就交换它们两个； 针对所有的元素重复以上的步骤，除了最后一个； 重复步骤1~2，直到排序完成。  算法实现123456789101112public static void bubbleSort(int[] arr) &amp;#123;    int temp =">
+<meta property="og:description" content="概述排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。可以用一张图概括：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/sort.png">
-<meta property="og:updated_time" content="2019-03-09T08:42:54.415Z">
+<meta property="og:updated_time" content="2019-04-07T07:15:32.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十大排序算法总结">
-<meta name="twitter:description" content="概述排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。可以用一张图概括： 冒泡排序算法描述 比较相邻的元素。如果第一个比第二个大，就交换它们两个； 针对所有的元素重复以上的步骤，除了最后一个； 重复步骤1~2，直到排序完成。  算法实现123456789101112public static void bubbleSort(int[] arr) &amp;#123;    int temp =">
+<meta name="twitter:description" content="概述排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。可以用一张图概括：">
 <meta name="twitter:image" content="http://ysccx.top/images/sort.png">
 
 
@@ -370,15 +370,26 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。<br>可以用一张图概括：<br><img src="/images/sort.png" alt=""></p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>排序算法是最经典的算法知识，本文将会总结最常见的十种排序算法。<br>可以用一张图概括：<br><img src="/images/sort.png" alt=""><br><a id="more"></a></p>
 <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><ol>
 <li>比较相邻的元素。如果第一个比第二个大，就交换它们两个；</li>
 <li>针对所有的元素重复以上的步骤，除了最后一个；</li>
 <li>重复步骤1~2，直到排序完成。</li>
 </ol>
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123; <span class="comment">// 每次需要排序的长度</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123; </span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>to be continued</p>
-
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> [] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = arr.length-<span class="number">1</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">                arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h2><ol>
+<li>在未排序序列中找到最小（大）元素，存放到排序序列的起始位置；</li>
+<li>从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾；</li>
+<li>重复第二步，直到所有元素均排序完毕。</li>
+</ol>
+<h2 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp,min;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">        min = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[min]&gt;arr[j])&#123;</span><br><span class="line">                min = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(min!=i)&#123;</span><br><span class="line">            temp = arr[i];</span><br><span class="line">            arr[i] = arr[min];</span><br><span class="line">            arr[min] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#插入排序</p>
+<h2 id="算法描述-2"><a href="#算法描述-2" class="headerlink" title="算法描述"></a>算法描述</h2><ol>
+<li>把待排序的数组分成已排序和未排序两部分，初始的时候把第一个元素认为是已排好序的；</li>
+<li>从第二个元素开始，在已排好序的子数组中寻找到该元素合适的位置并插入该位置；</li>
+<li>重复上述过程直到最后一个元素被插入有序子数组中。</li>
+</ol>
+<h2 id="算法实现-2"><a href="#算法实现-2" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[i];<span class="comment">//记录需要插入的值</span></span><br><span class="line">        <span class="keyword">int</span> j = i;<span class="comment">//记录空出来的位置</span></span><br><span class="line">        <span class="keyword">while</span>(arr[i]&lt;arr[j-<span class="number">1</span>])&#123;</span><br><span class="line">            arr[j] = arr[j-<span class="number">1</span>];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -621,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冒泡排序"><span class="nav-number">2.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">2.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-number">2.2.</span> <span class="nav-text">算法实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冒泡排序"><span class="nav-number">2.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">2.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-number">2.2.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择排序"><span class="nav-number">3.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述-1"><span class="nav-number">3.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现-1"><span class="nav-number">3.2.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述-2"><span class="nav-number">3.3.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现-2"><span class="nav-number">3.4.</span> <span class="nav-text">算法实现</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -858,5 +869,5 @@
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"react":{"opacityDefault":1},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":100,"height":200},"react":{"opacityDefault":1},"mobile":{"show":false},"log":false});</script></body>
 </html>
