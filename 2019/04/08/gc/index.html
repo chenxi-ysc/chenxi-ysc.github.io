@@ -87,15 +87,17 @@
 <meta name="description" content="概述垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。 Java堆的基本结构Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为">
 <meta name="keywords" content="Java,GC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解Java虚拟机之垃圾收集器">
+<meta property="og:title" content="深入理解Java虚拟机之垃圾回收">
 <meta property="og:url" content="http://ysccx.top/2019/04/08/gc/index.html">
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="概述垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。 Java堆的基本结构Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-08T13:18:28.977Z">
+<meta property="og:image" content="http://ysccx.top/images/gc.png">
+<meta property="og:updated_time" content="2019-04-08T14:41:16.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解Java虚拟机之垃圾收集器">
+<meta name="twitter:title" content="深入理解Java虚拟机之垃圾回收">
 <meta name="twitter:description" content="概述垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。 Java堆的基本结构Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为">
+<meta name="twitter:image" content="http://ysccx.top/images/gc.png">
 
 
 
@@ -131,7 +133,7 @@
 
 
 
-  <title>深入理解Java虚拟机之垃圾收集器 | chasen</title>
+  <title>深入理解Java虚拟机之垃圾回收 | chasen</title>
   
 
 
@@ -286,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解Java虚拟机之垃圾收集器</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解Java虚拟机之垃圾回收</h1>
         
 
         <div class="post-meta">
@@ -369,8 +371,8 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。</p>
-<h1 id="Java堆的基本结构"><a href="#Java堆的基本结构" class="headerlink" title="Java堆的基本结构"></a>Java堆的基本结构</h1><p>Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代和老年代：再细致一点有：Eden空间、From Survivor、To Survivor空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。<br>| eden | s0 | s1 | tentired |<br>|—|—|—|—|</p>
-<p>eden区、s0区、s1区都属于新生代，tentired 区属于老年代。大部分情况，对象都会首先在 Eden 区域分配，在一次新生代垃圾回收后，如果对象还存活，则会进入 s0 或者 s1，并且对象的年龄还会加 1(Eden区-&gt;Survivor 区后对象的初始年龄变为1)，当它的年龄增加到一定程度（默认为15岁），就会被晋升到老年代中。<br><a id="more"></a></p>
+<h1 id="Java堆的基本结构"><a href="#Java堆的基本结构" class="headerlink" title="Java堆的基本结构"></a>Java堆的基本结构</h1><p>Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代和老年代：再细致一点有：Eden空间、From Survivor、To Survivor空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。<br><img src="/images/gc.png" alt=""></p>
+<p>如上图所示，eden区、s0区、s1区都属于新生代，tentired 区属于老年代。大部分情况，对象都会首先在 Eden 区域分配，在一次新生代垃圾回收后，如果对象还存活，则会进入 s0 或者 s1，并且对象的年龄还会加 1(Eden区-&gt;Survivor 区后对象的初始年龄变为1)，当它的年龄增加到一定程度（默认为15岁），就会被晋升到老年代中。<br><a id="more"></a></p>
 <h1 id="堆内存常见分配策略"><a href="#堆内存常见分配策略" class="headerlink" title="堆内存常见分配策略"></a>堆内存常见分配策略</h1><ul>
 <li>对象优先在Eden区分配</li>
 <li>大对象直接进入老年代</li>
