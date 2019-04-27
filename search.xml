@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java8新特性之Optional]]></title>
+    <url>%2F2019%2F04%2F27%2FJava8%E6%96%B0%E7%89%B9%E6%80%A7%E4%B9%8BOptional%2F</url>
+    <content type="text"><![CDATA[概述Java8引入了Optional类。Optional类主要解决的问题是空指针异常。本质上，这是一个包含有可选值的包装类，这意味着Optional类既可以含有对象也可以为空。Optional是个容器，它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空指针检测。 常用方法 static Optional empty()返回空的 Optional 实例。 boolean equals(Object obj)判断其他对象是否等于 Optional。 Optional filter(Predicate&lt;? super predicate)如果值存在，并且这个值匹配给定的 predicate，返回一个Optional用以描述这个值，否则返回一个空的Optional。 Optional flatMap(Function&lt;? super T,Optional&gt; mapper)如果值存在，返回基于Optional包含的映射方法的值，否则返回一个空的Optional T get()如果在这个Optional中包含这个值，返回值，否则抛出异常：NoSuchElementException int hashCode()返回存在值的哈希码，如果值不存在 返回 0。 void ifPresent(Consumer&lt;? super T&gt; consumer)如果值存在则使用该值调用 consumer , 否则不做任何事情。 boolean isPresent()如果值存在则方法会返回true，否则返回 false。 Optional map(Function&lt;? super T,? extends U&gt; mapper)如果存在该值，提供的映射方法，如果返回非null，返回一个Optional描述结果。 static Optional of(T value)返回一个指定非null值的Optional。 static Optional ofNullable(T value)如果为非空，返回 Optional 描述的指定值，否则返回空的 Optional。 T orElse(T other)如果存在该值，返回值， 否则返回 other。 T orElseGet(Supplier&lt;? extends T&gt; other)如果存在该值，返回值， 否则触发 other，并返回 other 调用的结果。 T orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常 String toString()返回一个Optional的非空字符串，用来调试]]></content>
+      <categories>
+        <category>0.基础</category>
+      </categories>
+      <tags>
+        <tag>Optional</tag>
+        <tag>Java8</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SpringBoot整合JPA]]></title>
+    <url>%2F2019%2F04%2F27%2Fjpa%2F</url>
+    <content type="text"><![CDATA[概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA 整合JPA1.引入依赖1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;&lt;/dependency&gt; 2.在application.yml文件中配置123456789101112spring: datasource: url: jdbc:mysql://127.0.0.1:3306/mytmall username: root password: admin driver-class-name: com.mysql.cj.jdbc.Driver jpa: hibernate: # 更新或者创建数据表结构 ddl-auto: update # 控制台显示SQL show-sql: true 3.创建一个实体类1234567891011121314//使用JPA注解配置映射关系@Entity //告诉JPA这是一个实体类（和数据表映射的类）@Table(name = "tbl_user") //@Table来指定和哪个数据表对应;如果省略默认表名就是user；public class User &#123; @Id //这是一个主键 @GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键 private Integer id; @Column(name = "last_name",length = 50) //这是和数据表对应的一个列 private String lastName; @Column //省略默认列名就是属性名 private String email; 4.创建一个DAO接口123//继承JpaRepository来完成对数据库的操作public interface UserDAO extends JpaRepository&lt;User,Integer&gt; &#123;&#125; 5.编写一个controller123456789101112131415161718@RestControllerpublic class UserController &#123; @Autowired UserRepository userDAO; @GetMapping("/user/&#123;id&#125;") public User getUser(@PathVariable("id") Integer id) &#123; User user = userDAO.findOne(id); return null; &#125; @GetMapping("/user") public User insertUser(User user) &#123; User save = userDAO.save(user); return save; &#125;&#125;]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>JPA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[B树和B+树]]></title>
     <url>%2F2019%2F04%2F26%2Fb%E6%A0%91%E5%92%8Cb%2B%E6%A0%91%2F</url>
     <content type="text"><![CDATA[概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。 B树是一种多路搜索树（并不是二叉的）对于一个M阶的B树，有以下生成策略： 定义任意非叶子结点最多只有M个儿子；且M&gt;2； 根结点的儿子数为[2, M]； 除根结点以外的非叶子结点的儿子数为[M/2, M]； 每个结点存放至少M/2-1（取上整）和至多M-1个关键字；（至少2个关键字） 非叶子结点的关键字个数=指向儿子的指针个数-1； 非叶子结点的关键字：K[1], K[2], …, K[M-1]；且K[i] &lt; K[i+1]； 非叶子结点的指针：P[1], P[2], …, P[M]；其中P[1]指向关键字小于K[1]的子树，P[M]指向关键字大于K[M-1]的子树，其它P[i]指向关键字属于(K[i-1], K[i])的子树； 所有叶子结点位于同一层； 例如：M=3 B树的搜索，从根结点开始，对结点内的关键字（有序）序列进行二分查找，如果命中则结束，否则进入查询关键字所属范围的儿子结点；重复，直到所对应的儿子指针为空，或已经是叶子结点。 B树的特性： 关键字集合分布在整颗树中； 任何一个关键字出现且只出现在一个结点中； 搜索有可能在非叶子结点结束； 其搜索性能等价于在关键字全集内做一次二分查找； 自动层次控制； B+树B+树是B-树的变体，也是一种多路搜索树： 非叶子结点的子树指针与关键字个数相同； 非叶子结点的子树指针P[i]，指向关键字值属于[K[i], K[i+1])的子树（B-树是开区间）； 为所有叶子结点增加一个链指针； 例如：M=3 B+的搜索与B-树也基本相同，区别是B+树只有达到叶子结点才命中，其性能也等价于在关键字全集做一次二分查找。 B+的特性： 所有关键字都出现在叶子结点的链表中（稠密索引），且链表中的关键字恰好是有序的； 不可能在非叶子结点命中； 非叶子结点相当于是叶子结点的索引（稀疏索引），叶子结点相当于是存储（关键字）数据的数据层； 更适合文件索引系统； 区别B树：多路搜索树，每个结点存储M/2到M个关键字，非叶子结点存储指向关键字范围的子结点，所有关键字在整颗树中出现，且只出现一次，非叶子结点可以命中；B+树：在B树基础上，为叶子结点增加链表指针，所有关键字都在叶子结点中出现，非叶子结点作为叶子结点的索引，B+树总是到叶子结点才命中；]]></content>
