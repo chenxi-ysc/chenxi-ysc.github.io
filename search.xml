@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[N皇后]]></title>
+    <url>%2F2019%2F06%2F17%2FN%E7%9A%87%E5%90%8E%2F</url>
+    <content type="text"><![CDATA[概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。 题目描述给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。 示例：12345678910111213输入: 4输出: [ [".Q..", // 解法 1 "...Q", "Q...", "..Q."], ["..Q.", // 解法 2 "Q...", "...Q", ".Q.."]]解释: 4 皇后问题存在两个不同的解法。 算法思路采用回溯算法，深度优先遍历所有可能，输出满足要求的可能。表示方式： arr[i] = k; 表示： 第i行的第k个位置放一个皇后。算法步骤： 从第一行第一个位置开始遍历，先判断是否满足要求，若满足，则放置一个皇后； 然后递归调用下一行； 若所有行都被考虑过，则得出一种解法； 算法实现1234567891011121314151617181920212223242526272829303132333435363738394041424344public class SolveNQueens &#123; int n; int[] arr; List&lt;List&lt;String&gt;&gt; output = new ArrayList&lt;&gt;(); public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123; this.n = n; arr = new int[n]; backTrack(0); return output; &#125; public boolean check(int row, int col)&#123; for(int i =0; i&lt;row; i++)&#123; if(col == arr[i] || Math.abs(row-i) == Math.abs(col-arr[i])) return false; &#125; return true; &#125; public void backTrack(int k)&#123; if(k == n)&#123; addSolution(); &#125; for(int i=0;i&lt;n;i++)&#123; if(check(k,i))&#123; arr[k] = i; backTrack(k + 1); &#125; &#125; &#125; public void addSolution()&#123; List&lt;String&gt; solution = new ArrayList&lt;&gt;(); for(int i = 0; i&lt;n;i++)&#123; StringBuilder sb = new StringBuilder(); for(int j = 0;j&lt;arr[i];j++) sb.append("."); sb.append("Q"); for(int j = arr[i]+1;j&lt;n;j++) sb.append("."); solution.add(sb.toString()); &#125; output.add(solution); &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构和算法</category>
+      </categories>
+      <tags>
+        <tag>N皇后</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[消息队列总结]]></title>
     <url>%2F2019%2F05%2F30%2F%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[概述消息队列中间件是分布式系统中一个重要的组件，主要解决系统解耦，异步处理，流量削峰等问题，实现高性能，高可用可伸缩和最终一致性架构。目前使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ。 应用场景1.通过异步处理进行流量削峰 在不使用消息队列服务器的时候，用户的请求直接写入数据库，在高并发的情况下数据库的压力剧增，使得响应速度变慢。使用消息队列后，用户的请求数据发送给消息队列后立即返回，再由消息队列的消费者进程从消息队列中获取数据，异步写入数据库。由于消息队列的处理速度快于数据库，且消息队列也比数据库有更好的伸缩性，因此响应速度大大加快，同时也起到了流量削峰的作用。 2.系统解耦如果模块之间不存在直接调用，那么新增模块就对其他模块影响较小，系统耦合性也就更低。消息队列利用发布-订阅模式，消息发送者（生产者）发布消息，一个或多个消息接受者（消费者）订阅消息。消息发送者将消息发送至分布式消息队列即结束对消息的处理，消息接受者从分布式消息队列获取该消息后进行后续处理，并不需要知道该消息从何而来。对新增业务，只要对该类消息感兴趣，即可订阅该消息，对原有系统和业务没有任何影响，从而实现网站业务的可扩展性设计。 JMSJMS（JAVA Message Service,java消息服务）是基于JVM消息代理的规范，JMS的客户端之间可以通过JMS服务进行异步的消息传输。它使分布式通信耦合度更低，消息服务更加可靠以及异步性。1.点对点模型使用队列（Queue）作为消息通信载体；满足生产者与消费者模式，一条消息只能被一个消费者使用，未被消费的消息在队列中保留直到被消费或超时。 2.发布订阅模型发布订阅模型（Pub/Sub） 使用主题（Topic）作为消息通信载体，类似于广播模式；发布者发布一条消息，该消息通过主题传递给所有的订阅者，在一条消息广播之后才订阅的用户则是收不到该条消息的。 3.JMS 五种不同的消息正文格式 StreamMessage – Java原始值的数据流 MapMessage–一套名称-值对 TextMessage–一个字符串对象 ObjectMessage–一个序列化的 Java对象 BytesMessage–一个字节的数据流 AMQPAMQP(Advanced Message Queuing Protocol)，即高级消息队列协议，也是一个消息代理的规范，兼容JMS。 5种消息模型 direct exchange fanout exchange topic change headers exchange system exchange本质来讲，后四种和JMS的发布订阅模型没有太大的差别，只不过在路由机制上做了更详细的划分。 JMS和AMQP对比 AMQP 为消息定义了线路层（wire-level protocol）的协议，而JMS所定义的是API规范。在 Java 体系中，多个client均可以通过JMS进行交互，不需要应用修改代码，但是其对跨平台的支持较差。而AMQP天然具有跨平台、跨语言特性。 JMS 支持TextMessage、MapMessage 等复杂的消息类型；而 AMQP 仅支持 byte[] 消息类型（复杂的类型可序列化后发送）。 由于Exchange 提供的路由算法，AMQP可以提供多样化的路由方式来传递消息到消息队列，而 JMS 仅支持 队列 和 主题/订阅 方式两种。]]></content>
@@ -696,8 +707,8 @@
         <category>数据结构和算法</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>字符串</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
