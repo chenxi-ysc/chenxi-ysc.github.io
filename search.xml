@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[重构二叉树]]></title>
+    <url>%2F2019%2F06%2F21%2F%E9%87%8D%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。 算法实现12345678910111213141516171819202122232425262728293031/** * Definition for binary tree * public class TreeNode &#123; * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) &#123; val = x; &#125; * &#125; */public class Solution &#123; public TreeNode reConstructBinaryTree(int [] pre,int [] in) &#123; return reConstruct(pre,0,pre.length-1,in,0,in.length-1); &#125; private TreeNode reConstruct(int[] pre,int startPre,int endPre,int[] in,int startIn, int endIn)&#123; if(startPre&gt;endPre)&#123; return null; &#125; TreeNode root = new TreeNode(pre[startPre]); int index = 0; for(int i=startIn;i&lt;=endIn;i++)&#123; if(pre[startPre] == in[i])&#123; index = i; break; &#125; &#125; root.left = reConstruct(pre,startPre+1,index-startIn+startPre,in,startIn,index-1); root.right = reConstruct(pre,index-startIn+startPre+1,endPre,in,index+1,endIn); return root; &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构和算法</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[N皇后]]></title>
     <url>%2F2019%2F06%2F17%2FN%E7%9A%87%E5%90%8E%2F</url>
     <content type="text"><![CDATA[概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。 题目描述给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。 示例：12345678910111213输入: 4输出: [ [".Q..", // 解法 1 "...Q", "Q...", "..Q."], ["..Q.", // 解法 2 "Q...", "...Q", ".Q.."]]解释: 4 皇后问题存在两个不同的解法。 算法思路采用回溯算法，深度优先遍历所有可能，输出满足要求的可能。表示方式： arr[i] = k; 表示： 第i行的第k个位置放一个皇后。算法步骤： 从第一行第一个位置开始遍历，先判断是否满足要求，若满足，则放置一个皇后； 然后递归调用下一行； 若所有行都被考虑过，则得出一种解法； 算法实现1234567891011121314151617181920212223242526272829303132333435363738394041424344public class SolveNQueens &#123; int n; int[] arr; List&lt;List&lt;String&gt;&gt; output = new ArrayList&lt;&gt;(); public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123; this.n = n; arr = new int[n]; backTrack(0); return output; &#125; public boolean check(int row, int col)&#123; for(int i =0; i&lt;row; i++)&#123; if(col == arr[i] || Math.abs(row-i) == Math.abs(col-arr[i])) return false; &#125; return true; &#125; public void backTrack(int k)&#123; if(k == n)&#123; addSolution(); &#125; for(int i=0;i&lt;n;i++)&#123; if(check(k,i))&#123; arr[k] = i; backTrack(k + 1); &#125; &#125; &#125; public void addSolution()&#123; List&lt;String&gt; solution = new ArrayList&lt;&gt;(); for(int i = 0; i&lt;n;i++)&#123; StringBuilder sb = new StringBuilder(); for(int j = 0;j&lt;arr[i];j++) sb.append("."); sb.append("Q"); for(int j = arr[i]+1;j&lt;n;j++) sb.append("."); solution.add(sb.toString()); &#125; output.add(solution); &#125;&#125;]]></content>
@@ -707,8 +718,8 @@
         <category>数据结构和算法</category>
       </categories>
       <tags>
-        <tag>字符串</tag>
         <tag>Java</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
