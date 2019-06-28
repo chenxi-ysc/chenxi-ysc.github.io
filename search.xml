@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AOP实现原理之代理模式]]></title>
+    <url>%2F2019%2F06%2F27%2FAOP%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B9%8B%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[概述代理模式即通过创建一个代理对象，用这个代理对象去代表真正的对象，客户端使用这个代理对象来操作真正的对象，主要有静态代理和动态代理两种。 静态代理接口类：123interface Person &#123; void speak();&#125; 真实对象类：1234567891011class Actor implements Person &#123; private String content; public Actor(String content) &#123; this.content = content; &#125; @Override public void speak() &#123; System.out.println(this.content); &#125;&#125; 代理类：12345678910111213141516171819class Agent implements Person &#123; private Actor actor; private String before; private String after; public Agent(Actor actor, String before, String after) &#123; this.actor = actor; this.before = before; this.after = after; &#125; @Override public void speak() &#123; //before speak System.out.println("Before actor speak, Agent say: " + before); //real speak this.actor.speak(); //after speak System.out.println("After actor speak, Agent say: " + after); &#125;&#125; JDK动态代理JDK动态代理只能代理接口。使用步骤： 新建一个接口 为接口创建一个实现类 创建代理类实现java.lang.reflect.InvocationHandler接口 测试 接口类：1234public interface Subject &#123; void doSomething();&#125; 真实对象类：123456public class RealSubject implements Subject &#123; @Override public void doSomething() &#123; System.out.println("RealSubject do something"); &#125;&#125; 代理类,实现java.lang.reflect.InvocationHandler接口，重写invoke方法：12345678910111213141516171819202122232425public class JDKDynamicProxy implements InvocationHandler &#123; private Object target; public JDKDynamicProxy(Object target) &#123; this.target = target; &#125; /** * 获取被代理接口实例对象 * @param &lt;T&gt; * @return */ public &lt;T&gt; T getProxy() &#123; return (T) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this); &#125; @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123; System.out.println("Do something before"); Object result = method.invoke(target, args); System.out.println("Do something after"); return result; &#125;&#125; 测试类：1234567public class Client &#123; public static void main(String[] args) &#123; // jdk动态代理测试 Subject subject = new JDKDynamicProxy(new RealSubject()).getProxy(); subject.doSomething(); &#125;&#125; CGLIB代理JDK的动态代理机制只能代理实现了接口的类，而不能实现接口的类就不能实现JDK的动态代理，cglib是针对类来实现代理的，他的原理是对指定的目标类生成一个子类，并覆盖其中方法实现增强，但因为采用的是继承，所以不能对final修饰的类进行代理。 使用例子：1234567891011121314151617181920212223242526272829public class CGlibAgent implements MethodInterceptor &#123; private Object target; public Object getInstance(Object target) &#123; this.target = target; Enhancer enhancer = new Enhancer(); enhancer.setSuperclass(this.target.getClass()); // 回调方法 enhancer.setCallback(this); // 创建代理对象 return enhancer.create(); &#125; //回调方法 @Override public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123; System.out.println("Do something before"); //真正调用 Object ret = methodProxy.invokeSuper(o, objects); System.out.println("Do something after"); return ret; &#125; public static void main(String[] args) &#123; CGlibAgent cGlibAgent = new CGlibAgent(); Subject subject = cGlibAgent.getInstance(new Subject()); subject.doSomething(); &#125;&#125;]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>AOP</tag>
+        <tag>代理模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[重构二叉树]]></title>
     <url>%2F2019%2F06%2F21%2F%E9%87%8D%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91%2F</url>
     <content type="text"><![CDATA[题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。 算法实现12345678910111213141516171819202122232425262728293031/** * Definition for binary tree * public class TreeNode &#123; * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) &#123; val = x; &#125; * &#125; */public class Solution &#123; public TreeNode reConstructBinaryTree(int [] pre,int [] in) &#123; return reConstruct(pre,0,pre.length-1,in,0,in.length-1); &#125; private TreeNode reConstruct(int[] pre,int startPre,int endPre,int[] in,int startIn, int endIn)&#123; if(startPre&gt;endPre)&#123; return null; &#125; TreeNode root = new TreeNode(pre[startPre]); int index = 0; for(int i=startIn;i&lt;=endIn;i++)&#123; if(pre[startPre] == in[i])&#123; index = i; break; &#125; &#125; root.left = reConstruct(pre,startPre+1,index-startIn+startPre,in,startIn,index-1); root.right = reConstruct(pre,index-startIn+startPre+1,endPre,in,index+1,endIn); return root; &#125;&#125;]]></content>
@@ -595,10 +607,10 @@
         <category>SpringBoot</category>
       </categories>
       <tags>
+        <tag>AOP</tag>
         <tag>Java</tag>
         <tag>spring</tag>
         <tag>IOC</tag>
-        <tag>AOP</tag>
       </tags>
   </entry>
   <entry>
@@ -718,8 +730,8 @@
         <category>数据结构和算法</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>字符串</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
