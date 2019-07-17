@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[commit和pull的先后顺序]]></title>
+    <url>%2F2019%2F07%2F17%2Fcommit%E5%92%8Cpull%E7%9A%84%E5%85%88%E5%90%8E%E9%A1%BA%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[在本地修改与远程代码无冲突的情况下，优先使用：pull-&gt;commit-&gt;push 在本地修改与远程代码有冲突的情况下，优先使用：commit-&gt;pull-&gt;push 如果在有冲突的情况下，先pull了，那么会导致pull失败，并不会覆盖未提交的代码。以上。]]></content>
+      <categories>
+        <category>7-工具</category>
+      </categories>
+      <tags>
+        <tag>commit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[跨域总结]]></title>
+    <url>%2F2019%2F07%2F17%2F%E8%B7%A8%E5%9F%9F%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[概述当一个请求url的协议、域名、端口三者之间任意一个与当前页面url不同即为跨域 跨域的原因跨域的原因是由于浏览器的同源策略的限制。同源策略（Sameoriginpolicy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。同源策略会阻止一个域的javascript脚本和另外一个域的内容进行交互。所谓同源（即指在同一个域）就是两个页面具有相同的协议（protocol），主机（host）和端口号（port）。同源策略将会导致： 无法向非同源地址发送 AJAX 请求 无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB 无法接触非同源网页的 DOM 跨域的解决方法1.JSONP核心思想：网页通过添加一个&lt;script&gt;标签，向服务器请求 JSON 数据，服务器收到请求后，将数据放在一个指定名字的回调函数的参数位置传回来。 jQuery实现jsonp:123456789$.ajax(&#123; url:"http://crossdomain.com/services.php", dataType:'jsonp', data:'', jsonp:'callback', success:function(result) &#123; // some code &#125; &#125;); JSONP的不足之处： 只能使用get方法，不能使用post方法 没有关于 JSONP 调用的错误处理 2.CORSCORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）。它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。它为Web服务器定义了一种方式，允许网页从不同的域访问其资源.CORS系统定义了一种浏览器和服务器交互的方式来确定是否允许跨域请求。 它是一个妥协，有更大的灵活性，但比起简单地允许所有这些的要求来说更加安全。 实现方法： CORS需要浏览器和服务器同时支持 浏览器端自动完成 服务器端设置Access-Control-Allow-Origin]]></content>
+      <categories>
+        <category>9-网站架构</category>
+      </categories>
+      <tags>
+        <tag>跨域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mybatis返回One和List的区别]]></title>
+    <url>%2F2019%2F07%2F17%2FMybatis%E8%BF%94%E5%9B%9EOne%E5%92%8CList%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[返回One当返回One也就是返回一个对象时： 若数据库查询结果超过一条记录，Mybatis 则抛出非检查类异常，证明查询结果超出一条 若查询结果没有记录，则返回null 返回List 若查询结果没有记录，则返回一个空的list，不会出现 null 的情况 可以使用list.isEmpty()判空]]></content>
+      <categories>
+        <category>Mybatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[resultType和resultMap的区别]]></title>
     <url>%2F2019%2F07%2F16%2FresultType%E5%92%8CresultMap%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[resultMap resultMap是在 mapper.xml 文件中通过 resultMap 节点定义出来的 resultMap将sql查询结果映射为resultMap节点定义的对象 如果sql查询列名和最终要映射的pojo的属性名不一致，使用resultMap将列名和pojo的属性名做一个对应关系 resultType resultType是自定义的类或者 jdk 自带的类、基本数据类型（int、double、String） resultType将sql查询结果映射为指定类型（pojo、java基本数据类型、hashmap） sql查询的列名要和resultType指定pojo的属性名相同 Mybatis默认定义的别名mybatis 默认在 org.apache.ibatis.type.TypeAliasRegistry 中为我们定义了类的别名：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950registerAlias("string", String.class);registerAlias("byte", Byte.class);registerAlias("long", Long.class);registerAlias("short", Short.class);registerAlias("int", Integer.class);registerAlias("integer", Integer.class);registerAlias("double", Double.class);registerAlias("float", Float.class);registerAlias("boolean", Boolean.class);registerAlias("byte[]", Byte[].class);registerAlias("long[]", Long[].class);registerAlias("short[]", Short[].class);registerAlias("int[]", Integer[].class);registerAlias("integer[]", Integer[].class);registerAlias("double[]", Double[].class);registerAlias("float[]", Float[].class);registerAlias("boolean[]", Boolean[].class);registerAlias("_byte", byte.class);registerAlias("_long", long.class);registerAlias("_short", short.class);registerAlias("_int", int.class);registerAlias("_integer", int.class);registerAlias("_double", double.class);registerAlias("_float", float.class);registerAlias("_boolean", boolean.class);registerAlias("_byte[]", byte[].class);registerAlias("_long[]", long[].class);registerAlias("_short[]", short[].class);registerAlias("_int[]", int[].class);registerAlias("_integer[]", int[].class);registerAlias("_double[]", double[].class);registerAlias("_float[]", float[].class);registerAlias("_boolean[]", boolean[].class);registerAlias("date", Date.class);registerAlias("decimal", BigDecimal.class);registerAlias("bigdecimal", BigDecimal.class);registerAlias("biginteger", BigInteger.class);registerAlias("object", Object.class);registerAlias("date[]", Date[].class);registerAlias("decimal[]", BigDecimal[].class);registerAlias("bigdecimal[]", BigDecimal[].class);registerAlias("biginteger[]", BigInteger[].class);registerAlias("object[]", Object[].class);registerAlias("map", Map.class);registerAlias("hashmap", HashMap.class);registerAlias("list", List.class);registerAlias("arraylist", ArrayList.class);registerAlias("collection", Collection.class);registerAlias("iterator", Iterator.class);registerAlias("ResultSet", ResultSet.class);]]></content>
@@ -327,7 +360,7 @@
     <url>%2F2019%2F04%2F02%2Fspa%2F</url>
     <content type="text"><![CDATA[概述常见web应用有两种开发模式，分别是单页应用模式SPA和多页应用模式MPA。两种模式各有优缺点。 多页应用每一次页面跳转的时候，后台服务器都会返回一个新的html文档，这种类型的网站也就是多页网站，也叫做多页应用。 它具有以下几个特点： 首屏加载快：当我们访问页面的时候，服务器返回一个html，页面就会展示出来，这个过程只经历了一个HTTP请求，所以页面展示的速度非常快。 搜索引擎优化效果较好：搜索引擎在做网页排名的时候，要根据网页内容才能给网页权重，来进行网页的排名。搜索引擎是可以识别html内容的，而我们每个页面所有的内容都放在Html中，所以这种多页应用，seo排名效果好。 页面切换慢：因为每次跳转都需要发出一个http请求，如果网络比较慢，在页面之间来回跳转时，就会发现明显的卡顿。 单页应用只有第一次进入页面的时候会请求一个html文件。当要切换其他页面时，路径也有相应的变化，页面内容进行了更新，但是并没有新的html文件请求，而仅仅是通过Ajax与服务器异步交换了所需要的数据。原理是：JS会感知到url的变化，通过这一点，可以用js动态的将当前页面的内容清除掉，然后将下一个页面的内容挂载到当前页面上，这个时候的路由不是后端来做了，而是前端来做，判断页面到底是显示哪个组件，清除不需要的，显示需要的组件，这种过程就是单页应用。 它具有以下几个特点： 首屏加载稍慢：首屏时需要请求一次html，然后还要发送一次Ajax异步请求，两次请求回来了，首屏才会展示出来。相对于多页应用，首屏时间稍慢。 SEO差：因为搜索引擎只认识html里的内容，不认识js的内容，而单页应用的内容都是靠js渲染生成出来的，搜索引擎不识别这部分内容，也就不会给一个好的排名，会导致单页应用做出来的网页在百度和谷歌上的排名差。 页面切换快：因为切换页面时，只对部分数据进行了异步请求然后更新内容，并不像多页应用那样请求的是一个完整的HTML，所以页面切换快。]]></content>
       <categories>
-        <category>随记</category>
+        <category>9-网站架构</category>
       </categories>
       <tags>
         <tag>SPA</tag>
@@ -349,7 +382,7 @@
     <url>%2F2019%2F03%2F27%2F%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下： 前后端分离前后端分离的架构中，静态资源和业务代码分别部署在两台服务器上。利用node.js的express框架作为一个中间层服务器进行请求的转发与视图解析。具体框架如下： 改变 服务器一分为二，前后端分别部署，静态资源放在前端服务器，业务代码放在后端服务器 前端服务器需要接收Http请求 前端服务器需要进行视图解析（可以使用vue.js、angular.js） 前端服务器需要处理路由（也就是页面之间的跳转逻辑） 后端服务器只需要返回数据]]></content>
       <categories>
-        <category>随记</category>
+        <category>9-网站架构</category>
       </categories>
       <tags>
         <tag>架构</tag>
@@ -435,8 +468,8 @@
         <category>Mybatis</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>mybatis</tag>
+        <tag>Java</tag>
         <tag>逆向工程</tag>
       </tags>
   </entry>
@@ -478,7 +511,7 @@
     <url>%2F2019%2F03%2F09%2Fwar%2F</url>
     <content type="text"><![CDATA[在用idea部署Javaweb项目的时候，经常看到这种情况这里有两种部署方式，它们的区别如下： war： 这种模式是先打成war包，再发布，正常的发布就是用的这种。 工程target目录下会生成war包, 并且解压后的war包会被部署到tomcat的webapp 目录下。 注意：如果application-context 设置为 /， tomcat目录下不会有解压后的war文件，只有指定文件目录，才会生成文件夹，这个文件夹作为项目的根目录 war exploded ：这种模式是直接把文件夹、jsp页面 、classes等等移到Tomcat 部署文件夹里面，进行加载部署。因此这种方式支持热部署，一般在开发的时候也是用这种方式。]]></content>
       <categories>
-        <category>随记</category>
+        <category>SpringBoot</category>
       </categories>
       <tags>
         <tag>tomcat</tag>
@@ -503,7 +536,7 @@
     <url>%2F2019%2F03%2F08%2F%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%E5%92%8CMVC%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[三层架构：即表现层、业务层、持久层。 持久层：采用DAO模式，建立实体类和数据库表映射（ORM映射）。持久层的目的就是，完成对象数据和关系数据的转换。 业务层：采用事务脚本模式。将一个业务中所有的操作封装成一个方法，同时保证方法中所有的数据库更新操作，即保证同时成功或同时失败。避免部分成功部分失败引起的数据混乱操作。 表现层：采用MVC模式。M称为模型，也就是实体类。用于数据的封装和数据的传输。V为视图，也就是GUI组件，用于数据的展示。C为控制，也就是事件，用于流程的控制。]]></content>
       <categories>
-        <category>随记</category>
+        <category>9-网站架构</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -531,8 +564,8 @@
         <category>Mybatis</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>mybatis</tag>
+        <tag>Java</tag>
         <tag>总结</tag>
       </tags>
   </entry>
@@ -618,8 +651,8 @@
         <category>SpringBoot</category>
       </categories>
       <tags>
-        <tag>AOP</tag>
         <tag>Java</tag>
+        <tag>AOP</tag>
         <tag>spring</tag>
         <tag>IOC</tag>
       </tags>
