@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Nginx的深入理解]]></title>
+    <url>%2F2019%2F07%2F24%2FNginx%E7%9A%84%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用： 解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器 正向代理和反向代理两张图一目了然： Nginx的基本配置123456789101112131415161718192021events &#123; &#125;http &#123; server &#123; location path &#123; ... &#125; location path &#123; ... &#125; &#125; server &#123; ... &#125;&#125; main:nginx的全局配置，对全局生效。 events:配置影响nginx服务器或与用户的网络连接。 http：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。 server：配置虚拟主机的相关参数，一个http中可以有多个server。 location：配置请求的路由，以及各种页面的处理情况。 upstream：配置后端服务器具体地址，负载均衡配置不可或缺的部分。 解决跨域1234567server &#123; listen 80; server_name fe.server.com; location / &#123; proxy_pass dev.server.com; &#125;&#125; 负载均衡upstream指定后端服务器地址列表12345upstream balanceServer &#123; server 10.1.22.33:12345; server 10.1.22.34:12345; server 10.1.22.35:12345;&#125; 在server中拦截响应请求，并将请求转发到Upstream中配置的服务器列表1234567server &#123; server_name fe.server.com; listen 80; location /api &#123; proxy_pass http://balanceServer; &#125;&#125; nginx实现负载均衡的策略: 轮询策略：默认情况下采用的策略，将所有客户端请求轮询分配给服务端 最小连接数策略：将请求优先分配给压力较小的服务器，它可以平衡每个队列的长度，并避免向压力大的服务器添加更多的请求 最快响应时间策略：依赖于NGINX Plus，优先分配给响应时间最短的服务器 客户端ip绑定：来自同一个ip的请求永远只分配一台服务器，有效解决了动态网页存在的session共享问题]]></content>
+      <categories>
+        <category>9-网站架构</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java8新特性总结]]></title>
     <url>%2F2019%2F07%2F23%2FJava8%E6%96%B0%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[Lambda表达式函数式接口(Functional Interface)就是一个有且仅有一个抽象方法，但是可以有多个非抽象方法的接口。可以使用@FunctionalInterface注解，声明一个接口是函数式接口。如果一个接口满足函数式接口的定义，会默认转换成函数式接口。函数式接口可以被隐式转换为 lambda 表达式，即Lambda表达式可以用来代替一个匿名类。Lambda表达式即匿名函数，是一段没有函数名的函数体，可以作为参数直接传递给相关的调用者。语法结构：(parameters) -&gt;{ statements; } 可选类型声明：不需要声明参数类型，编译器可以统一识别参数值。 可选的参数圆括号：一个参数无需定义圆括号，但多个参数需要定义圆括号。 可选的大括号：如果主体包含了一个语句，就不需要使用大括号。 可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。 方法引用方法引用是为了进一步简化lambda表达式。使用lambda表达式：Arrays.sort(arr, (a ,b) -&gt; Person.compareByAge(a, b));使用方法引用：Arrays.sort(arr, Person::compareByAge)方法引用一共有以下几种形式： 静态方法引用：ClassName::methodName 实例上的实例方法引用：instanceName::methodName 超类上的实例方法引用：supper::methodName 类的实例方法引用：ClassName:methodName 构造方法引用：Class:new 数组构造方法引用：TypeName[]::new StreamStream是一种新的数据处理方式，结合lambda表达式能够更加简洁高效的处理数据。Stream使用类似Iterator的方式可以将数据进行如筛选、排序以及聚合等多种操作。一般流程：获取数据源–&gt;转换成Stream–&gt;执行操作，返回一个新的Stream–&gt;再以新的Stream继续执行操作–&gt;直至最后操作输出最终结果生成Stream的方式：123456789101112Collection.stream();Collection.parallelStream();Arrays.stream(T array);Stream.of()；generate(Supplier s);iterate(T seed, UnaryOperator f);empty();Random.ints()BitSet.stream()Pattern.splitAsStream(java.lang.CharSequence)JarFile.stream()BufferedReader.lines() 例子：stream.map(str -&gt; str + &quot;hello,&quot;).forEach(System.out::println); 接口的默认方法和静态方法在Java8中接口除了能够包含抽象方法外还能够包含若干个通过default关键字定义的默认方法和静态方法。 Optional解决了空指针异常详情点这里 Date-time API的改进Java 8通过发布新的Date-Time API (JSR 310)来进一步加强对日期与时间的处理。]]></content>
@@ -210,8 +221,8 @@
         <category>1-基础</category>
       </categories>
       <tags>
-        <tag>Java8</tag>
         <tag>Optional</tag>
+        <tag>Java8</tag>
       </tags>
   </entry>
   <entry>
@@ -480,8 +491,8 @@
       </categories>
       <tags>
         <tag>mybatis</tag>
-        <tag>Java</tag>
         <tag>逆向工程</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
