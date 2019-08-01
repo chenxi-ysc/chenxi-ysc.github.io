@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="JDBCJDBC：Java Data Base Connection简单来说JDBC就是为多种关系型数据库提供统一访问的一组接口。 通过JDBC操作数据库的一般步骤： 1.注册驱动    122.建立连接    ```Connection conn =DriverManager.getConnection(url, user, password); 3.创建运行SQL的语句12Statement">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T03:25:01.470Z">
+<meta property="og:updated_time" content="2019-08-01T03:43:39.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JdbcTemplate使用总结">
 <meta name="twitter:description" content="JDBCJDBC：Java Data Base Connection简单来说JDBC就是为多种关系型数据库提供统一访问的一组接口。 通过JDBC操作数据库的一般步骤： 1.注册驱动    122.建立连接    ```Connection conn =DriverManager.getConnection(url, user, password); 3.创建运行SQL的语句12Statement">
@@ -411,7 +411,37 @@
 <li>query方法及queryForXXX方法：用于执行查询相关语句</li>
 <li>call方法：用于执行存储过程、函数相关语句</li>
 </ul>
-<p>query方法如下：<br>|方法|作用|<br>|—|—|<br>|query(sql,new BeanPropertyRowMapper(),参数 )    |查询多个对象，返回的是一个List对象，List对象存储是实体类|<br>|queryForList(sql,参数)    |查询多个对象，返回一个List对象，List对象存储是Map对象|<br>|queryForObject(sql,数据类型.class)    |查询单个对象|<br>|queryForObject(sql,new BeanPropertyRowMapper(实体类.class),参数)    |查询单个对象,返回单个实体类对象|<br>|queryForMap(sql,参数)    |查询单个对象，返回一个Map对象|</p>
+<p>query方法如下：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query(sql,new BeanPropertyRowMapper(实体类.class),参数 )</td>
+<td>查询多个对象，返回的是一个List对象，List对象存储是实体类</td>
+</tr>
+<tr>
+<td>queryForList(sql,参数)</td>
+<td>查询多个对象，返回一个List对象，List对象存储是Map对象</td>
+</tr>
+<tr>
+<td>queryForObject(sql,数据类型.class)</td>
+<td>查询单个对象</td>
+</tr>
+<tr>
+<td>queryForObject(sql,new BeanPropertyRowMapper(实体类.class),参数)</td>
+<td>查询单个对象,返回单个实体类对象</td>
+</tr>
+<tr>
+<td>queryForMap(sql,参数)</td>
+<td>查询单个对象，返回一个Map对象</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
