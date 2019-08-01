@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JdbcTemplate使用总结]]></title>
+    <url>%2F2019%2F08%2F01%2FjdbcTemplate%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[JDBCJDBC：Java Data Base Connection简单来说JDBC就是为多种关系型数据库提供统一访问的一组接口。 通过JDBC操作数据库的一般步骤： 1.注册驱动 122.建立连接 ```Connection conn =DriverManager.getConnection(url, user, password); 3.创建运行SQL的语句12Statement st = connection.createStatement();PreparedStatement ps=connection.prepareStatement("update user set id=? where username=?"); 4.运行语句1234executeQuery(Stringsql)//该方法用于运行实现查询功能的sql语句。返回类型为ResultSet（结果集）。如：ResultSet rs =st.executeQuery(sql);executeUpdate(Stringsql)//该方法用于运行实现增、删、改功能的sql语句，返回类型为int，即受影响的行数。如：int flag = st.executeUpdate(sql); 5.处理运行结果123while (rs.next())&#123; ...&#125; 6.释放资源123conn.close();ps.close();rs.close(); JdbcTemplateJDBCTemplate就是一个模板，通过设置JDBCTemplate可以减少对数据库的繁琐操作,例如连接数据库,获得链接关闭,获得statement,resultset,preparedstatement这些等等。 JdbcTemplate主要提供下列方法： execute方法：可以用于执行任何SQL语句，一般用于执行DDL语句 update方法及batchUpdate方法：update方法用于执行新增、修改、删除等语句；batchUpdate方法用于执行批处理相关语句 query方法及queryForXXX方法：用于执行查询相关语句 call方法：用于执行存储过程、函数相关语句 query方法如下：|方法|作用||—|—||query(sql,new BeanPropertyRowMapper(),参数 ) |查询多个对象，返回的是一个List对象，List对象存储是实体类||queryForList(sql,参数) |查询多个对象，返回一个List对象，List对象存储是Map对象||queryForObject(sql,数据类型.class) |查询单个对象||queryForObject(sql,new BeanPropertyRowMapper(实体类.class),参数) |查询单个对象,返回单个实体类对象||queryForMap(sql,参数) |查询单个对象，返回一个Map对象|]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>jdbc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Nginx的深入理解]]></title>
     <url>%2F2019%2F07%2F24%2FNginx%E7%9A%84%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用： 解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器 正向代理和反向代理两张图一目了然： Nginx的基本配置123456789101112131415161718192021events &#123; &#125;http &#123; server &#123; location path &#123; ... &#125; location path &#123; ... &#125; &#125; server &#123; ... &#125;&#125; main:nginx的全局配置，对全局生效。 events:配置影响nginx服务器或与用户的网络连接。 http：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。 server：配置虚拟主机的相关参数，一个http中可以有多个server。 location：配置请求的路由，以及各种页面的处理情况。 upstream：配置后端服务器具体地址，负载均衡配置不可或缺的部分。 解决跨域1234567server &#123; listen 80; server_name fe.server.com; location / &#123; proxy_pass dev.server.com; &#125;&#125; 负载均衡upstream指定后端服务器地址列表12345upstream balanceServer &#123; server 10.1.22.33:12345; server 10.1.22.34:12345; server 10.1.22.35:12345;&#125; 在server中拦截响应请求，并将请求转发到Upstream中配置的服务器列表1234567server &#123; server_name fe.server.com; listen 80; location /api &#123; proxy_pass http://balanceServer; &#125;&#125; nginx实现负载均衡的策略: 轮询策略：默认情况下采用的策略，将所有客户端请求轮询分配给服务端 最小连接数策略：将请求优先分配给压力较小的服务器，它可以平衡每个队列的长度，并避免向压力大的服务器添加更多的请求 最快响应时间策略：依赖于NGINX Plus，优先分配给响应时间最短的服务器 客户端ip绑定：来自同一个ip的请求永远只分配一台服务器，有效解决了动态网页存在的session共享问题]]></content>
@@ -491,8 +502,8 @@
       </categories>
       <tags>
         <tag>mybatis</tag>
-        <tag>逆向工程</tag>
         <tag>Java</tag>
+        <tag>逆向工程</tag>
       </tags>
   </entry>
   <entry>
