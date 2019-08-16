@@ -82,7 +82,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-13T08:23:24.376Z">
+<meta property="og:updated_time" content="2019-08-16T09:48:47.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题总结">
 <meta name="twitter:description" content="一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足e">
@@ -223,6 +223,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            projects
           </a>
         </li>
       
@@ -388,6 +398,10 @@
 <li>最后，因为rownum不可使用 &gt;(=) 来判断的原因，所以需要最外围的第三层嵌套。</li>
 </ol>
 <p>MySQL:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> * <span class="keyword">from</span> TABLE_NAME <span class="keyword">limit</span> startrow,pagesize</span><br></pre></td></tr></table></figure></p>
+<h4 id="TCP-为什么是三次握手"><a href="#TCP-为什么是三次握手" class="headerlink" title="TCP 为什么是三次握手"></a>TCP 为什么是三次握手</h4><ul>
+<li>为了实现可靠数据传输， TCP 协议的通信双方， 都必须维护一个序列号， 以标识发送出去的数据包中， 哪些是已经被对方收到的。 三次握手的过程即是通信双方相互告知序列号起始值， 并确认对方已经收到了序列号起始值的必经步骤</li>
+<li>如果只是两次握手， 至多只有连接发起方的起始序列号能被确认， 另一方选择的序列号则得不到确认</li>
+</ul>
 
       
     </div>
@@ -623,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java源文件中是否可以包含多个类？"><span class="nav-number">1.</span> <span class="nav-text">一个.java源文件中是否可以包含多个类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String为什么是final的？"><span class="nav-number">2.</span> <span class="nav-text">String为什么是final的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么重写equals必须重写hashcode"><span class="nav-number">3.</span> <span class="nav-text">为什么重写equals必须重写hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是finalize"><span class="nav-number">4.</span> <span class="nav-text">什么是finalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception和Error有什么区别"><span class="nav-number">5.</span> <span class="nav-text">Exception和Error有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁机制有什么作用"><span class="nav-number">6.</span> <span class="nav-text">锁机制有什么作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql的分页查询"><span class="nav-number">7.</span> <span class="nav-text">sql的分页查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java源文件中是否可以包含多个类？"><span class="nav-number">1.</span> <span class="nav-text">一个.java源文件中是否可以包含多个类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String为什么是final的？"><span class="nav-number">2.</span> <span class="nav-text">String为什么是final的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么重写equals必须重写hashcode"><span class="nav-number">3.</span> <span class="nav-text">为什么重写equals必须重写hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是finalize"><span class="nav-number">4.</span> <span class="nav-text">什么是finalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception和Error有什么区别"><span class="nav-number">5.</span> <span class="nav-text">Exception和Error有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁机制有什么作用"><span class="nav-number">6.</span> <span class="nav-text">锁机制有什么作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql的分页查询"><span class="nav-number">7.</span> <span class="nav-text">sql的分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-为什么是三次握手"><span class="nav-number">8.</span> <span class="nav-text">TCP 为什么是三次握手</span></a></li></ol></div>
             
 
           </div>

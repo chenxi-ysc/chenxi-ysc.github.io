@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[面试题总结]]></title>
     <url>%2F2019%2F08%2F08%2F%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足equals与hashcode之间的规定： 如果两个对象相同（即用equals比较返回true），那么它们的hashCode值一定要相同 如果两个对象的hashCode相同，它们并不一定相同 什么是finalizefinalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法 Exception和Error有什么区别Error是java程序无法处理的错误Exception是java程序可以处理的异常 锁机制有什么作用有些业务逻辑在执行过程中要求对数据进行排他性的访问，于是需要通过一些机制保证在此过程中数据被锁住不会被外界修改，这就是所谓的锁机制。 sql的分页查询Oracle：12345SELECT *FROM (SELECT A.*, ROWNUM RNFROM (SELECT * FROM TABLE_NAME) AWHERE ROWNUM &lt;= 40)WHERE RN &gt; 20 这里之所以需要三层嵌套，是因为： 首先，在没有order by clause的情况下，oracle的查询结果的顺序会是不确定的。 其次，在order by 和 ROWNUM同时使用时，oracle默认的策略是先为伪列rownum赋值，再order by。所以，第二层嵌套的目的就是：让结果先order by，再取rownum!。 最后，因为rownum不可使用 &gt;(=) 来判断的原因，所以需要最外围的第三层嵌套。 MySQL:1Select * from TABLE_NAME limit startrow,pagesize]]></content>
+    <content type="text"><![CDATA[一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足equals与hashcode之间的规定： 如果两个对象相同（即用equals比较返回true），那么它们的hashCode值一定要相同 如果两个对象的hashCode相同，它们并不一定相同 什么是finalizefinalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法 Exception和Error有什么区别Error是java程序无法处理的错误Exception是java程序可以处理的异常 锁机制有什么作用有些业务逻辑在执行过程中要求对数据进行排他性的访问，于是需要通过一些机制保证在此过程中数据被锁住不会被外界修改，这就是所谓的锁机制。 sql的分页查询Oracle：12345SELECT *FROM (SELECT A.*, ROWNUM RNFROM (SELECT * FROM TABLE_NAME) AWHERE ROWNUM &lt;= 40)WHERE RN &gt; 20 这里之所以需要三层嵌套，是因为： 首先，在没有order by clause的情况下，oracle的查询结果的顺序会是不确定的。 其次，在order by 和 ROWNUM同时使用时，oracle默认的策略是先为伪列rownum赋值，再order by。所以，第二层嵌套的目的就是：让结果先order by，再取rownum!。 最后，因为rownum不可使用 &gt;(=) 来判断的原因，所以需要最外围的第三层嵌套。 MySQL:1Select * from TABLE_NAME limit startrow,pagesize TCP 为什么是三次握手 为了实现可靠数据传输， TCP 协议的通信双方， 都必须维护一个序列号， 以标识发送出去的数据包中， 哪些是已经被对方收到的。 三次握手的过程即是通信双方相互告知序列号起始值， 并确认对方已经收到了序列号起始值的必经步骤 如果只是两次握手， 至多只有连接发起方的起始序列号能被确认， 另一方选择的序列号则得不到确认]]></content>
   </entry>
   <entry>
     <title><![CDATA[JdbcTemplate使用总结]]></title>
@@ -248,8 +248,8 @@
         <category>1-基础</category>
       </categories>
       <tags>
-        <tag>Optional</tag>
         <tag>Java8</tag>
+        <tag>Optional</tag>
       </tags>
   </entry>
   <entry>
@@ -518,8 +518,8 @@
       </categories>
       <tags>
         <tag>mybatis</tag>
-        <tag>逆向工程</tag>
         <tag>Java</tag>
+        <tag>逆向工程</tag>
       </tags>
   </entry>
   <entry>
