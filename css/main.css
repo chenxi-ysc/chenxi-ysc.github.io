@@ -1924,7 +1924,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #16fcff;
+  background: #ba39ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3272,8 +3272,13 @@ a {
 .posts-expand .post-tags a:hover {
   background: #eee;
 }
+.category-all-page .category-list {
+  padding: 20px 200px;
+  text-align: center;
+}
 .category-list-item {
   list-style: none !important;
+  display: inline-block;
   text-align: center;
 }
 a.category-list-link {
