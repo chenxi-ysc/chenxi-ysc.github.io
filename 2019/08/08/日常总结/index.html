@@ -82,7 +82,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-26T03:38:19.446Z">
+<meta property="og:updated_time" content="2019-08-29T02:26:52.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常总结">
 <meta name="twitter:description" content="一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足e">
@@ -403,6 +403,13 @@
 <li>如果只是两次握手， 至多只有连接发起方的起始序列号能被确认， 另一方选择的序列号则得不到确认</li>
 </ul>
 <h4 id="python单引号和双引号的区别"><a href="#python单引号和双引号的区别" class="headerlink" title="python单引号和双引号的区别"></a>python单引号和双引号的区别</h4><p>当你用单引号’ ‘定义字符串的时候，它就会认为你字符串里面的双引号” “是普通字符，从而不需要转义。反之当你用双引号定义字符串的时候，就会认为你字符串里面的单引号是普通字符无需转义。</p>
+<h4 id="什么是java可变参数"><a href="#什么是java可变参数" class="headerlink" title="什么是java可变参数"></a>什么是java可变参数</h4><p>可变参数本质就是动态创建的数组，可以匹配0个形参，也可以匹配多个形参。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(Object... args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>可变参数本质就是一个数组，args就是一个数组的引用地址</li>
+<li>一个方法可以有可变参数和普通参数，但是可变参数必须放到参数列表末尾</li>
+<li>一个方法有且只能有一个可变参数</li>
+</ul>
 
       
     </div>
@@ -554,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -576,7 +583,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -638,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java源文件中是否可以包含多个类？"><span class="nav-number">1.</span> <span class="nav-text">一个.java源文件中是否可以包含多个类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String为什么是final的？"><span class="nav-number">2.</span> <span class="nav-text">String为什么是final的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么重写equals必须重写hashcode"><span class="nav-number">3.</span> <span class="nav-text">为什么重写equals必须重写hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是finalize"><span class="nav-number">4.</span> <span class="nav-text">什么是finalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception和Error有什么区别"><span class="nav-number">5.</span> <span class="nav-text">Exception和Error有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁机制有什么作用"><span class="nav-number">6.</span> <span class="nav-text">锁机制有什么作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql的分页查询"><span class="nav-number">7.</span> <span class="nav-text">sql的分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-为什么是三次握手"><span class="nav-number">8.</span> <span class="nav-text">TCP 为什么是三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python单引号和双引号的区别"><span class="nav-number">9.</span> <span class="nav-text">python单引号和双引号的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java源文件中是否可以包含多个类？"><span class="nav-number">1.</span> <span class="nav-text">一个.java源文件中是否可以包含多个类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String为什么是final的？"><span class="nav-number">2.</span> <span class="nav-text">String为什么是final的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么重写equals必须重写hashcode"><span class="nav-number">3.</span> <span class="nav-text">为什么重写equals必须重写hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是finalize"><span class="nav-number">4.</span> <span class="nav-text">什么是finalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception和Error有什么区别"><span class="nav-number">5.</span> <span class="nav-text">Exception和Error有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁机制有什么作用"><span class="nav-number">6.</span> <span class="nav-text">锁机制有什么作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql的分页查询"><span class="nav-number">7.</span> <span class="nav-text">sql的分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-为什么是三次握手"><span class="nav-number">8.</span> <span class="nav-text">TCP 为什么是三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python单引号和双引号的区别"><span class="nav-number">9.</span> <span class="nav-text">python单引号和双引号的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是java可变参数"><span class="nav-number">10.</span> <span class="nav-text">什么是java可变参数</span></a></li></ol></div>
             
 
           </div>
