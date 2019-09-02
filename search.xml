@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AOP的深入理解及应用]]></title>
+    <url>%2F2019%2F09%2F02%2FAOP%E7%9A%84%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[概述 AOP（Aspect-OrientedProgramming，面向切面编程），可以说是OOP（Object-Oriented Programing，面向对象编程）的补充和完善。 AOP利用一种称为“横切”的技术，剖解开封装的对象内部，并将那些影响了多个类的公共行为封装到一个可重用模块，并将其名为“Aspect”，即切面。 所谓“切面”，就是将那些与业务无关，却为业务模块所共同调用的逻辑或责任封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可操作性和可维护性。 AOP专门用于处理一些具有横切性质的服务。常常用于日志输出、安全控制等。 AOP是横向结构，OOP是纵向结构。 AOP的相关术语 切面（Aspect）：一个关注点的模块化，这个关注点的实现可能另外横切多个对象。 连接点（Joinpoint）: 程序执行过程中明确的点，如方法的调用或特定的异常被抛出。 通知（Advice）: 在特定的连接点，AOP框架执行的动作。Spring中定义了四个advice: BeforeAdvice, AfterAdvice, ThrowAdvice和DynamicIntroductionAdvice 切入点（Pointcut）: 指定一个通知将被引发的一系列连接点的集合。 引入（Introduction）: 添加方法或字段到被通知的类。 目标对象（Target Object）: 包含连接点的对象。也被称作被通知或被代理对象。POJO AOP代理（AOP Proxy）: AOP框架创建的对象，包含通知。 在Spring中，AOP代理可以是JDK动态代理或者CGLIB代理。 织入（Weaving）: 组装切面来创建一个被通知对象。这可以在编译时完成（例如使用AspectJ编译器），也可以在运行时完成。Spring和其他纯Java AOP框架一样，在运行时完成织入。 AOP的实现技术这里的AOP指的是面向切面编程思想，主要的的实现技术主要有Spring AOP和AspectJ。 AspectJ AspectJ的底层技术是静态代理，即用一种AspectJ支持的特定语言编写切面，通过一个命令来编译，生成一个新的代理类，该代理类增强了业务类，这是在编译时增强，相对于下面说的运行时增强，编译时增强的性能更好。 Spring AOP Spring AOP底层采用的是动态代理，在运行期间对业务方法进行增强，所以不会生成新类，对于动态代理技术，Spring AOP提供了对JDK动态代理的支持以及CGLib的支持。 JDK动态代理只能为接口创建动态代理实例，而不能对类创建动态代理。需要获得被目标类的接口信息（应用Java的反射技术），生成一个实现了代理接口的动态代理类（字节码），再通过反射机制获得动态代理类的构造函数，利用构造函数生成动态代理类的实例对象，在调用具体方法前调用invokeHandler方法来处理。 CGLib动态代理需要依赖asm包，把被代理对象类的class文件加载进来，修改其字节码生成子类。 但是Spring AOP基于注解配置的情况下，需要依赖于AspectJ包的标准注解，但是不需要额外的编译以及AspectJ的织入器，而基于XML配置不需要。 AOP的使用场景 日志记录 安全控制 事务处理 权限控制 异常处理 缓存：缓存某方法的返回值，下次执行该方法时，直接从缓存里获取。 软件破解 热修复]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>AOP</tag>
+        <tag>代理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS模块化编程]]></title>
     <url>%2F2019%2F08%2F30%2FJS%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[第一阶段：无模块化简单的将所有的js文件统统放在一起123&lt;script src="jquery.js"&gt;&lt;/script&gt;&lt;script src="jquery_scroller.js"&gt;&lt;/script&gt;&lt;script src="main.js"&gt;&lt;/script&gt; 优点： 相比于使用一个js文件，这种多个js文件实现最简单的模块化的思想是进步的。 缺点： 污染全局作用域。 依赖关系不明显，不利于维护。 第二阶段：CommonJS规范CommonJS就是一个JavaScript模块化的规范，该规范最初是用在服务器端的node的，前端的webpack也是对CommonJS原生支持的。 根据这个规范，每一个文件就是一个模块，其内部定义的变量是属于这个模块的，不会对外暴露，也就是说不会污染全局变量。 CommonJS的核心思想就是通过 require 方法来同步加载所要依赖的其他模块，然后通过 exports 或者 module.exports 来导出需要暴露的接口。 优点：CommonJS规范在服务器端率先完成了JavaScript的模块化，解决了依赖、全局变量污染的问题，这也是js运行在服务器端的必要条件。缺点：由于 CommonJS 是同步加载模块的，在服务器端，文件都是保存在硬盘上，所以同步加载没有问题，但是对于浏览器端，需要将文件从服务器端请求过来，那么同步加载就不适用了，所以，CommonJS是不适用于浏览器端的。 第三阶段：AMD规范AMD规范则是非同步加载模块，允许指定回调函数。 优点：适合在浏览器环境中异步加载模块。可以并行加载多个模块。缺点：提高了开发成本，并且不能按需加载，而是必须提前加载所有的依赖。 第四阶段：CMD规范CMD规范是阿里的玉伯提出来的，实现js库为sea.js。 它和requirejs非常类似，即一个js文件就是一个模块，但是CMD的加载方式更加优秀，是通过按需加载的方式，而不是必须在模块开始就加载所有的依赖。 优点：同样实现了浏览器端的模块化加载。可以按需加载，依赖就近。缺点：依赖SPM打包，模块的加载逻辑偏重。 第五阶段：ES6模块化之前的几种模块化方案都是前端社区自己实现的，只是得到了大家的认可和广泛使用，而ES6的模块化方案是真正的规范。 在ES6中，我们可以使用 import 关键字引入模块，通过 export 关键字导出模块。123456789101112131415161718192021//export的两种写法//1.export var m = 1;export function f() &#123;&#125;;//2.var m = 1;export &#123;m&#125;;function f() &#123;&#125;export &#123;f&#125;;//import的写法//import命令接受一对大括号，里面指定要从其他模块导入的变量名，必须与被导入模块（profile.js）对外接口的名称相同import &#123;firstName, lastName, year&#125; from './profile';//export default的用法：//export default意指默认接口，所以import的时候只要任意用一个名字来接收即可。//export default只能用一次。//export default不需要用&#123;&#125;包裹，同时接收时也不需要。//export default可以跟在非匿名函数之前，也可以跟在匿名函数之前，同时也可以是一个匿名对象之前。export default &#123; a: 'hello', b: 'world' &#125;]]></content>
