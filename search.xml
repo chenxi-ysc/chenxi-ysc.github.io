@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hibernate总结]]></title>
+    <url>%2F2019%2F09%2F03%2Fhibernate%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[概述Hibernate是一种ORM框架，全称为 Object_Relative DateBase-Mapping，在Java对象与关系数据库之间建立某种映射，以实现直接存取Java对象。 使用1.引入pom123456&lt;!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core --&gt;&lt;dependency&gt; &lt;groupId&gt;org.hibernate&lt;/groupId&gt; &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt; &lt;version&gt;5.4.4.Final&lt;/version&gt;&lt;/dependency&gt; 2.编写Hibernate核心的配置文件hibernate.cfg.xml12345678910111213141516&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;&lt;hibernate-configuration&gt; &lt;session-factory&gt; &lt;property name="hibernate.connection.driver_class"&gt;com.mysql.jdbc.Driver&lt;/property&gt; &lt;property name="hibernate.connection.url"&gt;jdbc:mysql:///hibernate_day01&lt;/property&gt; &lt;property name="hibernate.connection.username"&gt;root&lt;/property&gt; &lt;property name="hibernate.connection.password"&gt;root&lt;/property&gt; &lt;property name="hibernate.dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt; &lt;mapping resource="com/itheima/domain/Customer.hbm.xml"/&gt; &lt;/session-factory&gt;&lt;/hibernate-configuration&gt; 3.创建实体类User.java123456public class User &#123; private Integer uid; private String username; private String password;// 省略 get set 方法&#125; 4.创建映射配置文件：实体类名.hbm.xml1234567891011121314151617&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;&lt;hibernate-mapping&gt; &lt;class name="com.ittianyu.a_hello.User" table="t_user"&gt; &lt;!-- 主键 --&gt; &lt;id name="uid"&gt; &lt;generator class="native"&gt;&lt;/generator&gt; &lt;/id&gt; &lt;!-- 普通属性 --&gt; &lt;property name="username"&gt;&lt;/property&gt; &lt;property name="password"&gt;&lt;/property&gt; &lt;/class&gt;&lt;/hibernate-mapping&gt; 4.这一步也可以使用注解的方式配置123456789101112// name 对应表名称@Entity@Table(name = "t_user")public class User &#123; // 主键 @Id @GeneratedValue private Integer uid; private String username; private String password;// 省略 get set 方法&#125; 5.在核心配置文件中加入映射配置文件的位置&lt;mapping resource=&quot;top/ysccx/hibernate/helloworld/User.hbm.xml&quot;/&gt;6.测试123456789101112131415161718192021public class HelloWorld &#123; @Test public void hello() &#123; // username, password User user = new User("ysc", "123"); // 1.加载配置文件 Configuration configure = new Configuration().configure(); // 2.获得session factory对象 SessionFactory sessionFactory = configure.buildSessionFactory(); // 3.创建session Session session = sessionFactory.openSession(); // 4.开启事务 Transaction transaction = session.beginTransaction(); // 5.保存并提交事务 session.save(user); transaction.commit(); // 6.释放资源 session.close(); sessionFactory.close(); &#125;&#125;]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>hibernate</tag>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mybatis与Hibernate的区别]]></title>
+    <url>%2F2019%2F09%2F03%2Fmybatis%E4%B8%8Ehibernate%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[六词总结 mybatis：小巧、方便、高效、简单、直接、半自动 hibernate：强大、方便、高效、复杂、绕弯子、全自动 主要区别 hibernate是全自动，而mybatis是半自动：hibernate完全可以通过对象关系模型实现对数据库的操作，拥有完整的JavaBean对象与数据库的映射结构来自动生成sql。而mybatis仅有基本的字段映射，对象数据以及对象实际关系仍然需要通过手写sql来实现和管理。 hibernate数据库移植性远大于mybatis：hibernate通过它强大的映射结构和hql语言，大大降低了对象与数据库（oracle、mysql等）的耦合性，而mybatis由于需要手写sql，因此与数据库的耦合性直接取决于程序员写sql的方法，如果sql不具通用性而用了很多某数据库特性的sql语句的话，移植性也会随之降低很多，成本很高。 hibernate拥有完整的日志系统，mybatis则欠缺一些：hibernate日志系统非常健全，涉及广泛，包括：sql记录、关系异常、优化警告、缓存提示、脏数据警告等；而mybatis则除了基本记录功能外，功能薄弱很多。 mybatis相比hibernate需要关心很多细节。 sql直接优化上，mybatis要比hibernate方便很多。 详细区别mybatis： 入门简单，即学即用，提供了数据库查询的自动对象绑定功能，而且延续了很好的SQL使用经验，对于没有那么高的对象模型要求的项目来说，相当完美。 可以进行更为细致的SQL优化，可以减少查询字段。 缺点就是框架还是比较简陋，功能尚有缺失，虽然简化了数据绑定代码，但是整个底层数据库查询实际还是要自己写的，工作量也比较大，而且不太容易适应快速数据库修改。 二级缓存机制不佳。 hibernate： 功能强大，数据库无关性好，O/R映射能力强，如果你对Hibernate相当精通，而且对Hibernate进行了适当的封装，那么你的项目整个持久层代码会相当简单，需要写的代码很少，开发速度很快，非常爽。 有更好的二级缓存机制，可以使用第三方缓存。 缺点就是学习门槛不低，要精通门槛更高，而且怎么设计O/R映射，在性能和对象模型之间如何权衡取得平衡，以及怎样用好Hibernate方面需要你的经验和能力都很强才行。 形象比喻 mybatis：机械工具，使用方便，拿来就用，但工作还是要自己来作，不过工具是活的，怎么使由我决定。 hibernate：智能机器人，但研发它（学习、熟练度）的成本很高，工作都可以摆脱他了，但仅限于它能做的事。]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>Mybatis</tag>
+        <tag>Hibernate</tag>
+        <tag>区别</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[AOP的深入理解及应用]]></title>
     <url>%2F2019%2F09%2F02%2FAOP%E7%9A%84%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8%2F</url>
     <content type="text"><![CDATA[概述 AOP（Aspect-OrientedProgramming，面向切面编程），可以说是OOP（Object-Oriented Programing，面向对象编程）的补充和完善。 AOP利用一种称为“横切”的技术，剖解开封装的对象内部，并将那些影响了多个类的公共行为封装到一个可重用模块，并将其名为“Aspect”，即切面。 所谓“切面”，就是将那些与业务无关，却为业务模块所共同调用的逻辑或责任封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可操作性和可维护性。 AOP专门用于处理一些具有横切性质的服务。常常用于日志输出、安全控制等。 AOP是横向结构，OOP是纵向结构。 AOP的相关术语 切面（Aspect）：一个关注点的模块化，这个关注点的实现可能另外横切多个对象。 连接点（Joinpoint）: 程序执行过程中明确的点，如方法的调用或特定的异常被抛出。 通知（Advice）: 在特定的连接点，AOP框架执行的动作。Spring中定义了四个advice: BeforeAdvice, AfterAdvice, ThrowAdvice和DynamicIntroductionAdvice 切入点（Pointcut）: 指定一个通知将被引发的一系列连接点的集合。 引入（Introduction）: 添加方法或字段到被通知的类。 目标对象（Target Object）: 包含连接点的对象。也被称作被通知或被代理对象。POJO AOP代理（AOP Proxy）: AOP框架创建的对象，包含通知。 在Spring中，AOP代理可以是JDK动态代理或者CGLIB代理。 织入（Weaving）: 组装切面来创建一个被通知对象。这可以在编译时完成（例如使用AspectJ编译器），也可以在运行时完成。Spring和其他纯Java AOP框架一样，在运行时完成织入。 AOP的实现技术这里的AOP指的是面向切面编程思想，主要的的实现技术主要有Spring AOP和AspectJ。 AspectJ AspectJ的底层技术是静态代理，即用一种AspectJ支持的特定语言编写切面，通过一个命令来编译，生成一个新的代理类，该代理类增强了业务类，这是在编译时增强，相对于下面说的运行时增强，编译时增强的性能更好。 Spring AOP Spring AOP底层采用的是动态代理，在运行期间对业务方法进行增强，所以不会生成新类，对于动态代理技术，Spring AOP提供了对JDK动态代理的支持以及CGLib的支持。 JDK动态代理只能为接口创建动态代理实例，而不能对类创建动态代理。需要获得被目标类的接口信息（应用Java的反射技术），生成一个实现了代理接口的动态代理类（字节码），再通过反射机制获得动态代理类的构造函数，利用构造函数生成动态代理类的实例对象，在调用具体方法前调用invokeHandler方法来处理。 CGLib动态代理需要依赖asm包，把被代理对象类的class文件加载进来，修改其字节码生成子类。 但是Spring AOP基于注解配置的情况下，需要依赖于AspectJ包的标准注解，但是不需要额外的编译以及AspectJ的织入器，而基于XML配置不需要。 AOP的使用场景 日志记录 安全控制 事务处理 权限控制 异常处理 缓存：缓存某方法的返回值，下次执行该方法时，直接从缓存里获取。 软件破解 热修复]]></content>
