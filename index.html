@@ -300,6 +300,417 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/09/17/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chasen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chasen">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/17/linux/" itemprop="url">Linux基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T14:24:39+08:00">
+                2019-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/1-基础/" itemprop="url" rel="index">
+                    <span itemprop="name">1-基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/17/linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/17/linux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>在Linux操作系统中，所有被操作系统管理的资源，例如网络接口卡、磁盘驱动器、打印机、输入输出设备、普通文件或是目录都被看作是一个文件。也就是说在LINUX系统中有一个重要的概念：一切都是文件。</p>
+<p><strong>最主要的几个组成部分如下：</strong></p>
+<ul>
+<li>inode：索引节点，一个文件占用一个 inode，记录文件的属性，同时记录此文件的内容所在的 block 编号；</li>
+<li>block：记录文件的内容，文件太大时，会占用多个 block。</li>
+<li>superblock：记录文件系统的整体信息，包括 inode 和 block 的总量、使用量、剩余量，以及文件系统的格式与相关信息等；</li>
+<li>block bitmap：记录 block 是否被使用的位图。</li>
+</ul>
+<p><strong>inode 具体包含以下信息：</strong></p>
+<ol>
+<li>权限 (read/write/excute)；</li>
+<li>拥有者与群组 (owner/group)；</li>
+<li>容量；</li>
+<li>建立或状态改变的时间 (ctime)；</li>
+<li>最近读取时间 (atime)；</li>
+<li>最近修改时间 (mtime)；</li>
+<li>定义文件特性的旗标 (flag)，如 SetUID…；</li>
+<li>该文件真正内容的指向 (pointer)。</li>
+</ol>
+<p><strong>inode 具有以下特点：</strong><br>每个 inode 大小均固定为 128 bytes (新的 ext4 与 xfs 可设定到 256 bytes)；<br>每个文件都仅会占用一个 inode。<br>inode 中记录了文件内容所在的 block 编号，但是每个 block 非常小，一个大文件随便都需要几十万的 block。而一个 inode 大小有限，无法直接引用这么多 block 编号。因此引入了间接、双间接、三间接引用。间接引用让 inode 记录的引用 block 块记录引用信息。</p>
+<h3 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h3><p><img src="/images/file.jpg" alt=""></p>
+<h3 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h3><p>用户分为三种：文件拥有者、拥有者所在组以及其它人，对不同的用户有不同的文件权限。<br><strong>文件类型：</strong><br>[ d ]则是目录<br>[ - ]则是文件；<br>[ l ]则表示为链接文档(link file)；<br>[ b ]则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；<br>[ c ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。</p>
+<p>使用 ls 查看一个文件时，会显示一个文件的信息，例如 drwxr-xr-x 3 root root 17 May 6 00:14 .config，对这个信息的解释如下：</p>
+<ul>
+<li>drwxr-xr-x：文件类型以及权限，第 1 位为文件类型字段，后 9 位为文件权限字段</li>
+<li>3：链接数</li>
+<li>root：文件拥有者</li>
+<li>root：所属群组</li>
+<li>17：文件大小</li>
+<li>May 6 00:14：文件最后被修改的时间</li>
+<li>.config：文件名</li>
+</ul>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>每个inode都有一个号码，操作系统用inode号码来识别不同的文件。<br>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据。<br>使用ls -i命令，可以看到文件名对应的inode号码。<br><img src="/images/lj.png" alt=""><br><strong>硬链接</strong><br>一般情况下，文件名和inode号码是”一一对应”关系，每个inode号码对应一个文件名。但是，Unix/Linux系统允许，多个文件名指向同一个inode号码。<br>这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。<br><strong>软连接</strong><br>文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B，然后找到文件B的inode号码。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。<br>这意味着，文件A依赖于文件B而存在，如果删除了文件B，打开文件A就会报错：”No such file or directory”。这是软链接与硬链接最大的不同：文件A指向文件B的文件名，而不是文件B的inode号码，文件B的inode”链接数”不会因此发生变化。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln [-sf] source_filename dist_filename</span><br><span class="line">-s ：默认是实体链接，加 -s 为符号链接</span><br><span class="line">-f ：如果目标文件存在时，先删除目标文件</span><br></pre></td></tr></table></figure></p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><ul>
+<li>/bin： 存放二进制可执行文件(ls、cat、mkdir等)，常用命令一般都在这里；</li>
+<li>/etc： 存放系统管理和配置文件；</li>
+<li>/home： 存放所有用户文件的根目录，是用户主目录的基点，比如用户user的主目录就是/home/user，可以用~user表示；</li>
+<li>/usr ： 用于存放系统应用程序；</li>
+<li>/opt： 额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里；</li>
+<li>/proc： 虚拟文件系统目录，是系统内存的映射。可直接访问这个目录来获取系统信息；</li>
+<li>/root： 超级用户（系统管理员）的主目录（特权阶级^o^）；</li>
+<li>/sbin: 存放二进制可执行文件，只有root才能访问。这里存放的是系统管理员使用的系统级别的管理命令和程序。如ifconfig等；</li>
+<li>/dev： 用于存放设备文件；</li>
+<li>/mnt： 系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其他的文件系统；</li>
+<li>/boot： 存放用于系统引导时使用的各种文件；</li>
+<li>/lib ： 存放着和系统运行相关的库文件 ；</li>
+<li>/tmp： 用于存放各种临时文件，是公用的临时文件存储点；</li>
+<li>/var： 用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比方说各种服务的日志文件（系统启动日志等。）等；</li>
+</ul>
+<h3 id="压缩与打包"><a href="#压缩与打包" class="headerlink" title="压缩与打包"></a>压缩与打包</h3><table>
+<thead>
+<tr>
+<th>扩展名</th>
+<th>压缩程序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*.Z</td>
+<td>compress</td>
+</tr>
+<tr>
+<td>*.zip</td>
+<td>zip</td>
+</tr>
+<tr>
+<td>*.gz</td>
+<td>gzip</td>
+</tr>
+<tr>
+<td>*.bz2</td>
+<td>bzip2</td>
+</tr>
+<tr>
+<td>*.xz</td>
+<td>xz</td>
+</tr>
+<tr>
+<td>*.tar</td>
+<td>tar 程序打包的数据，没有经过压缩</td>
+</tr>
+<tr>
+<td>*.tar.gz</td>
+<td>tar 程序打包的文件，经过 gzip 的压缩</td>
+</tr>
+<tr>
+<td>*.tar.bz2</td>
+<td>tar 程序打包的文件，经过 bzip2 的压缩</td>
+</tr>
+<tr>
+<td>*.tar.xz</td>
+<td>tar 程序打包的文件，经过 xz 的压缩</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/09/17/操作系统基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chasen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chasen">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/17/操作系统基础/" itemprop="url">操作系统基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T14:18:24+08:00">
+                2019-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/1-基础/" itemprop="url" rel="index">
+                    <span itemprop="name">1-基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/17/操作系统基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/17/操作系统基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h2><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><ul>
+<li>并发是指宏观上在一段时间内能同时运行多个程序，而并行则指同一时刻能运行多个指令。</li>
+<li>并行需要硬件支持，如多流水线、多核处理器或者分布式计算系统。</li>
+<li>操作系统通过引入进程和线程，使得程序能够并发运行。</li>
+</ul>
+<h3 id="共享"><a href="#共享" class="headerlink" title="共享"></a>共享</h3><ul>
+<li>共享是指系统中的资源可以被多个并发进程共同使用。</li>
+<li>有两种共享方式：互斥共享和同时共享。</li>
+<li>互斥共享的资源称为临界资源，例如打印机等，在同一时刻只允许一个进程访问，需要用同步机制来实现互斥访问。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/17/操作系统基础/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/09/17/二分查找/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1570,324 +1981,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/08/27/Controller规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chasen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chasen">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/Controller规范/" itemprop="url">Controller规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T23:07:05+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/1-基础/" itemprop="url" rel="index">
-                    <span itemprop="name">1-基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/27/Controller规范/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/27/Controller规范/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
-<li>所有函数返回统一的ResultBean格式</li>
-<li>ResultBean是controller专用的，不允许往后传</li>
-<li>Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map</li>
-<li>参数中一般情况不允许出现Request，Response这些对象</li>
-<li>不需要打印日志</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/27/Controller规范/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysccx.top/2019/08/15/java日志框架/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chasen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chasen">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/15/java日志框架/" itemprop="url">java日志框架</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T14:33:39+08:00">
-                2019-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/1-基础/" itemprop="url" rel="index">
-                    <span itemprop="name">1-基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/15/java日志框架/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/15/java日志框架/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>日志体系如下：<br><img src="/images/logger.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/15/java日志框架/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
   
   <nav class="pagination">
@@ -1942,7 +2035,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1953,7 +2046,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1964,7 +2057,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">122</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

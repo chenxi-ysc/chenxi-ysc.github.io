@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="概述 事务是一系列操作的集和。 事务中的每一个操作要么都执行成功，要么都不执行。 如果有一个操作执行失败，那么事务就会回滚到最开始的状态。 事务用来确保数据的完整性和一致性。  事务的特性事务有四个特征：ACID  原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。 一致性（Consistency）：执行事务前后，数据保持一致，多个，多">
+<meta name="description" content="概述 事务是一系列操作的集和。 事务中的每一个操作要么都执行成功，要么都不执行。 如果有一个操作执行失败，那么事务就会回滚到最开始的状态。 事务用来确保数据的完整性和一致性。  事务的特性事务有四个特征：ACID  原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。 一致性（Consistency）：事务执行前后，数据保持一致，数据库的">
 <meta name="keywords" content="spring,事务管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring事务管理">
 <meta property="og:url" content="http://ysccx.top/2019/04/19/事务管理/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述 事务是一系列操作的集和。 事务中的每一个操作要么都执行成功，要么都不执行。 如果有一个操作执行失败，那么事务就会回滚到最开始的状态。 事务用来确保数据的完整性和一致性。  事务的特性事务有四个特征：ACID  原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。 一致性（Consistency）：执行事务前后，数据保持一致，多个，多">
+<meta property="og:description" content="概述 事务是一系列操作的集和。 事务中的每一个操作要么都执行成功，要么都不执行。 如果有一个操作执行失败，那么事务就会回滚到最开始的状态。 事务用来确保数据的完整性和一致性。  事务的特性事务有四个特征：ACID  原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。 一致性（Consistency）：事务执行前后，数据保持一致，数据库的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T04:01:04.076Z">
+<meta property="og:updated_time" content="2019-09-19T06:39:50.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring事务管理">
-<meta name="twitter:description" content="概述 事务是一系列操作的集和。 事务中的每一个操作要么都执行成功，要么都不执行。 如果有一个操作执行失败，那么事务就会回滚到最开始的状态。 事务用来确保数据的完整性和一致性。  事务的特性事务有四个特征：ACID  原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。 一致性（Consistency）：执行事务前后，数据保持一致，多个，多">
+<meta name="twitter:description" content="概述 事务是一系列操作的集和。 事务中的每一个操作要么都执行成功，要么都不执行。 如果有一个操作执行失败，那么事务就会回滚到最开始的状态。 事务用来确保数据的完整性和一致性。  事务的特性事务有四个特征：ACID  原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。 一致性（Consistency）：事务执行前后，数据保持一致，数据库的">
 
 
 
@@ -414,9 +414,9 @@
 <h1 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h1><p>事务有四个特征：ACID</p>
 <ul>
 <li>原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保操作要么全部执行，要么都不执行。</li>
-<li>一致性（Consistency）：执行事务前后，数据保持一致，多个，多个事务对同一个数据读取的结果是相同的。</li>
+<li>一致性（Consistency）：事务执行前后，数据保持一致，数据库的完整性约束没有被破坏。</li>
 <li>隔离性（Isolation）：并发访问数据库时，一个用户的事务不被其他事务所干扰。</li>
-<li>持久性（Durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，这样就能从任何系统崩溃中恢复过来。通常情况下，事务的结果被写到持久化存储器中。</li>
+<li>持久性（Durability）：一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。</li>
 </ul>
 <a id="more"></a>
 <h1 id="Spring-编程式事务和声明式事务的区别"><a href="#Spring-编程式事务和声明式事务的区别" class="headerlink" title="Spring 编程式事务和声明式事务的区别"></a>Spring 编程式事务和声明式事务的区别</h1><ul>
@@ -432,12 +432,49 @@
 <li>幻读（Phantom read）: 幻读与不可重复读类似。它发生在一个事务（T1）读取了几行数据，接着另一个并发事务（T2）插入了一些数据时。在随后的查询中，第一个事务（T1）就会发现多了一些原本不存在的记录，就好像发生了幻觉一样，所以称为幻读。</li>
 </ul>
 <p>不可重复度和幻读区别：<br>不可重复读的重点是修改，幻读的重点在于新增或者删除。</p>
-<h1 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h1><ul>
+<h1 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h1><table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读未提交</td>
+<td>可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>读已提交</td>
+<td>不可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>可重复读</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>可串行化</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>不可能</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li>READ-UNCOMMITTED(读取未提交)： 最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读</li>
 <li>READ-COMMITTED(读取已提交): 允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生</li>
 <li>REPEATABLE-READ（可重复读）: 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</li>
 <li>SERIALIZABLE(可串行化): 最高的隔离级别，完全服从ACID的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。</li>
 </ul>
+<p>mysql默认的事务处理级别是’REPEATABLE-READ’,也就是可重复读。<br>oracle数据库支持READ COMMITTED 和 SERIALIZABLE这两种事务隔离级别，默认系统事务隔离级别是READ COMMITTED,也就是读已提交。</p>
 <h1 id="事务传播行为"><a href="#事务传播行为" class="headerlink" title="事务传播行为"></a>事务传播行为</h1><p>所谓事务的传播行为是指，当事务方法被另一个事务方法调用时，必须指定事务应该如何传播。此时有若干选项可以指定一个事务性方法的执行行为。</p>
 <ul>
 <li>REQUIRED ：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。</li>
@@ -608,7 +645,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -619,7 +656,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -630,7 +667,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">122</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
