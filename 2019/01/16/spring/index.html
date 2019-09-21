@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述 Spring是一个轻量级java开发框架。它是为了解决企业应用开发的复杂性而创建的。 Spring就相当于一个大容器，可以将所有对象的创建和依赖关系的维护将给Spring来管理，即控制反转IoC。 Spring的作用就是用于生成bean。 Spring的核心是控制反转（IoC）和面向切面（AOP）。  框架">
+<meta name="description" content="概述 Spring是一个轻量级的java企业级应用的开源开发框架。 Spring系列常用的5个框架有，SpringFramework、SpringBoot、SpringData、SpringCloud、SpringSecurity。 Spring的核心是控制反转（IoC）和面向切面（AOP）。 Ioc即控制反转，通过Spring提供的Ioc容器，我们可以将对象之间的依赖关系交由Spring进行控制">
 <meta name="keywords" content="AOP,Java,spring,IOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解spring">
 <meta property="og:url" content="http://ysccx.top/2019/01/16/spring/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述 Spring是一个轻量级java开发框架。它是为了解决企业应用开发的复杂性而创建的。 Spring就相当于一个大容器，可以将所有对象的创建和依赖关系的维护将给Spring来管理，即控制反转IoC。 Spring的作用就是用于生成bean。 Spring的核心是控制反转（IoC）和面向切面（AOP）。  框架">
+<meta property="og:description" content="概述 Spring是一个轻量级的java企业级应用的开源开发框架。 Spring系列常用的5个框架有，SpringFramework、SpringBoot、SpringData、SpringCloud、SpringSecurity。 Spring的核心是控制反转（IoC）和面向切面（AOP）。 Ioc即控制反转，通过Spring提供的Ioc容器，我们可以将对象之间的依赖关系交由Spring进行控制">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/spring.png">
-<meta property="og:updated_time" content="2019-09-17T04:01:37.607Z">
+<meta property="og:updated_time" content="2019-09-21T07:51:28.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解spring">
-<meta name="twitter:description" content="概述 Spring是一个轻量级java开发框架。它是为了解决企业应用开发的复杂性而创建的。 Spring就相当于一个大容器，可以将所有对象的创建和依赖关系的维护将给Spring来管理，即控制反转IoC。 Spring的作用就是用于生成bean。 Spring的核心是控制反转（IoC）和面向切面（AOP）。  框架">
+<meta name="twitter:description" content="概述 Spring是一个轻量级的java企业级应用的开源开发框架。 Spring系列常用的5个框架有，SpringFramework、SpringBoot、SpringData、SpringCloud、SpringSecurity。 Spring的核心是控制反转（IoC）和面向切面（AOP）。 Ioc即控制反转，通过Spring提供的Ioc容器，我们可以将对象之间的依赖关系交由Spring进行控制">
 <meta name="twitter:image" content="http://ysccx.top/images/spring.png">
 
 
@@ -408,13 +408,15 @@
 
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
-<li>Spring是一个轻量级java开发框架。它是为了解决企业应用开发的复杂性而创建的。</li>
-<li>Spring就相当于一个大容器，可以将所有对象的创建和依赖关系的维护将给Spring来管理，即控制反转IoC。</li>
-<li>Spring的作用就是用于生成bean。</li>
+<li>Spring是一个轻量级的java企业级应用的开源开发框架。</li>
+<li>Spring系列常用的5个框架有，SpringFramework、SpringBoot、SpringData、SpringCloud、SpringSecurity。</li>
 <li>Spring的核心是控制反转（IoC）和面向切面（AOP）。</li>
+<li>Ioc即控制反转，通过Spring提供的Ioc容器，我们可以将对象之间的依赖关系交由Spring进行控制，在一定程度上促进了低耦合，简化了开发。</li>
+<li>AOP即面向切面编程，Spring支持AOP，将程序中的独立于其他功能的方法抽取出来，比如事务，日志，利用动态代理的方式，在不修改源代码的情况下，对方法进行功能的增强。</li>
+<li>Spring还支持事务管理以及方便集成其他各种优秀的框架。</li>
 </ul>
 <h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><p><img src="/images/spring.png" alt=""><br><a id="more"></a></p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>传统的方式：通过new关键字主动创建一个对象。<br>IoC方式：对象的生命周期由Spring来管理，直接从Spring那里获取一个对象。</p>
+<h3 id="Ioc原理"><a href="#Ioc原理" class="headerlink" title="Ioc原理"></a>Ioc原理</h3><p>传统的方式：通过new关键字主动创建一个对象。<br>IoC方式：对象的生命周期由Spring来管理，直接从Spring那里获取一个对象。</p>
 <h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><p>两种方式：</p>
 <ul>
 <li>基于xml装配<ul>
@@ -682,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#框架"><span class="nav-number">2.</span> <span class="nav-text">框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖注入"><span class="nav-number">4.</span> <span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于xml装配"><span class="nav-number">4.1.</span> <span class="nav-text">基于xml装配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于构造方法"><span class="nav-number">4.1.1.</span> <span class="nav-text">基于构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于setter方法"><span class="nav-number">4.1.2.</span> <span class="nav-text">基于setter方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于注解装配"><span class="nav-number">4.2.</span> <span class="nav-text">基于注解装配</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向切面AOP"><span class="nav-number">5.</span> <span class="nav-text">面向切面AOP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#框架"><span class="nav-number">2.</span> <span class="nav-text">框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ioc原理"><span class="nav-number">3.</span> <span class="nav-text">Ioc原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖注入"><span class="nav-number">4.</span> <span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于xml装配"><span class="nav-number">4.1.</span> <span class="nav-text">基于xml装配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于构造方法"><span class="nav-number">4.1.1.</span> <span class="nav-text">基于构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于setter方法"><span class="nav-number">4.1.2.</span> <span class="nav-text">基于setter方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于注解装配"><span class="nav-number">4.2.</span> <span class="nav-text">基于注解装配</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向切面AOP"><span class="nav-number">5.</span> <span class="nav-text">面向切面AOP</span></a></li></ol></div>
             
 
           </div>
