@@ -90,7 +90,10 @@
 <meta property="og:image" content="http://ysccx.top/images/set.jpg">
 <meta property="og:image" content="http://ysccx.top/images/map.png">
 <meta property="og:image" content="http://ysccx.top/images/map.jpg">
-<meta property="og:updated_time" content="2019-07-16T09:47:23.719Z">
+<meta property="og:image" content="http://ysccx.top/images/hashtable.png">
+<meta property="og:image" content="http://ysccx.top/images/chashmap7.jpg">
+<meta property="og:image" content="http://ysccx.top/images/chashmap8.jpg">
+<meta property="og:updated_time" content="2019-09-22T07:48:27.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集和框架">
 <meta name="twitter:description" content="概述Java集和框架，包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 Collection">
@@ -412,30 +415,53 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Java集和框架，包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。</p>
-<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p><img src="/images/collection.png" alt=""><br><a id="more"></a><br><strong>1.List</strong><br><img src="/images/list.jpg" alt=""></p>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p><img src="/images/collection.png" alt=""><br><a id="more"></a></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p><img src="/images/list.jpg" alt=""></p>
 <ul>
 <li>ArrayList：基于数组实现，支持随机访问。</li>
 <li>Vector：和 ArrayList 类似，但它是线程安全的。</li>
 <li>LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列。</li>
 </ul>
-<p><strong>2.Set</strong><br><img src="/images/set.jpg" alt=""></p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><img src="/images/set.jpg" alt=""></p>
 <ul>
 <li>HashSet：无序且唯一，基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</li>
 <li>TreeSet：有序且唯一，基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet,HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。</li>
 <li>LinkedHashSet：具有 HashSet 的查找效率，且内部使用双向链表维护元素的插入顺序。</li>
 </ul>
-<p><strong>3.Queue</strong></p>
-<ul>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><ul>
 <li>LinkedList：可以用它来实现双向队列。</li>
 <li>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</li>
 </ul>
-<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><img src="/images/map.png" alt=""><br>Map的常用方法：<br><img src="/images/map.jpg" alt=""></p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><img src="/images/map.png" alt=""></p>
+<h2 id="Map的常用方法"><a href="#Map的常用方法" class="headerlink" title="Map的常用方法"></a>Map的常用方法</h2><p><img src="/images/map.jpg" alt=""></p>
 <ul>
 <li>TreeMap:基于红黑树实现。</li>
 <li>HashMap:基于哈希表实现。</li>
 <li>HashTable:和HashMap类似，但它是线程安全的。</li>
 <li>LinkedHashMap:使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</li>
 </ul>
+<h2 id="HashMap和Hashtable的区别"><a href="#HashMap和Hashtable的区别" class="headerlink" title="HashMap和Hashtable的区别"></a>HashMap和Hashtable的区别</h2><ul>
+<li>线程安全： HashMap 是非线程安全的，HashTable 是线程安全的；HashTable 内部的方法基本都经过synchronized 修饰。<br>效率： 因为线程安全的问题，HashMap 要比 HashTable 效率高一点。另外，HashTable 基本被淘汰，不要在代码中使用它；</li>
+<li>对Null key 和Null value的支持： HashMap 中，null 可以作为键，这样的键只有一个，也可以有一个或多个值为 null。而 Hashtable 不能有null。</li>
+</ul>
+<h2 id="ConcurrentHashMap和Hashtable的区别"><a href="#ConcurrentHashMap和Hashtable的区别" class="headerlink" title="ConcurrentHashMap和Hashtable的区别"></a>ConcurrentHashMap和Hashtable的区别</h2><p>ConcurrentHashMap 和 Hashtable 的区别主要体现在实现线程安全的方式上不同。</p>
+<ul>
+<li>底层数据结构： <ul>
+<li>ConcurrentHashMap 在JDK1.7的时候底层采用分段的数组+链表 实现，JDK1.8 采用的数据结构跟HashMap1.8的结构一样，数组+链表/红黑二叉树。</li>
+<li>Hashtable 采用 数组+链表 的形式，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的。</li>
+</ul>
+</li>
+<li>实现线程安全的方式： <ul>
+<li>ConcurrentHashMap（分段锁） 在JDK1.7的时候，对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。 到了 JDK1.8 的时候已经摒弃了Segment的概念，而是直接用 Node 数组+链表+红黑树的数据结构来实现，并发控制使用 synchronized 和 CAS 来操作。</li>
+<li>Hashtable(全表锁) :使用 synchronized 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态。</li>
+</ul>
+</li>
+</ul>
+<p><strong>两者对比图：</strong><br>HashTable:<br><img src="/images/hashtable.png" alt=""></p>
+<hr>
+<p>JDK1.7的ConcurrentHashMap：<br><img src="/images/chashmap7.jpg" alt=""></p>
+<hr>
+<p>JDK1.8的ConcurrentHashMap：<br><img src="/images/chashmap8.jpg" alt=""></p>
 
       
     </div>
@@ -597,7 +623,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">3.</span> <span class="nav-text">Map</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">2.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">2.2.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">2.3.</span> <span class="nav-text">Queue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">3.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map的常用方法"><span class="nav-number">3.1.</span> <span class="nav-text">Map的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap和Hashtable的区别"><span class="nav-number">3.2.</span> <span class="nav-text">HashMap和Hashtable的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConcurrentHashMap和Hashtable的区别"><span class="nav-number">3.3.</span> <span class="nav-text">ConcurrentHashMap和Hashtable的区别</span></a></li></ol></li></ol></div>
             
 
           </div>
