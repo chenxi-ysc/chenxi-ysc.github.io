@@ -1043,7 +1043,9 @@
       
         
           <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>消息队列中间件是分布式系统中一个重要的组件，主要解决系统解耦，异步处理，流量削峰等问题，实现高性能，高可用可伸缩和最终一致性架构。目前使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ。</p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><strong>1.通过异步处理进行流量削峰</strong><br><img src="/images/mq.jpg" alt=""></p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="系统解耦"><a href="#系统解耦" class="headerlink" title="系统解耦"></a>系统解耦</h3><p><strong>解耦前：</strong><br><img src="/images/mqjo1.png" alt=""><br>A 系统发送数据到 BCD 三个系统，通过接口调用发送。如果 E 系统也要这个数据,如果 D 系统现在不需要这个数据，那么A系统将会有许多耦合的操作。</p>
+<p><strong>解耦后：</strong><br><img src="/images/mqjo2.png" alt=""><br>如果使用 MQ，A 系统产生一条数据，发送到 MQ 里面去，哪个系统需要数据自己去 MQ 里面消费。如果新系统需要数据，直接从 MQ 里消费即可；如果某个系统不需要这条数据了，就取消对 MQ 消息的消费即可。这样下来，A 系统压根儿不需要去考虑要给谁发送数据，不需要维护这个代码，也不需要考虑人家是否调用成功、失败超时等情况。</p>
+<p><strong>通过一个 MQ，Pub/Sub 发布订阅消息这么一个模型，A 系统就跟其它系统彻底解耦了。</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/30/消息队列总结/" rel="contents">
