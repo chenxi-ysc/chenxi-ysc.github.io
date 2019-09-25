@@ -86,8 +86,7 @@
 <meta property="og:description" content="文件系统在Linux操作系统中，所有被操作系统管理的资源，例如网络接口卡、磁盘驱动器、打印机、输入输出设备、普通文件或是目录都被看作是一个文件。也就是说在LINUX系统中有一个重要的概念：一切都是文件。 最主要的几个组成部分如下：  inode：索引节点，一个文件占用一个 inode，记录文件的属性，同时记录此文件的内容所在的 block 编号； block：记录文件的内容，文件太大时，会占用多个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/file.jpg">
-<meta property="og:image" content="http://ysccx.top/images/lj.png">
-<meta property="og:updated_time" content="2019-09-17T07:23:57.438Z">
+<meta property="og:updated_time" content="2019-09-25T02:53:10.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="文件系统在Linux操作系统中，所有被操作系统管理的资源，例如网络接口卡、磁盘驱动器、打印机、输入输出设备、普通文件或是目录都被看作是一个文件。也就是说在LINUX系统中有一个重要的概念：一切都是文件。 最主要的几个组成部分如下：  inode：索引节点，一个文件占用一个 inode，记录文件的属性，同时记录此文件的内容所在的 block 编号； block：记录文件的内容，文件太大时，会占用多个">
@@ -427,6 +426,7 @@
 <li>定义文件特性的旗标 (flag)，如 SetUID…；</li>
 <li>该文件真正内容的指向 (pointer)。</li>
 </ol>
+<a id="more"></a>
 <p><strong>inode 具有以下特点：</strong><br>每个 inode 大小均固定为 128 bytes (新的 ext4 与 xfs 可设定到 256 bytes)；<br>每个文件都仅会占用一个 inode。<br>inode 中记录了文件内容所在的 block 编号，但是每个 block 非常小，一个大文件随便都需要几十万的 block。而一个 inode 大小有限，无法直接引用这么多 block 编号。因此引入了间接、双间接、三间接引用。间接引用让 inode 记录的引用 block 块记录引用信息。</p>
 <h3 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h3><p><img src="/images/file.jpg" alt=""></p>
 <h3 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h3><p>用户分为三种：文件拥有者、拥有者所在组以及其它人，对不同的用户有不同的文件权限。<br><strong>文件类型：</strong><br>[ d ]则是目录<br>[ - ]则是文件；<br>[ l ]则表示为链接文档(link file)；<br>[ b ]则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；<br>[ c ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。</p>
@@ -440,7 +440,7 @@
 <li>May 6 00:14：文件最后被修改的时间</li>
 <li>.config：文件名</li>
 </ul>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>每个inode都有一个号码，操作系统用inode号码来识别不同的文件。<br>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据。<br>使用ls -i命令，可以看到文件名对应的inode号码。<br><img src="/images/lj.png" alt=""><br><strong>硬链接</strong><br>一般情况下，文件名和inode号码是”一一对应”关系，每个inode号码对应一个文件名。但是，Unix/Linux系统允许，多个文件名指向同一个inode号码。<br>这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。<br><strong>软连接</strong><br>文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B，然后找到文件B的inode号码。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。<br>这意味着，文件A依赖于文件B而存在，如果删除了文件B，打开文件A就会报错：”No such file or directory”。这是软链接与硬链接最大的不同：文件A指向文件B的文件名，而不是文件B的inode号码，文件B的inode”链接数”不会因此发生变化。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln [-sf] source_filename dist_filename</span><br><span class="line">-s ：默认是实体链接，加 -s 为符号链接</span><br><span class="line">-f ：如果目标文件存在时，先删除目标文件</span><br></pre></td></tr></table></figure></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>每个inode都有一个号码，操作系统用inode号码来识别不同的文件。<br>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据。<br>使用ls -i命令，可以看到文件名对应的inode号码。<br><strong>硬链接</strong><br>一般情况下，文件名和inode号码是”一一对应”关系，每个inode号码对应一个文件名。但是，Unix/Linux系统允许，多个文件名指向同一个inode号码。<br>这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。<br><strong>软连接</strong><br>文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B，然后找到文件B的inode号码。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。<br>这意味着，文件A依赖于文件B而存在，如果删除了文件B，打开文件A就会报错：”No such file or directory”。这是软链接与硬链接最大的不同：文件A指向文件B的文件名，而不是文件B的inode号码，文件B的inode”链接数”不会因此发生变化。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln [-sf] source_filename dist_filename</span><br><span class="line">-s ：默认是实体链接，加 -s 为符号链接</span><br><span class="line">-f ：如果目标文件存在时，先删除目标文件</span><br></pre></td></tr></table></figure></p>
 <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><ul>
 <li>/bin： 存放二进制可执行文件(ls、cat、mkdir等)，常用命令一般都在这里；</li>
 <li>/etc： 存放系统管理和配置文件；</li>
@@ -788,6 +788,11 @@
 
 
 
+<div class="BbeiAn-info">
+蜀ICP备 -
+<a target="_blank"  href="http://www.beian.miit.gov.cn/">19030561号</a>
+</a>
+</div>
         
 
 
