@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="概述JVM调优主要的目的是减少GC的频率和Full GC的次数。1.Full GC会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数。2.导致Full GC的原因1)年老代（Tenured）被写满调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在">
+<meta name="description" content="概述JVM调优主要的目的是减少GC的频率和Full GC的次数。1.Full GC会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数2.导致Full GC的原因1)年老代（Tenured）被写满调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解java虚拟机之jvm调优">
 <meta property="og:url" content="http://ysccx.top/2019/10/08/深入理解java虚拟机之jvm调优/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述JVM调优主要的目的是减少GC的频率和Full GC的次数。1.Full GC会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数。2.导致Full GC的原因1)年老代（Tenured）被写满调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在">
+<meta property="og:description" content="概述JVM调优主要的目的是减少GC的频率和Full GC的次数。1.Full GC会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数2.导致Full GC的原因1)年老代（Tenured）被写满调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-08T08:45:02.307Z">
+<meta property="og:updated_time" content="2019-10-08T08:50:12.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解java虚拟机之jvm调优">
-<meta name="twitter:description" content="概述JVM调优主要的目的是减少GC的频率和Full GC的次数。1.Full GC会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数。2.导致Full GC的原因1)年老代（Tenured）被写满调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在">
+<meta name="twitter:description" content="概述JVM调优主要的目的是减少GC的频率和Full GC的次数。1.Full GC会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数2.导致Full GC的原因1)年老代（Tenured）被写满调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧">
 
 
 
@@ -405,7 +405,7 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>JVM调优主要的目的是减少GC的频率和Full GC的次数。<br><strong>1.Full GC</strong><br>会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数。<br><strong>2.导致Full GC的原因</strong><br>1)年老代（Tenured）被写满<br>调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象 。<br>2)持久代Pemanet Generation空间不足<br>增大Perm Gen空间，避免太多静态对象 ， 控制好新生代和旧生代的比例<br>3)System.gc()被显示调用<br>垃圾回收不要手动触发，尽量依靠JVM自身的机制</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>JVM调优主要的目的是减少GC的频率和Full GC的次数。<br><strong>1.Full GC</strong><br>会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数<br><strong>2.导致Full GC的原因</strong><br>1)年老代（Tenured）被写满<br>调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象<br>2)持久代Pemanet Generation空间不足<br>增大Perm Gen空间，避免太多静态对象 ， 控制好新生代和旧生代的比例<br>3)System.gc()被显示调用<br>垃圾回收不要手动触发，尽量依靠JVM自身的机制</p>
 <a id="more"></a>
 <h3 id="JVM性能调优方法和步骤"><a href="#JVM性能调优方法和步骤" class="headerlink" title="JVM性能调优方法和步骤"></a>JVM性能调优方法和步骤</h3><p>一般来说有四个步骤：监控GC状态、分析dump文件、分析内存泄漏、调整JVM参数。</p>
 <p><strong>1.监控GC的状态</strong><br>使用各种JVM工具，查看当前日志，分析当前JVM参数设置，并且分析当前堆内存快照和gc日志，根据实际的各区域内存划分和GC执行时间，觉得是否进行优化。<br>举一个例子： 系统崩溃前的一些现象：</p>
@@ -437,12 +437,11 @@
 <li><p>年轻代和年老代设置多大才算合理</p>
 <ol>
 <li>更大的年轻代必然导致更小的年老代，大的年轻代会延长普通GC的周期，但会增加每次GC的时间；小的年老代会导致更频繁的Full GC</li>
-<li><p>更小的年轻代必然导致更大年老代，小的年轻代会导致普通GC很频繁，但每次的GC时间会更短；大的年老代会减少Full GC的频率</p>
-<p>如何选择应该依赖应用程序对象生命周期的分布情况： 如果应用存在大量的临时对象，应该选择更大的年轻代；如果存在相对较多的持久对象，年老代应该适当增大。但很多应用都没有这样明显的特性。</p>
-<p>在抉择时应该根 据以下两点：</p>
-</li>
+<li>更小的年轻代必然导致更大年老代，小的年轻代会导致普通GC很频繁，但每次的GC时间会更短；大的年老代会减少Full GC的频率。如何选择应该依赖应用程序对象生命周期的分布情况： 如果应用存在大量的临时对象，应该选择更大的年轻代；如果存在相对较多的持久对象，年老代应该适当增大。但很多应用都没有这样明显的特性。在抉择时应该根 据以下两点：<ol>
 <li>本着Full GC尽量少的原则，让年老代尽量缓存常用对象，JVM的默认比例1：2也是这个道理 。</li>
 <li>通过观察应用一段时间，看其他在峰值时年老代会占多少内存，在不影响Full GC的前提下，根据实际情况加大年轻代，比如可以把比例控制在1：1。但应该给年老代至少预留1/3的增长空间。</li>
+</ol>
+</li>
 </ol>
 </li>
 <li><p>在配置较好的机器上（比如多核、大内存），可以为年老代选择并行收集算法： -XX:+UseParallelOldGC 。</p>

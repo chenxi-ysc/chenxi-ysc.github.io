@@ -402,7 +402,7 @@
 
       
         
-          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>JVM调优主要的目的是减少GC的频率和Full GC的次数。<br><strong>1.Full GC</strong><br>会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数。<br><strong>2.导致Full GC的原因</strong><br>1)年老代（Tenured）被写满<br>调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象 。<br>2)持久代Pemanet Generation空间不足<br>增大Perm Gen空间，避免太多静态对象 ， 控制好新生代和旧生代的比例<br>3)System.gc()被显示调用<br>垃圾回收不要手动触发，尽量依靠JVM自身的机制</p>
+          <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>JVM调优主要的目的是减少GC的频率和Full GC的次数。<br><strong>1.Full GC</strong><br>会对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数<br><strong>2.导致Full GC的原因</strong><br>1)年老代（Tenured）被写满<br>调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象<br>2)持久代Pemanet Generation空间不足<br>增大Perm Gen空间，避免太多静态对象 ， 控制好新生代和旧生代的比例<br>3)System.gc()被显示调用<br>垃圾回收不要手动触发，尽量依靠JVM自身的机制</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/10/08/深入理解java虚拟机之jvm调优/" rel="contents">
