@@ -87,7 +87,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/bx.png">
 <meta property="og:image" content="http://ysccx.top/images/bf.png">
-<meta property="og:updated_time" content="2019-09-27T00:25:28.407Z">
+<meta property="og:image" content="http://ysccx.top/images/scope.jpg">
+<meta property="og:updated_time" content="2019-09-29T02:04:19.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常总结">
 <meta name="twitter:description" content="一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足e">
@@ -473,6 +474,18 @@
 <li>想用套接字在网络上传送对象的时候；</li>
 <li>想通过RMI（远程方法调用）传输对象的时候。</li>
 </ul>
+<h4 id="maven-scope-的作用"><a href="#maven-scope-的作用" class="headerlink" title="maven scope 的作用"></a>maven scope 的作用</h4><p><img src="/images/scope.jpg" alt=""></p>
+<h4 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h4><ul>
+<li>抽象类可以有已经实现了的方法，接口不能。</li>
+<li>抽象类使用extends关键字来继承。如果子类不是抽象类的话，它需要提供抽象类中所有声明的方法的实现。接口使用implements关键字来实现。它需要提供接口中所有声明的方法的实现。</li>
+<li>抽象类只能被单继承，接口可以被实现多个。</li>
+<li>抽象类可以有构造方法，而接口不能有构造方法。</li>
+<li>抽象方法可以有public、protected和default这些修饰符；接口方法默认修饰符是public，不可以使用其它修饰符。</li>
+</ul>
+<h4 id="forward-和-redirect-的区别"><a href="#forward-和-redirect-的区别" class="headerlink" title="forward 和 redirect 的区别"></a>forward 和 redirect 的区别</h4><ul>
+<li>forward是转发，属于服务器行为，地址栏url不会发生改变，相当于一次请求。</li>
+<li>redirect是重定向，属于浏览器行为，地址栏url会发生改变，相当于两次请求。</li>
+</ul>
 
       
     </div>
@@ -630,7 +643,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -652,7 +665,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">124</span>
+                  <span class="site-state-item-count">125</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -714,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java源文件中是否可以包含多个类？"><span class="nav-number">1.</span> <span class="nav-text">一个.java源文件中是否可以包含多个类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String为什么是final的？"><span class="nav-number">2.</span> <span class="nav-text">String为什么是final的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么重写equals必须重写hashcode"><span class="nav-number">3.</span> <span class="nav-text">为什么重写equals必须重写hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是finalize"><span class="nav-number">4.</span> <span class="nav-text">什么是finalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception和Error有什么区别"><span class="nav-number">5.</span> <span class="nav-text">Exception和Error有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁机制有什么作用"><span class="nav-number">6.</span> <span class="nav-text">锁机制有什么作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql的分页查询"><span class="nav-number">7.</span> <span class="nav-text">sql的分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-为什么是三次握手"><span class="nav-number">8.</span> <span class="nav-text">TCP 为什么是三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python单引号和双引号的区别"><span class="nav-number">9.</span> <span class="nav-text">python单引号和双引号的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是java可变参数"><span class="nav-number">10.</span> <span class="nav-text">什么是java可变参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不使用第三方变量，交换两个变量的值"><span class="nav-number">11.</span> <span class="nav-text">不使用第三方变量，交换两个变量的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并发和并行的区别"><span class="nav-number">12.</span> <span class="nav-text">并发和并行的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile和synchronized的区别"><span class="nav-number">13.</span> <span class="nav-text">volatile和synchronized的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态方法和非静态方法的区别总结如下："><span class="nav-number">14.</span> <span class="nav-text">静态方法和非静态方法的区别总结如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口和抽象类有什么区别？"><span class="nav-number">15.</span> <span class="nav-text">接口和抽象类有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final、finally、finalize-有什么区别？"><span class="nav-number">16.</span> <span class="nav-text">final、finally、finalize 有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-Java-序列化？什么情况下需要序列化？"><span class="nav-number">17.</span> <span class="nav-text">什么是 Java 序列化？什么情况下需要序列化？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个-java源文件中是否可以包含多个类？"><span class="nav-number">1.</span> <span class="nav-text">一个.java源文件中是否可以包含多个类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String为什么是final的？"><span class="nav-number">2.</span> <span class="nav-text">String为什么是final的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么重写equals必须重写hashcode"><span class="nav-number">3.</span> <span class="nav-text">为什么重写equals必须重写hashcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是finalize"><span class="nav-number">4.</span> <span class="nav-text">什么是finalize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exception和Error有什么区别"><span class="nav-number">5.</span> <span class="nav-text">Exception和Error有什么区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁机制有什么作用"><span class="nav-number">6.</span> <span class="nav-text">锁机制有什么作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sql的分页查询"><span class="nav-number">7.</span> <span class="nav-text">sql的分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-为什么是三次握手"><span class="nav-number">8.</span> <span class="nav-text">TCP 为什么是三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python单引号和双引号的区别"><span class="nav-number">9.</span> <span class="nav-text">python单引号和双引号的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是java可变参数"><span class="nav-number">10.</span> <span class="nav-text">什么是java可变参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不使用第三方变量，交换两个变量的值"><span class="nav-number">11.</span> <span class="nav-text">不使用第三方变量，交换两个变量的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并发和并行的区别"><span class="nav-number">12.</span> <span class="nav-text">并发和并行的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile和synchronized的区别"><span class="nav-number">13.</span> <span class="nav-text">volatile和synchronized的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态方法和非静态方法的区别总结如下："><span class="nav-number">14.</span> <span class="nav-text">静态方法和非静态方法的区别总结如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口和抽象类有什么区别？"><span class="nav-number">15.</span> <span class="nav-text">接口和抽象类有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final、finally、finalize-有什么区别？"><span class="nav-number">16.</span> <span class="nav-text">final、finally、finalize 有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-Java-序列化？什么情况下需要序列化？"><span class="nav-number">17.</span> <span class="nav-text">什么是 Java 序列化？什么情况下需要序列化？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-scope-的作用"><span class="nav-number">18.</span> <span class="nav-text">maven scope 的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类和接口的区别"><span class="nav-number">19.</span> <span class="nav-text">抽象类和接口的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forward-和-redirect-的区别"><span class="nav-number">20.</span> <span class="nav-text">forward 和 redirect 的区别</span></a></li></ol></div>
             
 
           </div>

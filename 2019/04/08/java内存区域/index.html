@@ -86,7 +86,8 @@
 <meta property="og:description" content="Java内存区域（Java运行时数据区域）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/jvm.jpg">
-<meta property="og:updated_time" content="2019-07-16T09:48:18.727Z">
+<meta property="og:image" content="http://ysccx.top/images/clc.jpg">
+<meta property="og:updated_time" content="2019-10-05T07:18:41.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java虚拟机之Java内存区域">
 <meta name="twitter:description" content="Java内存区域（Java运行时数据区域）">
@@ -429,6 +430,7 @@
 </ol>
 <h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><ol>
 <li>区别于 Java 虚拟机栈的是，Java 虚拟机栈为虚拟机执行 Java 方法服务，而本地方法栈则为虚拟机使用到的 Native 方法服务。</li>
+<li>一个Native Method就是一个由非java代码实现的java接口。</li>
 <li>有 StackOverflowError 和 OutOfMemoryError 异常。</li>
 </ol>
 <h2 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h2><ol>
@@ -439,12 +441,16 @@
 <h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><ol>
 <li>线程共享。</li>
 <li>存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</li>
+<li>方法区里存储着class文件信息和运行时常量池，class文件信息包括类信息和静态常量池。</li>
+<li>JDK 1.8 的时候，方法区（HotSpot 的永久代）被彻底移除了，取而代之是元空间，元空间使用的是直接内存。</li>
 </ol>
 <h2 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h2><ol>
 <li>属于方法区一部分。</li>
-<li>用于存放编译期生成的各种字面量和符号引用。</li>
+<li>用于存放class文件被加载后的一些字面量和符号引用。</li>
 <li>内存有限，无法申请时抛出 OutOfMemoryError。</li>
+<li>JDK1.7 及之后版本的 JVM 已经将运行时常量池从方法区中移了出来，在 Java 堆中开辟了一块区域存放运行时常量池。</li>
 </ol>
+<p><img src="/images/clc.jpg" alt=""></p>
 
       
     </div>
@@ -606,7 +612,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -628,7 +634,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">124</span>
+                  <span class="site-state-item-count">125</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
