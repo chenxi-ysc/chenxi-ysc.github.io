@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://ysccx.top/images/mqxf2.png">
 <meta property="og:image" content="http://ysccx.top/images/mq1.png">
 <meta property="og:image" content="http://ysccx.top/images/mq2.png">
-<meta property="og:updated_time" content="2019-09-23T07:09:07.792Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="消息队列总结">
 <meta name="twitter:description" content="概述消息队列中间件是分布式系统中一个重要的组件，主要解决系统解耦，异步处理，流量削峰等问题，实现高性能，高可用可伸缩和最终一致性架构。目前使用较多的消息队列有ActiveMQ，RabbitMQ，ZeroMQ，Kafka，MetaMQ，RocketMQ。 应用场景系统解耦解耦前：A 系统发送数据到 BCD 三个系统，通过接口调用发送。如果 E 系统也要这个数据,如果 D 系统现在不需要这个数据，那么">
@@ -418,7 +418,6 @@
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="系统解耦"><a href="#系统解耦" class="headerlink" title="系统解耦"></a>系统解耦</h3><p><strong>解耦前：</strong><br><img src="/images/mqjo1.png" alt=""><br>A 系统发送数据到 BCD 三个系统，通过接口调用发送。如果 E 系统也要这个数据,如果 D 系统现在不需要这个数据，那么A系统将会有许多耦合的操作。</p>
 <p><strong>解耦后：</strong><br><img src="/images/mqjo2.png" alt=""><br>如果使用 MQ，A 系统产生一条数据，发送到 MQ 里面去，哪个系统需要数据自己去 MQ 里面消费。如果新系统需要数据，直接从 MQ 里消费即可；如果某个系统不需要这条数据了，就取消对 MQ 消息的消费即可。这样下来，A 系统压根儿不需要去考虑要给谁发送数据，不需要维护这个代码，也不需要考虑人家是否调用成功、失败超时等情况。</p>
 <p><strong>通过一个 MQ，Pub/Sub 发布订阅消息这么一个模型，A 系统就跟其它系统彻底解耦了。</strong></p>
-<a id="more"></a>
 <h3 id="异步处理"><a href="#异步处理" class="headerlink" title="异步处理"></a>异步处理</h3><p><strong>异步前：</strong><br><img src="/images/mqyb1.png" alt=""><br>A 系统接收一个请求，需要在自己本地写库，还需要在 BCD 三个系统写库，自己本地写库要 3ms，BCD 三个系统分别写库要 300ms、450ms、200ms。最终请求总延时是 3 + 300 + 450 + 200 = 953ms，接近 1s。用户通过浏览器发起请求，等待个 1s，这几乎是不可接受的。</p>
 <p><strong>异步后：</strong><br><img src="/images/mqyb2.png" alt=""><br>如果使用 MQ，那么 A 系统连续发送 3 条消息到 MQ 队列中，假如耗时 5ms，A 系统从接受一个请求到返回响应给用户，总时长是 3 + 5 = 8ms，对于用户而言，其实感觉上就是点个按钮，8ms 以后就直接返回了。</p>
 <h3 id="流量削峰"><a href="#流量削峰" class="headerlink" title="流量削峰"></a>流量削峰</h3><p><strong>削峰前：</strong><br><img src="/images/mqxf1.png" alt=""><br>每天 0:00 到 12:00，A 系统风平浪静，每秒并发请求数量就 50 个。结果每次一到 12:00 ~ 13:00 ，每秒并发请求数量突然会暴增到 5k+ 条。但是系统是直接基于 MySQL 的，大量的请求涌入 MySQL，每秒钟对 MySQL 执行约 5k 条 SQL。<br>一般的 MySQL，扛到每秒 2k 个请求就差不多了，如果每秒请求到 5k 的话，可能就直接把 MySQL 给打死了，导致系统崩溃，用户也就没法再使用系统了。<br>但是高峰期一过，到了下午的时候，就成了低峰期，可能也就 1w 的用户同时在网站上操作，每秒中的请求数量可能也就 50 个请求，对整个系统几乎没有任何的压力。</p>
@@ -769,7 +768,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

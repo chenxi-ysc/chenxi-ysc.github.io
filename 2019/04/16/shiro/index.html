@@ -77,20 +77,20 @@
 
 
 
-<meta name="description" content="概述Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。">
+<meta name="description" content="概述Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。 shiro实现原理  Subject：主体，代表了当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager。  Se">
 <meta name="keywords" content="shiro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot与shiro的整合">
 <meta property="og:url" content="http://ysccx.top/2019/04/16/shiro/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。">
+<meta property="og:description" content="概述Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。 shiro实现原理  Subject：主体，代表了当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager。  Se">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/shiro.png">
 <meta property="og:image" content="http://ysccx.top/images/shiro1.png">
-<meta property="og:updated_time" content="2019-09-17T04:01:32.701Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot与shiro的整合">
-<meta name="twitter:description" content="概述Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。">
+<meta name="twitter:description" content="概述Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。 shiro实现原理  Subject：主体，代表了当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager。  Se">
 <meta name="twitter:image" content="http://ysccx.top/images/shiro.png">
 
 
@@ -409,7 +409,6 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Shiro是一个强大易用的Java安全框架,提供了认证、授权、加密和会话管理等功能。<br><img src="/images/shiro.png" alt=""></p>
-<a id="more"></a>
 <h1 id="shiro实现原理"><a href="#shiro实现原理" class="headerlink" title="shiro实现原理"></a>shiro实现原理</h1><p><img src="/images/shiro1.png" alt=""></p>
 <ul>
 <li><p>Subject：主体，代表了当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager。</p>
@@ -691,7 +690,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

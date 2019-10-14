@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述 Java中的流是指数据在java程序和外部设备中流动的过程。 输入流表示java程序从外部设备读取数据的过程。 输出流表示java程序向外部设备写入数据的过程。 Java流有字符流和字节流两种。">
+<meta name="description" content="概述 Java中的流是指数据在java程序和外部设备中流动的过程。 输入流表示java程序从外部设备读取数据的过程。 输出流表示java程序向外部设备写入数据的过程。 Java流有字符流和字节流两种。   字符流和字节流的主要区别 字节流读取的时候，读到一个字节就返回一个字节；字符流读到一个或多个字节（中文对应的字节数是两个，在UTF-8码表中是3个字节）时,先去查指定的编码表，将查到的字符返回。">
 <meta name="keywords" content="流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java流">
 <meta property="og:url" content="http://ysccx.top/2019/09/14/java流/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述 Java中的流是指数据在java程序和外部设备中流动的过程。 输入流表示java程序从外部设备读取数据的过程。 输出流表示java程序向外部设备写入数据的过程。 Java流有字符流和字节流两种。">
+<meta property="og:description" content="概述 Java中的流是指数据在java程序和外部设备中流动的过程。 输入流表示java程序从外部设备读取数据的过程。 输出流表示java程序向外部设备写入数据的过程。 Java流有字符流和字节流两种。   字符流和字节流的主要区别 字节流读取的时候，读到一个字节就返回一个字节；字符流读到一个或多个字节（中文对应的字节数是两个，在UTF-8码表中是3个字节）时,先去查指定的编码表，将查到的字符返回。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/stream.png">
-<meta property="og:updated_time" content="2019-09-14T06:05:05.213Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java流">
-<meta name="twitter:description" content="概述 Java中的流是指数据在java程序和外部设备中流动的过程。 输入流表示java程序从外部设备读取数据的过程。 输出流表示java程序向外部设备写入数据的过程。 Java流有字符流和字节流两种。">
+<meta name="twitter:description" content="概述 Java中的流是指数据在java程序和外部设备中流动的过程。 输入流表示java程序从外部设备读取数据的过程。 输出流表示java程序向外部设备写入数据的过程。 Java流有字符流和字节流两种。   字符流和字节流的主要区别 字节流读取的时候，读到一个字节就返回一个字节；字符流读到一个或多个字节（中文对应的字节数是两个，在UTF-8码表中是3个字节）时,先去查指定的编码表，将查到的字符返回。">
 <meta name="twitter:image" content="http://ysccx.top/images/stream.png">
 
 
@@ -414,7 +414,6 @@
 <li>Java流有字符流和字节流两种。</li>
 </ul>
 <p><img src="/images/stream.png" alt=""></p>
-<a id="more"></a>
 <h3 id="字符流和字节流的主要区别"><a href="#字符流和字节流的主要区别" class="headerlink" title="字符流和字节流的主要区别"></a>字符流和字节流的主要区别</h3><ul>
 <li>字节流读取的时候，读到一个字节就返回一个字节；字符流读到一个或多个字节（中文对应的字节数是两个，在UTF-8码表中是3个字节）时,先去查指定的编码表，将查到的字符返回。</li>
 <li>字节流可以处理所有类型数据，如：图片，MP3，AVI视频文件，而字符流只能处理字符数据。- 只要是处理纯文本数据，就要优先考虑使用字符流，除此之外都用字节流。</li>
@@ -709,7 +708,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

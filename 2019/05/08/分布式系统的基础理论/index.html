@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="概述分布式系统的目标是提升系统的整体性能和吞吐量以及保证分布式系统的容错性。 分布式系统设计思路1.中心化  两个角色：领导和员工 领导负责分发任务并监督员工 领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。">
+<meta name="description" content="概述分布式系统的目标是提升系统的整体性能和吞吐量以及保证分布式系统的容错性。 分布式系统设计思路1.中心化  两个角色：领导和员工 领导负责分发任务并监督员工 领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。  2.去中心化  角色平等 例如ZooKeeper  分布式与集群 分布式：一个业务拆分成多个子业务，部署在不同的服务器上 集群：同一个业务，部署在多个服务器上  CAP定理">
 <meta name="keywords" content="分布式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式系统的基础理论">
 <meta property="og:url" content="http://ysccx.top/2019/05/08/分布式系统的基础理论/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述分布式系统的目标是提升系统的整体性能和吞吐量以及保证分布式系统的容错性。 分布式系统设计思路1.中心化  两个角色：领导和员工 领导负责分发任务并监督员工 领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。">
+<meta property="og:description" content="概述分布式系统的目标是提升系统的整体性能和吞吐量以及保证分布式系统的容错性。 分布式系统设计思路1.中心化  两个角色：领导和员工 领导负责分发任务并监督员工 领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。  2.去中心化  角色平等 例如ZooKeeper  分布式与集群 分布式：一个业务拆分成多个子业务，部署在不同的服务器上 集群：同一个业务，部署在多个服务器上  CAP定理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T04:55:21.496Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系统的基础理论">
-<meta name="twitter:description" content="概述分布式系统的目标是提升系统的整体性能和吞吐量以及保证分布式系统的容错性。 分布式系统设计思路1.中心化  两个角色：领导和员工 领导负责分发任务并监督员工 领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。">
+<meta name="twitter:description" content="概述分布式系统的目标是提升系统的整体性能和吞吐量以及保证分布式系统的容错性。 分布式系统设计思路1.中心化  两个角色：领导和员工 领导负责分发任务并监督员工 领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。  2.去中心化  角色平等 例如ZooKeeper  分布式与集群 分布式：一个业务拆分成多个子业务，部署在不同的服务器上 集群：同一个业务，部署在多个服务器上  CAP定理">
 
 
 
@@ -412,7 +412,6 @@
 <li>领导负责分发任务并监督员工</li>
 <li>领导如果发现某个员工病倒了，会直接将其踢出去，把任务分给其他人。</li>
 </ul>
-<a id="more"></a>
 <p><strong>2.去中心化</strong></p>
 <ul>
 <li>角色平等</li>
@@ -711,7 +710,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

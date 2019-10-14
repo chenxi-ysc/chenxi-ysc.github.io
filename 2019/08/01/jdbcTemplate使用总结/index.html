@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="JDBCJDBC：Java Data Base Connection简单来说JDBC就是为多种关系型数据库提供统一访问的一组接口。 通过JDBC操作数据库的一般步骤： 1.注册驱动Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;); 2.建立连接Connection conn =DriverManager.getConnection(url, user">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T04:01:21.526Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JdbcTemplate使用总结">
 <meta name="twitter:description" content="JDBCJDBC：Java Data Base Connection简单来说JDBC就是为多种关系型数据库提供统一访问的一组接口。 通过JDBC操作数据库的一般步骤： 1.注册驱动Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;); 2.建立连接Connection conn =DriverManager.getConnection(url, user">
@@ -411,7 +411,6 @@
 <p>2.建立连接<br><code>Connection conn =DriverManager.getConnection(url, user, password);</code></p>
 <p>3.创建运行SQL的语句<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement st = connection.createStatement();</span><br><span class="line">PreparedStatement  ps=connection.prepareStatement(<span class="string">"update user set id=? where username=?"</span>);</span><br></pre></td></tr></table></figure></p>
 <p>4.运行语句<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">executeQuery(Stringsql)<span class="comment">//该方法用于运行实现查询功能的sql语句。返回类型为ResultSet（结果集）。</span></span><br><span class="line">如：ResultSet  rs =st.executeQuery(sql);</span><br><span class="line">executeUpdate(Stringsql)<span class="comment">//该方法用于运行实现增、删、改功能的sql语句，返回类型为int，即受影响的行数。</span></span><br><span class="line">如：<span class="keyword">int</span> flag = st.executeUpdate(sql);</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>5.处理运行结果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (rs.next())&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>6.释放资源<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conn.close();</span><br><span class="line">ps.close();</span><br><span class="line">rs.close();</span><br></pre></td></tr></table></figure></p>
 <h2 id="JdbcTemplate"><a href="#JdbcTemplate" class="headerlink" title="JdbcTemplate"></a>JdbcTemplate</h2><p>JDBCTemplate就是一个模板，通过设置JDBCTemplate可以减少对数据库的繁琐操作,例如连接数据库,获得链接关闭,获得statement,resultset,preparedstatement这些等等。</p>
@@ -720,7 +719,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

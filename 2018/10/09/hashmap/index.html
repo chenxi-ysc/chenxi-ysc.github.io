@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="什么是HashMap？所谓hashmap，即java中的一种数据结构，它存储的是键值对。">
+<meta name="description" content="什么是HashMap？所谓hashmap，即java中的一种数据结构，它存储的是键值对。 HashMap是基于哈希表的Map接口的非同步实现，提供所有可选的映射操作，并允许使用null值和null键，不保证映射的顺序。JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）JDK1.8 以后在解决哈希冲突">
 <meta name="keywords" content="Java,hashmap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈对hashmap的理解">
 <meta property="og:url" content="http://ysccx.top/2018/10/09/hashmap/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="什么是HashMap？所谓hashmap，即java中的一种数据结构，它存储的是键值对。">
+<meta property="og:description" content="什么是HashMap？所谓hashmap，即java中的一种数据结构，它存储的是键值对。 HashMap是基于哈希表的Map接口的非同步实现，提供所有可选的映射操作，并允许使用null值和null键，不保证映射的顺序。JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）JDK1.8 以后在解决哈希冲突">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/2.png">
-<meta property="og:updated_time" content="2019-09-19T07:05:50.308Z">
+<meta property="og:updated_time" content="2019-10-14T02:45:22.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈对hashmap的理解">
-<meta name="twitter:description" content="什么是HashMap？所谓hashmap，即java中的一种数据结构，它存储的是键值对。">
+<meta name="twitter:description" content="什么是HashMap？所谓hashmap，即java中的一种数据结构，它存储的是键值对。 HashMap是基于哈希表的Map接口的非同步实现，提供所有可选的映射操作，并允许使用null值和null键，不保证映射的顺序。JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）JDK1.8 以后在解决哈希冲突">
 <meta name="twitter:image" content="http://ysccx.top/images/2.png">
 
 
@@ -407,7 +407,8 @@
       
 
       
-        <h4 id="什么是HashMap？"><a href="#什么是HashMap？" class="headerlink" title="什么是HashMap？"></a>什么是HashMap？</h4><p>所谓hashmap，即java中的一种数据结构，它存储的是键值对。<br><img src="/images/2.png" alt=""><br><a id="more"></a><br>HashMap是基于哈希表的Map接口的非同步实现，提供所有可选的映射操作，并允许使用null值和null键，不保证映射的顺序。<br>JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。</p>
+        <h4 id="什么是HashMap？"><a href="#什么是HashMap？" class="headerlink" title="什么是HashMap？"></a>什么是HashMap？</h4><p>所谓hashmap，即java中的一种数据结构，它存储的是键值对。<br><img src="/images/2.png" alt=""></p>
+<p>HashMap是基于哈希表的Map接口的非同步实现，提供所有可选的映射操作，并允许使用null值和null键，不保证映射的顺序。<br>JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间。</p>
 <p>HashMap 的实例有两个参数影响其性能：“初始容量” 和 “加载因子”。容量 是哈希表中桶的数量，初始容量只是哈希表在创建时的容量。加载因子是哈希表在其容量自动增加之前可以达到多满的一种尺度。当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表进行 rehash 操作（即重建内部数据结构）。</p>
 <p>通常，默认加载因子是 0.75, 这是在时间和空间成本上寻求一种折衷。加载因子过高虽然减少了空间开销，但同时也增加了查询成本（在大多数 HashMap 类的操作中，包括 get 和 put 操作，都反映了这一点）。在设置初始容量时应该考虑到映射中所需的条目数及其加载因子，以便最大限度地减少 rehash 操作次数。如果初始容量大于最大条目数除以加载因子，则不会发生 rehash 操作。</p>
 <h4 id="HashMap的存储实现"><a href="#HashMap的存储实现" class="headerlink" title="HashMap的存储实现"></a>HashMap的存储实现</h4><p>HashMap 采用一种所谓的“Hash 算法”来决定每个元素的存储位置。</p>
@@ -686,7 +687,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

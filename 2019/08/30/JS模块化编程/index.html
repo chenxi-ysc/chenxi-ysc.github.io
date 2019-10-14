@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="第一阶段：无模块化简单的将所有的js文件统统放在一起123&amp;lt;script src=&quot;jquery.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;jquery_scroller.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 优点：  相比于使用一个js文件，这种多个js文件实现最">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-30T05:27:14.487Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS模块化编程">
 <meta name="twitter:description" content="第一阶段：无模块化简单的将所有的js文件统统放在一起123&amp;lt;script src=&quot;jquery.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;jquery_scroller.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&quot;main.js&quot;&amp;gt;&amp;lt;/script&amp;gt; 优点：  相比于使用一个js文件，这种多个js文件实现最">
@@ -416,7 +416,6 @@
 <p>根据这个规范，每一个文件就是一个模块，其内部定义的变量是属于这个模块的，不会对外暴露，也就是说不会污染全局变量。</p>
 <p>CommonJS的核心思想就是通过 require 方法来同步加载所要依赖的其他模块，然后通过 exports 或者 module.exports 来导出需要暴露的接口。</p>
 <p><strong>优点：</strong><br>CommonJS规范在服务器端率先完成了JavaScript的模块化，解决了依赖、全局变量污染的问题，这也是js运行在服务器端的必要条件。<br><strong>缺点：</strong><br>由于 CommonJS 是同步加载模块的，在服务器端，文件都是保存在硬盘上，所以同步加载没有问题，但是对于浏览器端，需要将文件从服务器端请求过来，那么同步加载就不适用了，所以，CommonJS是不适用于浏览器端的。</p>
-<a id="more"></a>
 <h3 id="第三阶段：AMD规范"><a href="#第三阶段：AMD规范" class="headerlink" title="第三阶段：AMD规范"></a>第三阶段：AMD规范</h3><p>AMD规范则是非同步加载模块，允许指定回调函数。</p>
 <p><strong>优点：</strong><br>适合在浏览器环境中异步加载模块。可以并行加载多个模块。<br><strong>缺点：</strong><br>提高了开发成本，并且不能按需加载，而是必须提前加载所有的依赖。</p>
 <h3 id="第四阶段：CMD规范"><a href="#第四阶段：CMD规范" class="headerlink" title="第四阶段：CMD规范"></a>第四阶段：CMD规范</h3><p>CMD规范是阿里的玉伯提出来的，实现js库为sea.js。 它和requirejs非常类似，即一个js文件就是一个模块，但是CMD的加载方式更加优秀，是通过按需加载的方式，而不是必须在模块开始就加载所有的依赖。</p>
@@ -691,7 +690,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

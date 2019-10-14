@@ -77,20 +77,20 @@
 
 
 
-<meta name="description" content="前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下：">
+<meta name="description" content="前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下： 前后端分离前后端分离的架构中，静态资源和业务代码分别部署在两台服务器上。利用node.js的express框架作为一个中间层服务器进行请求的转发与视图解析。具体框架如下： 改变 服务器一分为二，前后">
 <meta name="keywords" content="架构,分离">
 <meta property="og:type" content="article">
 <meta property="og:title" content="什么是前后端分离？">
 <meta property="og:url" content="http://ysccx.top/2019/03/27/什么是前后端分离？/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下：">
+<meta property="og:description" content="前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下： 前后端分离前后端分离的架构中，静态资源和业务代码分别部署在两台服务器上。利用node.js的express框架作为一个中间层服务器进行请求的转发与视图解析。具体框架如下： 改变 服务器一分为二，前后">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/bfl.jpg">
 <meta property="og:image" content="http://ysccx.top/images/fl.jpg">
-<meta property="og:updated_time" content="2019-09-17T04:06:25.467Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是前后端分离？">
-<meta name="twitter:description" content="前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下：">
+<meta name="twitter:description" content="前后端不分离在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。具体架构如下： 前后端分离前后端分离的架构中，静态资源和业务代码分别部署在两台服务器上。利用node.js的express框架作为一个中间层服务器进行请求的转发与视图解析。具体框架如下： 改变 服务器一分为二，前后">
 <meta name="twitter:image" content="http://ysccx.top/images/bfl.jpg">
 
 
@@ -409,7 +409,6 @@
 
       
         <h1 id="前后端不分离"><a href="#前后端不分离" class="headerlink" title="前后端不分离"></a>前后端不分离</h1><p>在前后端不分离的架构中，所有的静态资源和业务代码统一部署在同一台服务器上。服务器接收到浏览器请求后，进行处理和数据库查询，然后将得到的数据渲染到静态页面上，最后返回给浏览器。<br>具体架构如下：<br><img src="/images/bfl.jpg" alt=""></p>
-<a id="more"></a>
 <h1 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h1><p>前后端分离的架构中，静态资源和业务代码分别部署在两台服务器上。利用node.js的express框架作为一个中间层服务器进行请求的转发与视图解析。<br>具体框架如下：<br><img src="/images/fl.jpg" alt=""></p>
 <h1 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h1><ul>
 <li>服务器一分为二，前后端分别部署，静态资源放在前端服务器，业务代码放在后端服务器</li>
@@ -687,7 +686,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

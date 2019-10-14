@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA">
+<meta name="description" content="概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA 整合JPA1.引入依赖1234&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boo">
 <meta name="keywords" content="JPA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot整合JPA">
 <meta property="og:url" content="http://ysccx.top/2019/04/27/jpa/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA">
+<meta property="og:description" content="概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA 整合JPA1.引入依赖1234&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/jpa.png">
-<meta property="og:updated_time" content="2019-09-17T04:01:27.963Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot整合JPA">
-<meta name="twitter:description" content="概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA">
+<meta name="twitter:description" content="概述JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。 SpringData JPA 整合JPA1.引入依赖1234&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boo">
 <meta name="twitter:image" content="http://ysccx.top/images/jpa.png">
 
 
@@ -409,7 +409,6 @@
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JPA: Java Persistence API,即Java持久层API。作用是使应用程序以统一的方式访问持久层。</p>
 <h2 id="SpringData-JPA"><a href="#SpringData-JPA" class="headerlink" title="SpringData JPA"></a>SpringData JPA</h2><p><img src="/images/jpa.png" alt=""></p>
-<a id="more"></a>
 <h2 id="整合JPA"><a href="#整合JPA" class="headerlink" title="整合JPA"></a>整合JPA</h2><p>1.引入依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>2.在application.yml文件中配置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">jdbc:mysql://127.0.0.1:3306/mytmall</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">root</span></span><br><span class="line"><span class="attr">    password:</span> <span class="string">admin</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">  jpa:</span></span><br><span class="line"><span class="attr">    hibernate:</span></span><br><span class="line">      <span class="comment"># 更新或者创建数据表结构</span></span><br><span class="line"><span class="attr">      ddl-auto:</span> <span class="string">update</span></span><br><span class="line">    <span class="comment"># 控制台显示SQL</span></span><br><span class="line"><span class="attr">    show-sql:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
 <p>3.创建一个实体类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用JPA注解配置映射关系</span></span><br><span class="line"><span class="meta">@Entity</span> <span class="comment">//告诉JPA这是一个实体类（和数据表映射的类）</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tbl_user"</span>) <span class="comment">//@Table来指定和哪个数据表对应;如果省略默认表名就是user；</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span> <span class="comment">//这是一个主键</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)<span class="comment">//自增主键</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"last_name"</span>,length = <span class="number">50</span>) <span class="comment">//这是和数据表对应的一个列</span></span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span> <span class="comment">//省略默认列名就是属性名</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br></pre></td></tr></table></figure></p>
@@ -682,7 +681,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

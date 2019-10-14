@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。 Dubbo的架构">
+<meta name="description" content="概述Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。 Dubbo的架构  服务提供者（Provider）：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。">
 <meta name="keywords" content="dubbo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dubbo总结">
 <meta property="og:url" content="http://ysccx.top/2019/05/06/dubbo总结/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。 Dubbo的架构">
+<meta property="og:description" content="概述Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。 Dubbo的架构  服务提供者（Provider）：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/dubbo.png">
-<meta property="og:updated_time" content="2019-09-17T04:06:25.466Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo总结">
-<meta name="twitter:description" content="概述Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。 Dubbo的架构">
+<meta name="twitter:description" content="概述Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。 Dubbo的架构  服务提供者（Provider）：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。">
 <meta name="twitter:image" content="http://ysccx.top/images/dubbo.png">
 
 
@@ -409,7 +409,6 @@
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Dubbo是一款高性能、轻量级的开源Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。简单来说 Dubbo 是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。</p>
 <h2 id="Dubbo的架构"><a href="#Dubbo的架构" class="headerlink" title="Dubbo的架构"></a>Dubbo的架构</h2><p><img src="/images/dubbo.png" alt=""></p>
-<a id="more"></a>
 <ul>
 <li>服务提供者（Provider）：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。</li>
 <li>服务消费者（Consumer）: 调用远程服务的服务消费方，服务消费者在启动时，向注册中心订阅自己所需的服务，服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
@@ -701,7 +700,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

@@ -88,7 +88,7 @@
 <meta property="og:image" content="http://ysccx.top/images/bx.png">
 <meta property="og:image" content="http://ysccx.top/images/bf.png">
 <meta property="og:image" content="http://ysccx.top/images/scope.jpg">
-<meta property="og:updated_time" content="2019-09-29T02:04:19.038Z">
+<meta property="og:updated_time" content="2019-10-09T10:03:29.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常总结">
 <meta name="twitter:description" content="一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名 String为什么是final的？为了实现字符串池为了提高效率为了线程安全为了实现hashcode不变性 为什么重写equals必须重写hashcode为了满足e">
@@ -468,7 +468,7 @@
 <li>finally：是 try{} catch{} finally{} 最后一部分，表示不论发生任何情况都会执行。其中 catch 和 finally 都可以被省略，但是不能同时省略。如果 finally 部分存在，则一定会执行 finally 里面的代码。即使是 finally之前 return 了，也会先将return语句的值缓存起来，等 finally 中的代码执行完之后，才会执行return。</li>
 <li>finalize： 是 Object 类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法。</li>
 </ul>
-<h4 id="什么是-Java-序列化？什么情况下需要序列化？"><a href="#什么是-Java-序列化？什么情况下需要序列化？" class="headerlink" title="什么是 Java 序列化？什么情况下需要序列化？"></a>什么是 Java 序列化？什么情况下需要序列化？</h4><p>Java 序列化是为了保存各种对象在内存中的状态，并且可以把保存的对象状态再读出来。<br>以下情况需要使用 Java 序列化：</p>
+<h4 id="什么是-Java-序列化？什么情况下需要序列化？"><a href="#什么是-Java-序列化？什么情况下需要序列化？" class="headerlink" title="什么是 Java 序列化？什么情况下需要序列化？"></a>什么是 Java 序列化？什么情况下需要序列化？</h4><p>Java 序列化是将对象的状态信息转换为可以存储或传输的形式的过程。<br>以下情况需要使用 Java 序列化：</p>
 <ul>
 <li>想把的内存中的对象状态保存到一个文件中或者数据库中时候；</li>
 <li>想用套接字在网络上传送对象的时候；</li>
@@ -753,7 +753,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

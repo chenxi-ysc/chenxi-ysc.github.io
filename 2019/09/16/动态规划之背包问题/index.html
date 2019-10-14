@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="01背包问题有M个物品，每个物品的重量为W[i]，每个物品的价值为V[i]。现在有一个背包，它所能容纳的重量为N问：当你面对这么多有价值的物品时，你的背包所能带走的最大价值是多少？  每个物品无非是装入背包或者不装入背包，即每个物品的取值无非就是0或者1，故而这题被称为01背包问题。我们可以用动态规划的思路，在循环过程中比较第i个物品取与不取的大小，取其中大的一个，依次循环即可。其状态转移方程为：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T04:07:25.465Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划之背包问题">
 <meta name="twitter:description" content="01背包问题有M个物品，每个物品的重量为W[i]，每个物品的价值为V[i]。现在有一个背包，它所能容纳的重量为N问：当你面对这么多有价值的物品时，你的背包所能带走的最大价值是多少？  每个物品无非是装入背包或者不装入背包，即每个物品的取值无非就是0或者1，故而这题被称为01背包问题。我们可以用动态规划的思路，在循环过程中比较第i个物品取与不取的大小，取其中大的一个，依次循环即可。其状态转移方程为：">
@@ -408,7 +408,6 @@
         <h2 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h2><p>有M个物品，每个物品的重量为W[i]，每个物品的价值为V[i]。<br>现在有一个背包，它所能容纳的重量为N<br>问：当你面对这么多有价值的物品时，你的背包所能带走的最大价值是多少？</p>
 <hr>
 <p>每个物品无非是装入背包或者不装入背包，即每个物品的取值无非就是0或者1，故而这题被称为01背包问题。<br>我们可以用动态规划的思路，在循环过程中比较第i个物品取与不取的大小，取其中大的一个，依次循环即可。<br>其状态转移方程为：dp[j] = Math.max(V[i] + dp[j - W[i]],dp[j]) ，表示背包已装容量为j时,背包里所装物品的最大总价值。其约束条件是：∑(num[i]*w[i]) &lt;= N，其中num指第i个物品取的数量，取值为0或1，w指第i个物品的重量。因为物品不能重复装入，状态转移方程应该放在反序遍历中。</p>
-<a id="more"></a>
 <p><strong>代码实现：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">zeroOneBag</span><span class="params">(W,V,N)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[N+<span class="number">1</span>];</span><br><span class="line">    Arrays.fill(dp,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;W.length;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = N;j&gt;=W[i];j++)&#123;</span><br><span class="line">            dp[j] = Math.max(dp[j],V[i] + dp[j - W[i]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[N];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="完全背包问题"><a href="#完全背包问题" class="headerlink" title="完全背包问题"></a>完全背包问题</h2><p>有M种物品，每种物品有无限个，每种物品的重量为W[i]，每个物品的价值为V[i]。<br>现在有一个背包，它所能容纳的重量为N<br>问：当你面对这么多有价值的物品时，你的背包所能带走的最大价值是多少？</p>
 <hr>
@@ -683,7 +682,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

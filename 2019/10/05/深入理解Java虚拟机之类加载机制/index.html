@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。类的生命周期包括以下 7 个阶段：  加载（Loading） 验证（Verification） 准备（Preparation） 解析（Resolution） 初始化（Initialization） 使用（Using） 卸载（Unloading）">
+<meta name="description" content="概述类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。类的生命周期包括以下 7 个阶段：  加载（Loading） 验证（Verification） 准备（Preparation） 解析（Resolution） 初始化（Initialization） 使用（Using） 卸载（Unloading）  类加载过程包含了加载、验证、准备、解析和初始化这 5 个阶段。1.加载加载是类加载的一">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java虚拟机之类加载机制">
 <meta property="og:url" content="http://ysccx.top/2019/10/05/深入理解Java虚拟机之类加载机制/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。类的生命周期包括以下 7 个阶段：  加载（Loading） 验证（Verification） 准备（Preparation） 解析（Resolution） 初始化（Initialization） 使用（Using） 卸载（Unloading）">
+<meta property="og:description" content="概述类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。类的生命周期包括以下 7 个阶段：  加载（Loading） 验证（Verification） 准备（Preparation） 解析（Resolution） 初始化（Initialization） 使用（Using） 卸载（Unloading）  类加载过程包含了加载、验证、准备、解析和初始化这 5 个阶段。1.加载加载是类加载的一">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/jvm.png">
-<meta property="og:updated_time" content="2019-10-08T08:44:55.269Z">
+<meta property="og:updated_time" content="2019-10-14T02:51:22.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java虚拟机之类加载机制">
-<meta name="twitter:description" content="概述类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。类的生命周期包括以下 7 个阶段：  加载（Loading） 验证（Verification） 准备（Preparation） 解析（Resolution） 初始化（Initialization） 使用（Using） 卸载（Unloading）">
+<meta name="twitter:description" content="概述类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。类的生命周期包括以下 7 个阶段：  加载（Loading） 验证（Verification） 准备（Preparation） 解析（Resolution） 初始化（Initialization） 使用（Using） 卸载（Unloading）  类加载过程包含了加载、验证、准备、解析和初始化这 5 个阶段。1.加载加载是类加载的一">
 <meta name="twitter:image" content="http://ysccx.top/images/jvm.png">
 
 
@@ -417,7 +417,6 @@
 <li>使用（Using）</li>
 <li>卸载（Unloading）</li>
 </ul>
-<a id="more"></a>
 <h3 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h3><p>包含了加载、验证、准备、解析和初始化这 5 个阶段。<br><strong>1.加载</strong><br>加载是类加载的一个阶段，注意不要混淆。</p>
 <p>加载过程完成以下三件事：</p>
 <ul>
@@ -724,7 +723,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

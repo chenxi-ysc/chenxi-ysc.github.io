@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述 Java中的每一个对象都有且只有一个锁 每一个线程在执行被synchronized关键字控制的代码之前，都要先获取相应的锁，也称为监视器（monitor） 没有获取到锁的线程只能等待 每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一">
+<meta name="description" content="概述 Java中的每一个对象都有且只有一个锁 每一个线程在执行被synchronized关键字控制的代码之前，都要先获取相应的锁，也称为监视器（monitor） 没有获取到锁的线程只能等待 每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一  synchronized关键字最主要的三种使用方式 JDK1.6 之后的底层优化JDK1.6 对锁的实现引入了大量的优化">
 <meta name="keywords" content="java,并发,synchronized">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发之synchronized">
 <meta property="og:url" content="http://ysccx.top/2019/04/13/synchronized/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述 Java中的每一个对象都有且只有一个锁 每一个线程在执行被synchronized关键字控制的代码之前，都要先获取相应的锁，也称为监视器（monitor） 没有获取到锁的线程只能等待 每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一">
+<meta property="og:description" content="概述 Java中的每一个对象都有且只有一个锁 每一个线程在执行被synchronized关键字控制的代码之前，都要先获取相应的锁，也称为监视器（monitor） 没有获取到锁的线程只能等待 每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一  synchronized关键字最主要的三种使用方式 JDK1.6 之后的底层优化JDK1.6 对锁的实现引入了大量的优化">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/synchronized.jpg">
-<meta property="og:updated_time" content="2019-07-16T09:47:51.669Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发之synchronized">
-<meta name="twitter:description" content="概述 Java中的每一个对象都有且只有一个锁 每一个线程在执行被synchronized关键字控制的代码之前，都要先获取相应的锁，也称为监视器（monitor） 没有获取到锁的线程只能等待 每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一">
+<meta name="twitter:description" content="概述 Java中的每一个对象都有且只有一个锁 每一个线程在执行被synchronized关键字控制的代码之前，都要先获取相应的锁，也称为监视器（monitor） 没有获取到锁的线程只能等待 每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一  synchronized关键字最主要的三种使用方式 JDK1.6 之后的底层优化JDK1.6 对锁的实现引入了大量的优化">
 <meta name="twitter:image" content="http://ysccx.top/images/synchronized.jpg">
 
 
@@ -413,7 +413,6 @@
 <li>没有获取到锁的线程只能等待</li>
 <li>每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一</li>
 </ul>
-<a id="more"></a>
 <h1 id="synchronized关键字最主要的三种使用方式"><a href="#synchronized关键字最主要的三种使用方式" class="headerlink" title="synchronized关键字最主要的三种使用方式"></a>synchronized关键字最主要的三种使用方式</h1><p><img src="/images/synchronized.jpg" alt=""></p>
 <h1 id="JDK1-6-之后的底层优化"><a href="#JDK1-6-之后的底层优化" class="headerlink" title="JDK1.6 之后的底层优化"></a>JDK1.6 之后的底层优化</h1><p>JDK1.6 对锁的实现引入了大量的优化，如偏向锁、轻量级锁、自旋锁、适应性自旋锁、锁消除、锁粗化等技术来减少锁操作的开销。</p>
 <p>锁主要存在四中状态，依次是：无锁状态、偏向锁状态、轻量级锁状态、重量级锁状态，他们会随着竞争的激烈而逐渐升级。注意锁可以升级不可降级，这种策略是为了提高获得锁和释放锁的效率。</p>
@@ -708,7 +707,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="概述单例模式即保证一个类仅有一个实例，并提供一个访问它的全局访问点。它有以下两个好处：  对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。 由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。">
+<meta name="description" content="概述单例模式即保证一个类仅有一个实例，并提供一个访问它的全局访问点。它有以下两个好处：  对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。 由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。  单例模式的实现单例模式有两种实现方式：  饿汉方式。指全局的单例实例在类装载时构建 懒汉方式。指全局的单例">
 <meta name="keywords" content="设计模式,单例模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之单例模式">
 <meta property="og:url" content="http://ysccx.top/2019/04/15/设计模式之单例模式/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述单例模式即保证一个类仅有一个实例，并提供一个访问它的全局访问点。它有以下两个好处：  对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。 由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。">
+<meta property="og:description" content="概述单例模式即保证一个类仅有一个实例，并提供一个访问它的全局访问点。它有以下两个好处：  对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。 由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。  单例模式的实现单例模式有两种实现方式：  饿汉方式。指全局的单例实例在类装载时构建 懒汉方式。指全局的单例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-16T09:49:03.904Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之单例模式">
-<meta name="twitter:description" content="概述单例模式即保证一个类仅有一个实例，并提供一个访问它的全局访问点。它有以下两个好处：  对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。 由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。">
+<meta name="twitter:description" content="概述单例模式即保证一个类仅有一个实例，并提供一个访问它的全局访问点。它有以下两个好处：  对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。 由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。  单例模式的实现单例模式有两种实现方式：  饿汉方式。指全局的单例实例在类装载时构建 懒汉方式。指全局的单例">
 
 
 
@@ -410,7 +410,6 @@
 <li>对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销。</li>
 <li>由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻GC压力，缩短GC停顿时间。</li>
 </ul>
-<a id="more"></a>
 <h1 id="单例模式的实现"><a href="#单例模式的实现" class="headerlink" title="单例模式的实现"></a>单例模式的实现</h1><p>单例模式有两种实现方式：</p>
 <ul>
 <li>饿汉方式。指全局的单例实例在类装载时构建</li>
@@ -689,7 +688,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

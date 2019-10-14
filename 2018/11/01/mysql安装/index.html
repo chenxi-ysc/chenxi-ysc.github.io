@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="报错如下 net start mysqlMySQL 服务正在启动 .MySQL 服务无法启动。服务没有报告任何错误。请键入 NET HELPMSG 3534 以获得更多的帮助。">
+<meta name="description" content="报错如下 net start mysqlMySQL 服务正在启动 .MySQL 服务无法启动。服务没有报告任何错误。请键入 NET HELPMSG 3534 以获得更多的帮助。  解决方案1.以下cmd均需用管理员权限打开 2.mysql\bin目录下，移除已错误安装的mysqld服务  mysqld -remove MySQL  3.mysql\bin目录下执行  mysqld –initial">
 <meta name="keywords" content="mysql,error">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql安装">
 <meta property="og:url" content="http://ysccx.top/2018/11/01/mysql安装/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="报错如下 net start mysqlMySQL 服务正在启动 .MySQL 服务无法启动。服务没有报告任何错误。请键入 NET HELPMSG 3534 以获得更多的帮助。">
+<meta property="og:description" content="报错如下 net start mysqlMySQL 服务正在启动 .MySQL 服务无法启动。服务没有报告任何错误。请键入 NET HELPMSG 3534 以获得更多的帮助。  解决方案1.以下cmd均需用管理员权限打开 2.mysql\bin目录下，移除已错误安装的mysqld服务  mysqld -remove MySQL  3.mysql\bin目录下执行  mysqld –initial">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-16T09:48:38.873Z">
+<meta property="og:updated_time" content="2019-10-14T02:45:22.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql安装">
-<meta name="twitter:description" content="报错如下 net start mysqlMySQL 服务正在启动 .MySQL 服务无法启动。服务没有报告任何错误。请键入 NET HELPMSG 3534 以获得更多的帮助。">
+<meta name="twitter:description" content="报错如下 net start mysqlMySQL 服务正在启动 .MySQL 服务无法启动。服务没有报告任何错误。请键入 NET HELPMSG 3534 以获得更多的帮助。  解决方案1.以下cmd均需用管理员权限打开 2.mysql\bin目录下，移除已错误安装的mysqld服务  mysqld -remove MySQL  3.mysql\bin目录下执行  mysqld –initial">
 
 
 
@@ -408,7 +408,6 @@
         <h4 id="报错如下"><a href="#报错如下" class="headerlink" title="报错如下"></a>报错如下</h4><blockquote>
 <p>net start mysql<br>MySQL 服务正在启动 .<br>MySQL 服务无法启动。<br>服务没有报告任何错误。<br>请键入 NET HELPMSG 3534 以获得更多的帮助。</p>
 </blockquote>
-<a id="more"></a>
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1.以下cmd均需用管理员权限打开</p>
 <p>2.mysql\bin目录下，移除已错误安装的mysqld服务</p>
 <blockquote>
@@ -696,7 +695,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

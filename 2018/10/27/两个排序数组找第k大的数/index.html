@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="chasen">
 <meta property="og:description" content="解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n) 实现如下1234567891011121314int findK(int[] nums1, int i, int[] nums2, int j, int k)&amp;#123;    int i = 0;    int j = 0;    in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T04:07:25.465Z">
+<meta property="og:updated_time" content="2019-10-14T02:45:22.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两个排序数组找第k大的数">
 <meta name="twitter:description" content="解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n) 实现如下1234567891011121314int findK(int[] nums1, int i, int[] nums2, int j, int k)&amp;#123;    int i = 0;    int j = 0;    in">
@@ -407,7 +407,6 @@
       
         <h4 id="解法一：游标计数"><a href="#解法一：游标计数" class="headerlink" title="解法一：游标计数"></a>解法一：游标计数</h4><p>定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。<br><strong>时间复杂度O(m+n)</strong></p>
 <h5 id="实现如下"><a href="#实现如下" class="headerlink" title="实现如下"></a>实现如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int findK(int[] nums1, int i, int[] nums2, int j, int k)&#123;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    int count = 1;</span><br><span class="line">    while(count&lt;k)</span><br><span class="line">    &#123;</span><br><span class="line">        if( nums1[i]&lt;=nums2[j] )</span><br><span class="line">            i++;</span><br><span class="line">        else</span><br><span class="line">            j++;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    return nums1[i]&lt;=nums2[j]?nums1[j]:nums2[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h4 id="解法二：类二分查找"><a href="#解法二：类二分查找" class="headerlink" title="解法二：类二分查找"></a>解法二：类二分查找</h4><p>充分利用两个数组都是有序的条件：</p>
 <ul>
 <li>当array1[k/2-1] &gt;= array2[k/2-1]  则array2在[0,k/2-1]范围内的元素一定比array1、array2合并后第k个元素小，可以不用考虑array2在[0,k/2-1]范围内的元素</li>
@@ -686,7 +685,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

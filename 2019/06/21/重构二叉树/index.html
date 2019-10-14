@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。">
+<meta name="description" content="题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。  算法实现12345678910111213141516171819202122232425262728293031/** * Definition for">
 <meta name="keywords" content="二叉树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重构二叉树">
 <meta property="og:url" content="http://ysccx.top/2019/06/21/重构二叉树/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。">
+<meta property="og:description" content="题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。  算法实现12345678910111213141516171819202122232425262728293031/** * Definition for">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T04:07:25.465Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:50.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重构二叉树">
-<meta name="twitter:description" content="题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。">
+<meta name="twitter:description" content="题目概述输入某二叉树的前序遍历和中序遍历的结果，假设结果中不包含重复元素，请重建该二叉树。 算法思路 前序序列的第一个值就是根节点的值。 在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。 分别对左右子树进行递归调用。  算法实现12345678910111213141516171819202122232425262728293031/** * Definition for">
 
 
 
@@ -411,7 +411,6 @@
 <li>在中序序列中找到这个值，那么这个值左边的序列为左子树，右边的序列为右子树。</li>
 <li>分别对左右子树进行递归调用。</li>
 </ol>
-<a id="more"></a>
 <h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for binary tree</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">reConstructBinaryTree</span><span class="params">(<span class="keyword">int</span> [] pre,<span class="keyword">int</span> [] in)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> reConstruct(pre,<span class="number">0</span>,pre.length-<span class="number">1</span>,in,<span class="number">0</span>,in.length-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">reConstruct</span><span class="params">(<span class="keyword">int</span>[] pre,<span class="keyword">int</span> startPre,<span class="keyword">int</span> endPre,<span class="keyword">int</span>[] in,<span class="keyword">int</span> startIn, <span class="keyword">int</span> endIn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(startPre&gt;endPre)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(pre[startPre]);</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=startIn;i&lt;=endIn;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre[startPre] == in[i])&#123;</span><br><span class="line">                index = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        root.left = reConstruct(pre,startPre+<span class="number">1</span>,index-startIn+startPre,in,startIn,index-<span class="number">1</span>);</span><br><span class="line">        root.right = reConstruct(pre,index-startIn+startPre+<span class="number">1</span>,endPre,in,index+<span class="number">1</span>,endIn);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -679,7 +678,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

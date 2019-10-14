@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。">
+<meta name="description" content="概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。 题目描述给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。 示例：12345678910111213输入: 4输出: [ [&quot;.Q..&quot;,  // 解法 1  &quot;...Q&quot;,  &quot;Q.">
 <meta name="keywords" content="N皇后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="N皇后">
 <meta property="og:url" content="http://ysccx.top/2019/06/17/N皇后/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。">
+<meta property="og:description" content="概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。 题目描述给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。 示例：12345678910111213输入: 4输出: [ [&quot;.Q..&quot;,  // 解法 1  &quot;...Q&quot;,  &quot;Q.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/queens.png">
-<meta property="og:updated_time" content="2019-09-17T04:07:25.465Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="N皇后">
-<meta name="twitter:description" content="概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。">
+<meta name="twitter:description" content="概述n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。 题目描述给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。 示例：12345678910111213输入: 4输出: [ [&quot;.Q..&quot;,  // 解法 1  &quot;...Q&quot;,  &quot;Q.">
 <meta name="twitter:image" content="http://ysccx.top/images/queens.png">
 
 
@@ -408,7 +408,6 @@
 
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。<br><img src="/images/queens.png" alt=""></p>
-<a id="more"></a>
 <p><strong>题目描述</strong><br>给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。<br>每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。</p>
 <p><strong>示例：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="number">4</span></span><br><span class="line">输出: [</span><br><span class="line"> [<span class="string">".Q.."</span>,  <span class="comment">// 解法 1</span></span><br><span class="line">  <span class="string">"...Q"</span>,</span><br><span class="line">  <span class="string">"Q..."</span>,</span><br><span class="line">  <span class="string">"..Q."</span>],</span><br><span class="line"></span><br><span class="line"> [<span class="string">"..Q."</span>,  <span class="comment">// 解法 2</span></span><br><span class="line">  <span class="string">"Q..."</span>,</span><br><span class="line">  <span class="string">"...Q"</span>,</span><br><span class="line">  <span class="string">".Q.."</span>]</span><br><span class="line">]</span><br><span class="line">解释: <span class="number">4</span> 皇后问题存在两个不同的解法。</span><br></pre></td></tr></table></figure></p>
 <h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><p>采用回溯算法，深度优先遍历所有可能，输出满足要求的可能。<br><strong>表示方式：</strong> arr[i] = k; 表示： 第i行的第k个位置放一个皇后。<br><strong>算法步骤：</strong></p>
@@ -685,7 +684,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

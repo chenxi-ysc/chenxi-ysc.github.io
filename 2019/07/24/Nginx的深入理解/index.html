@@ -77,19 +77,19 @@
 
 
 
-<meta name="description" content="概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用：  解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器">
+<meta name="description" content="概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用：  解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器  正向代理和反向代理两张图一目了然： Nginx的基本配置123456789101112131415161718192021events &amp;#123; &amp;#125;http &amp;#123;    server    &amp;#123;">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx的深入理解">
 <meta property="og:url" content="http://ysccx.top/2019/07/24/Nginx的深入理解/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用：  解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器">
+<meta property="og:description" content="概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用：  解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器  正向代理和反向代理两张图一目了然： Nginx的基本配置123456789101112131415161718192021events &amp;#123; &amp;#125;http &amp;#123;    server    &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/nginx.png">
-<meta property="og:updated_time" content="2019-09-17T04:06:25.466Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx的深入理解">
-<meta name="twitter:description" content="概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用：  解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器">
+<meta name="twitter:description" content="概述Nginx是一个高性能的HTTP和反向代理服务器，主要负责请求转发。具体有以下几个作用：  解决跨域 请求过滤 配置gzip 负载均衡 静态资源服务器  正向代理和反向代理两张图一目了然： Nginx的基本配置123456789101112131415161718192021events &amp;#123; &amp;#125;http &amp;#123;    server    &amp;#123;">
 <meta name="twitter:image" content="http://ysccx.top/images/nginx.png">
 
 
@@ -415,7 +415,6 @@
 <li>负载均衡</li>
 <li>静态资源服务器</li>
 </ul>
-<a id="more"></a>
 <h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><p>两张图一目了然：<br><img src="/images/nginx.png" alt=""></p>
 <h2 id="Nginx的基本配置"><a href="#Nginx的基本配置" class="headerlink" title="Nginx的基本配置"></a>Nginx的基本配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">events &#123; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">http </span><br><span class="line">&#123;</span><br><span class="line">    server</span><br><span class="line">    &#123; </span><br><span class="line">        location path</span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">        location path</span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    server</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -703,7 +702,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

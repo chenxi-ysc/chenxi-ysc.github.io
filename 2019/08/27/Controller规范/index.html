@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="概述 所有函数返回统一的ResultBean格式 ResultBean是controller专用的，不允许往后传 Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map 参数中一般情况不允许出现Request，Response这些对象 不需要打印日志">
+<meta name="description" content="概述 所有函数返回统一的ResultBean格式 ResultBean是controller专用的，不允许往后传 Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map 参数中一般情况不允许出现Request，Response这些对象 不需要打印日志  ResultBean定义带泛型，使用了lombok123456">
 <meta name="keywords" content="规范,Controller">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Controller规范">
 <meta property="og:url" content="http://ysccx.top/2019/08/27/Controller规范/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述 所有函数返回统一的ResultBean格式 ResultBean是controller专用的，不允许往后传 Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map 参数中一般情况不允许出现Request，Response这些对象 不需要打印日志">
+<meta property="og:description" content="概述 所有函数返回统一的ResultBean格式 ResultBean是controller专用的，不允许往后传 Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map 参数中一般情况不允许出现Request，Response这些对象 不需要打印日志  ResultBean定义带泛型，使用了lombok123456">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T15:16:23.346Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Controller规范">
-<meta name="twitter:description" content="概述 所有函数返回统一的ResultBean格式 ResultBean是controller专用的，不允许往后传 Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map 参数中一般情况不允许出现Request，Response这些对象 不需要打印日志">
+<meta name="twitter:description" content="概述 所有函数返回统一的ResultBean格式 ResultBean是controller专用的，不允许往后传 Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回json、map 参数中一般情况不允许出现Request，Response这些对象 不需要打印日志  ResultBean定义带泛型，使用了lombok123456">
 
 
 
@@ -412,7 +412,6 @@
 <li>参数中一般情况不允许出现Request，Response这些对象</li>
 <li>不需要打印日志</li>
 </ul>
-<a id="more"></a>
 <h3 id="ResultBean定义带泛型，使用了lombok"><a href="#ResultBean定义带泛型，使用了lombok" class="headerlink" title="ResultBean定义带泛型，使用了lombok"></a>ResultBean定义带泛型，使用了lombok</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResultBean</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NO_LOGIN = -<span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SUCCESS = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FAIL = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NO_PERMISSION = <span class="number">2</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">private</span> String msg = <span class="string">"success"</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> code = SUCCESS;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">private</span> T data;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ResultBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ResultBean</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.data = data;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ResultBean</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.msg = e.toString();</span><br><span class="line">    <span class="keyword">this</span>.code = FAIL;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -682,7 +681,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

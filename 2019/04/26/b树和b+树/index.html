@@ -77,20 +77,20 @@
 
 
 
-<meta name="description" content="概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。">
+<meta name="description" content="概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。 B树是一种多路搜索树（并不是二叉的）对于一个M阶的B树，有以下生成策略：  定义任意">
 <meta name="keywords" content="B树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B树和B+树">
 <meta property="og:url" content="http://ysccx.top/2019/04/26/b树和b+树/index.html">
 <meta property="og:site_name" content="chasen">
-<meta property="og:description" content="概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。">
+<meta property="og:description" content="概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。 B树是一种多路搜索树（并不是二叉的）对于一个M阶的B树，有以下生成策略：  定义任意">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/btree.jpg">
 <meta property="og:image" content="http://ysccx.top/images/b+tree.jpg">
-<meta property="og:updated_time" content="2019-09-17T04:07:25.465Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B树和B+树">
-<meta name="twitter:description" content="概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。">
+<meta name="twitter:description" content="概述动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。 B树是一种多路搜索树（并不是二叉的）对于一个M阶的B树，有以下生成策略：  定义任意">
 <meta name="twitter:image" content="http://ysccx.top/images/btree.jpg">
 
 
@@ -409,7 +409,6 @@
 
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>动态查找树主要有二叉查找树（Binary Search Tree），平衡二叉查找树（Balanced Binary Search Tree）， 红黑树 (Red-Black Tree )。查找的时间复杂度 O(logN) 与树的深度相关，降低树的深度会提高查找效率，于是有了多路的B-tree和B+-tree。</p>
-<a id="more"></a>
 <h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><p>是一种多路搜索树（并不是二叉的）对于一个M阶的B树，有以下生成策略：</p>
 <ul>
 <li><p>定义任意非叶子结点最多只有M个儿子；且M&gt;2；</p>
@@ -727,7 +726,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

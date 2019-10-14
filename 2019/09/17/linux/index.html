@@ -86,7 +86,7 @@
 <meta property="og:description" content="文件系统在Linux操作系统中，所有被操作系统管理的资源，例如网络接口卡、磁盘驱动器、打印机、输入输出设备、普通文件或是目录都被看作是一个文件。也就是说在LINUX系统中有一个重要的概念：一切都是文件。 最主要的几个组成部分如下：  inode：索引节点，一个文件占用一个 inode，记录文件的属性，同时记录此文件的内容所在的 block 编号； block：记录文件的内容，文件太大时，会占用多个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/file.jpg">
-<meta property="og:updated_time" content="2019-09-25T02:53:10.876Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:49.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础">
 <meta name="twitter:description" content="文件系统在Linux操作系统中，所有被操作系统管理的资源，例如网络接口卡、磁盘驱动器、打印机、输入输出设备、普通文件或是目录都被看作是一个文件。也就是说在LINUX系统中有一个重要的概念：一切都是文件。 最主要的几个组成部分如下：  inode：索引节点，一个文件占用一个 inode，记录文件的属性，同时记录此文件的内容所在的 block 编号； block：记录文件的内容，文件太大时，会占用多个">
@@ -426,7 +426,6 @@
 <li>定义文件特性的旗标 (flag)，如 SetUID…；</li>
 <li>该文件真正内容的指向 (pointer)。</li>
 </ol>
-<a id="more"></a>
 <p><strong>inode 具有以下特点：</strong><br>每个 inode 大小均固定为 128 bytes (新的 ext4 与 xfs 可设定到 256 bytes)；<br>每个文件都仅会占用一个 inode。<br>inode 中记录了文件内容所在的 block 编号，但是每个 block 非常小，一个大文件随便都需要几十万的 block。而一个 inode 大小有限，无法直接引用这么多 block 编号。因此引入了间接、双间接、三间接引用。间接引用让 inode 记录的引用 block 块记录引用信息。</p>
 <h3 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h3><p><img src="/images/file.jpg" alt=""></p>
 <h3 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h3><p>用户分为三种：文件拥有者、拥有者所在组以及其它人，对不同的用户有不同的文件权限。<br><strong>文件类型：</strong><br>[ d ]则是目录<br>[ - ]则是文件；<br>[ l ]则表示为链接文档(link file)；<br>[ b ]则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；<br>[ c ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。</p>
@@ -772,7 +771,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>

@@ -86,7 +86,7 @@
 <meta property="og:description" content="Redis常用的五大数据类型String【字符串】、List【列表】、Set【集合】、Hash【散列】、ZSet【有序集合】 Redis的Template分为两种一种是StringRedisTemplate，另一种是RedisTemplate  两者的关系是StringRedisTemplate继承RedisTemplate。  两者的数据是不共通的；也就是说StringRedisTemplate">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ysccx.top/images/redis.png">
-<meta property="og:updated_time" content="2019-09-17T04:01:56.361Z">
+<meta property="og:updated_time" content="2019-10-14T02:46:50.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot整合redis作为缓存">
 <meta name="twitter:description" content="Redis常用的五大数据类型String【字符串】、List【列表】、Set【集合】、Hash【散列】、ZSet【有序集合】 Redis的Template分为两种一种是StringRedisTemplate，另一种是RedisTemplate  两者的关系是StringRedisTemplate继承RedisTemplate。  两者的数据是不共通的；也就是说StringRedisTemplate">
@@ -423,7 +423,6 @@
 </ul>
 </li>
 </ol>
-<a id="more"></a>
 <p>大致的操作分为这5种，以RedisTemplate为例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一</span></span><br><span class="line">redisTemplate.opsForValue()</span><br><span class="line">redisTemplate.opsForList()</span><br><span class="line">redisTemplate.opsForSet()</span><br><span class="line">redisTemplate.opsForHash()</span><br><span class="line">redisTemplate.opsForZset()</span><br><span class="line"><span class="comment">//方法二</span></span><br><span class="line">redistempalate.boundValueOps()</span><br><span class="line">redistempalate.boundSetOps()</span><br><span class="line">redistempalate.boundListOps()</span><br><span class="line">redistempalate.boundHashOps()</span><br><span class="line">redistempalate.boundZSetOps()</span><br></pre></td></tr></table></figure></p>
 <p><strong>opsForXXX和boundXXXOps的区别？</strong><br>XXX为value的类型，前者获取一个operator，但是没有指定操作的对象（key），可以在一个连接（事务）内操作多个key以及对应的value；后者获取了一个指定操作对象（key）的operator，在一个连接（事务）内只能操作这个key对应的value。</p>
 <h2 id="整合redis"><a href="#整合redis" class="headerlink" title="整合redis"></a>整合redis</h2><p>1.导入依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -703,7 +702,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span id="heart" class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">chasen</span>
