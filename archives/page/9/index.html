@@ -1,0 +1,1020 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="归档, chasen">
+    <meta name="description" content="归档 | chasen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>归档 | chasen</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">chasen</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">chasen</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                21 years, you still have nothing.
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+
+
+    </div>
+</div>
+
+<main class="content">
+
+    
+    <div class="container archive-calendar">
+    <div class="card">
+        <div id="post-calendar" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+    let myChart = echarts.init(document.getElementById('post-calendar'));
+
+    
+
+    let option = {
+        title: {
+            top: 0,
+            text: '文章日历',
+            left: 'center',
+            textStyle: {
+                color: '#3C4858'
+            }
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#555',
+            borderColor: '#777',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
+            }
+        },
+        visualMap: {
+            show: true,
+            showLabel: true,
+            categories: [0, 1, 2, 3, 4],
+            calculable: true,
+            inRange: {
+                symbol: 'rect',
+                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+            },
+            itemWidth: 12,
+            itemHeight: 12,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: 0
+        },
+        calendar: [{
+            left: 'center',
+            range: ["2018-11-23", "2019-11-23"],
+            cellSize: [13, 13],
+            splitLine: {
+                show: false
+            },
+            itemStyle: {
+                color: '#196127',
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            yearLabel: {
+                show: false
+            },
+            monthLabel: {
+                nameMap: 'cn',
+                fontSize: 11
+            },
+            dayLabel: {
+                formatter: '{start}  1st',
+                nameMap: 'cn',
+                fontSize: 11
+            }
+        }],
+        series: [{
+            type: 'heatmap',
+            coordinateSystem: 'calendar',
+            calendarIndex: 0,
+            data: [["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 0], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 0], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 0], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 1], ["2018-12-17", 0], ["2018-12-18", 0], ["2018-12-19", 0], ["2018-12-20", 0], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 0], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 0], ["2019-01-15", 0], ["2019-01-16", 1], ["2019-01-17", 0], ["2019-01-18", 1], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 0], ["2019-01-24", 0], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 1], ["2019-02-24", 1], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 1], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 2], ["2019-03-06", 0], ["2019-03-07", 1], ["2019-03-08", 3], ["2019-03-09", 1], ["2019-03-10", 0], ["2019-03-11", 0], ["2019-03-12", 0], ["2019-03-13", 3], ["2019-03-14", 0], ["2019-03-15", 0], ["2019-03-16", 1], ["2019-03-17", 1], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 2], ["2019-03-21", 1], ["2019-03-22", 1], ["2019-03-23", 0], ["2019-03-24", 1], ["2019-03-25", 0], ["2019-03-26", 0], ["2019-03-27", 1], ["2019-03-28", 0], ["2019-03-29", 1], ["2019-03-30", 0], ["2019-03-31", 0], ["2019-04-01", 0], ["2019-04-02", 1], ["2019-04-03", 0], ["2019-04-04", 0], ["2019-04-05", 0], ["2019-04-06", 1], ["2019-04-07", 0], ["2019-04-08", 3], ["2019-04-09", 0], ["2019-04-10", 0], ["2019-04-11", 0], ["2019-04-12", 0], ["2019-04-13", 1], ["2019-04-14", 0], ["2019-04-15", 1], ["2019-04-16", 2], ["2019-04-17", 0], ["2019-04-18", 0], ["2019-04-19", 1], ["2019-04-20", 1], ["2019-04-21", 0], ["2019-04-22", 0], ["2019-04-23", 1], ["2019-04-24", 0], ["2019-04-25", 0], ["2019-04-26", 1], ["2019-04-27", 2], ["2019-04-28", 2], ["2019-04-29", 0], ["2019-04-30", 0], ["2019-05-01", 0], ["2019-05-02", 0], ["2019-05-03", 0], ["2019-05-04", 1], ["2019-05-05", 2], ["2019-05-06", 2], ["2019-05-07", 0], ["2019-05-08", 1], ["2019-05-09", 0], ["2019-05-10", 0], ["2019-05-11", 0], ["2019-05-12", 0], ["2019-05-13", 0], ["2019-05-14", 0], ["2019-05-15", 0], ["2019-05-16", 0], ["2019-05-17", 0], ["2019-05-18", 0], ["2019-05-19", 0], ["2019-05-20", 0], ["2019-05-21", 0], ["2019-05-22", 1], ["2019-05-23", 0], ["2019-05-24", 0], ["2019-05-25", 0], ["2019-05-26", 0], ["2019-05-27", 0], ["2019-05-28", 0], ["2019-05-29", 0], ["2019-05-30", 1], ["2019-05-31", 0], ["2019-06-01", 0], ["2019-06-02", 0], ["2019-06-03", 0], ["2019-06-04", 0], ["2019-06-05", 0], ["2019-06-06", 0], ["2019-06-07", 0], ["2019-06-08", 0], ["2019-06-09", 0], ["2019-06-10", 0], ["2019-06-11", 0], ["2019-06-12", 0], ["2019-06-13", 0], ["2019-06-14", 0], ["2019-06-15", 0], ["2019-06-16", 0], ["2019-06-17", 1], ["2019-06-18", 0], ["2019-06-19", 0], ["2019-06-20", 0], ["2019-06-21", 1], ["2019-06-22", 0], ["2019-06-23", 0], ["2019-06-24", 0], ["2019-06-25", 0], ["2019-06-26", 0], ["2019-06-27", 1], ["2019-06-28", 0], ["2019-06-29", 0], ["2019-06-30", 0], ["2019-07-01", 0], ["2019-07-02", 0], ["2019-07-03", 0], ["2019-07-04", 0], ["2019-07-05", 0], ["2019-07-06", 0], ["2019-07-07", 0], ["2019-07-08", 0], ["2019-07-09", 0], ["2019-07-10", 0], ["2019-07-11", 0], ["2019-07-12", 0], ["2019-07-13", 0], ["2019-07-14", 0], ["2019-07-15", 0], ["2019-07-16", 1], ["2019-07-17", 3], ["2019-07-18", 0], ["2019-07-19", 0], ["2019-07-20", 0], ["2019-07-21", 0], ["2019-07-22", 0], ["2019-07-23", 1], ["2019-07-24", 1], ["2019-07-25", 0], ["2019-07-26", 0], ["2019-07-27", 0], ["2019-07-28", 0], ["2019-07-29", 0], ["2019-07-30", 0], ["2019-07-31", 0], ["2019-08-01", 1], ["2019-08-02", 0], ["2019-08-03", 0], ["2019-08-04", 0], ["2019-08-05", 0], ["2019-08-06", 0], ["2019-08-07", 0], ["2019-08-08", 1], ["2019-08-09", 0], ["2019-08-10", 0], ["2019-08-11", 0], ["2019-08-12", 0], ["2019-08-13", 0], ["2019-08-14", 0], ["2019-08-15", 1], ["2019-08-16", 0], ["2019-08-17", 0], ["2019-08-18", 0], ["2019-08-19", 0], ["2019-08-20", 0], ["2019-08-21", 0], ["2019-08-22", 0], ["2019-08-23", 0], ["2019-08-24", 0], ["2019-08-25", 0], ["2019-08-26", 0], ["2019-08-27", 1], ["2019-08-28", 0], ["2019-08-29", 0], ["2019-08-30", 1], ["2019-08-31", 0], ["2019-09-01", 0], ["2019-09-02", 1], ["2019-09-03", 2], ["2019-09-04", 1], ["2019-09-05", 0], ["2019-09-06", 0], ["2019-09-07", 0], ["2019-09-08", 0], ["2019-09-09", 0], ["2019-09-10", 0], ["2019-09-11", 0], ["2019-09-12", 0], ["2019-09-13", 0], ["2019-09-14", 1], ["2019-09-15", 0], ["2019-09-16", 1], ["2019-09-17", 3], ["2019-09-18", 0], ["2019-09-19", 0], ["2019-09-20", 0], ["2019-09-21", 1], ["2019-09-22", 0], ["2019-09-23", 0], ["2019-09-24", 0], ["2019-09-25", 0], ["2019-09-26", 0], ["2019-09-27", 0], ["2019-09-28", 0], ["2019-09-29", 0], ["2019-09-30", 0], ["2019-10-01", 0], ["2019-10-02", 0], ["2019-10-03", 0], ["2019-10-04", 0], ["2019-10-05", 1], ["2019-10-06", 0], ["2019-10-07", 0], ["2019-10-08", 1], ["2019-10-09", 0], ["2019-10-10", 0], ["2019-10-11", 0], ["2019-10-12", 0], ["2019-10-13", 0], ["2019-10-14", 0], ["2019-10-15", 0], ["2019-10-16", 0], ["2019-10-17", 0], ["2019-10-18", 0], ["2019-10-19", 0], ["2019-10-20", 0], ["2019-10-21", 0], ["2019-10-22", 0], ["2019-10-23", 0], ["2019-10-24", 0], ["2019-10-25", 0], ["2019-10-26", 0], ["2019-10-27", 0], ["2019-10-28", 0], ["2019-10-29", 0], ["2019-10-30", 0], ["2019-10-31", 0], ["2019-11-01", 0], ["2019-11-02", 0], ["2019-11-03", 0], ["2019-11-04", 0], ["2019-11-05", 0], ["2019-11-06", 0], ["2019-11-07", 0], ["2019-11-08", 1], ["2019-11-09", 0], ["2019-11-10", 0], ["2019-11-11", 0], ["2019-11-12", 0], ["2019-11-13", 0], ["2019-11-14", 0], ["2019-11-15", 0], ["2019-11-16", 0], ["2019-11-17", 0], ["2019-11-18", 0], ["2019-11-19", 0], ["2019-11-20", 0], ["2019-11-21", 0], ["2019-11-22", 0], ["2019-11-23", 0]]
+        }]
+
+    };
+
+    myChart.setOption(option);
+</script>
+    
+
+    
+
+    <div id="cd-timeline" class="container">
+        
+        <div class="cd-timeline-block">
+
+            
+            
+            
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="/archives/2018">2018</a>
+            </div>
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2018/01">01</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>05</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2018/01/05/deadlock/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="死锁最通俗的解释">
+                                
+                                <span class="card-title">死锁最通俗的解释</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    在学习计算机原理的过程中，一直对死锁这一概念理解的不彻底。直到我无意中看到了一位大牛的生动形象的解释。
+一个生活中的例子：在一条河上有一座桥，桥面较窄，只能容纳一辆汽车通过，无法让两辆汽车并行。如果有两辆汽车A和B分别由桥的两端驶上该桥，则
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2018-01-05
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/3-并发/" class="post-category">
+                                    3-并发
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/死锁/"><span class="chip bg-color">死锁</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+            
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="/archives/2017">2017</a>
+            </div>
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2017/12">12</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>04</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2017/12/04/史上最贱的数学题/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="计算机都解不出来的数学题">
+                                
+                                <span class="card-title">计算机都解不出来的数学题</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    这是一道史无前例的数学题，最强大的计算机也解不出来。
+这年头，写个电脑程序解决这种形式简单的方程真是太容易了，只要它真的有答案，那电脑最终一定会找出来。但很抱歉，大错特错。用电脑暴力计算在这里毫无用处。首先，提取图片中的数学方程，那么我们要
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2017-12-04
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/随记/" class="post-category">
+                                    随记
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/数学/"><span class="chip bg-color">数学</span></a>
+                            
+                            <a href="/tags/挑战/"><span class="chip bg-color">挑战</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2017/10">10</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>03</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2017/10/03/sudoku/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Java解数独的算法实现">
+                                
+                                <span class="card-title">Java解数独的算法实现</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    算法原理采用深度优先遍历所有可能的值，列出能使数独矩阵成立的组合（俗称暴力破解^_^）。递归深度约为9x9层，每层有1~9这几个可能值。故时间复杂度约为9的81次方！
+待解数独
+测试结果
+主要代码
+Sudo.java
+
+1234567891
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2017-10-03
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/项目/" class="post-category">
+                                    项目
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/Java/"><span class="chip bg-color">Java</span></a>
+                            
+                            <a href="/tags/数独/"><span class="chip bg-color">数独</span></a>
+                            
+                            <a href="/tags/数学/"><span class="chip bg-color">数学</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2017/08">08</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>25</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2017/08/25/20岁/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="20岁无资本无未来">
+                                
+                                <span class="card-title">20岁无资本无未来</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    你学习一般，考上了现在的这所学校，成绩不算好，拿不到奖学金，上课不听讲，上自习不规律，考试靠突击，同学帮一把的话也能每科考到七八十分，但是与优秀总有很大距离。你家境一般，父母都是普通员工，你在这个城市的生活费是每月一千二，没事下下馆子，一个
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2017-08-25
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/摘录/" class="post-category">
+                                    摘录
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/20岁/"><span class="chip bg-color">20岁</span></a>
+                            
+                            <a href="/tags/未来/"><span class="chip bg-color">未来</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2017/07">07</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>30</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2017/07/30/git/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git使用总结">
+                                
+                                <span class="card-title">git使用总结</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    什么是git？分布式版本控制系统。git几乎是所有程序员必备的技能之一，而git教程在网上更是琳琅满目。
+git版本库图解
+一些基本的git命令
+git init
+git add
+git commit
+git remote add orig
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2017-07-30
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/7-工具/" class="post-category">
+                                    7-工具
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/git/"><span class="chip bg-color">git</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2017/05">05</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>17</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2017/05/17/代码起手式/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="代码起手">
+                                
+                                <span class="card-title">代码起手</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    如来佛祖，永无bug。12345678910111213141516171819202122232425262728293031/** *                             _ooOoo_ *             
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2017-05-17
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/摘录/" class="post-category">
+                                    摘录
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/起手式/"><span class="chip bg-color">起手式</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+            
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="/archives/2016">2016</a>
+            </div>
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2016/07">07</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>25</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2016/07/25/hello-world/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                                
+                                <span class="card-title">Hello World</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    一如既往的起手式java12345public class helloworld &#123;    public static void main(String[] args) &#123;        System.out.print
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2016-07-25
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/随记/" class="post-category">
+                                    随记
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/Java/"><span class="chip bg-color">Java</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+    </div>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/archives/page/8/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">9 / 9</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://ysccx.top" target="_blank">chasen</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn" target="_blank">蜀ICP备19030561号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":100,"height":200},"react":{"opacityDefault":1},"mobile":{"show":false},"log":false});</script></body>
+
+</html>
