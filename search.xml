@@ -428,8 +428,8 @@
         <category>1-基础</category>
       </categories>
       <tags>
-        <tag>Java8</tag>
         <tag>Optional</tag>
+        <tag>Java8</tag>
       </tags>
   </entry>
   <entry>
@@ -698,8 +698,8 @@
       </categories>
       <tags>
         <tag>mybatis</tag>
-        <tag>Java</tag>
         <tag>逆向工程</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>

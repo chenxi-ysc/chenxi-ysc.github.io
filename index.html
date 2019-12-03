@@ -301,8 +301,7 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -344,37 +343,16 @@ $(function () {
     coverSlider.carousel({
         duration: Number('120'),
         fullWidth: true,
-        indicators: 'true' === 'true'
+        indicators: 'false' === 'true'
     });
 
     let carouselIntervalId;
     
-    // Loop to call the next cover article picture.
-    let autoCarousel = function() {
-        carouselIntervalId = setInterval(function () {
-            coverSlider.carousel('next');
-        }, 5000);
-    };
-    autoCarousel();
-    
 
     let restartPlay = function () {
         
-        clearInterval(carouselIntervalId);
-        autoCarousel();
-        
     };
 
-    
-    // prev and next cover post.
-    $('#prev-cover').click(function () {
-        coverSlider.carousel('prev');
-        restartPlay();
-    });
-    $('#next-cover').click(function () {
-        coverSlider.carousel('next');
-        restartPlay();
-    });
     
 });
 </script>
