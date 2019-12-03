@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python实现字符画, chasen">
+    <meta name="keywords" content="python实现字符画, CHASEN">
     <meta name="description" content="目标将视频转换为字符画并逐帧播放
 说明
 由于Windows下的命令行实现起来会有闪屏的情况，所以最后改用浏览器+JavaScript的定时器实现播放效果。
@@ -17,7 +17,7 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python实现字符画 | chasen</title>
+    <title>python实现字符画 | CHASEN</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -30,7 +30,8 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -40,7 +41,7 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">chasen</span>
+                    <span class="logo-span">CHASEN</span>
                 </a>
             </div>
             
@@ -103,6 +104,17 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -114,7 +126,7 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">chasen</div>
+        <div class="logo-name">CHASEN</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -177,6 +189,17 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
 		</a>
           
         </li>
@@ -356,14 +379,14 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    779
+                    669
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 				
@@ -388,7 +411,117 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
 <li>由于制作时间较长，故加入了进度条以引起舒适感。</li>
 </ul>
 <h3 id="来张效果图"><a href="#来张效果图" class="headerlink" title="来张效果图"></a>来张效果图</h3><p><img src="/images/1.png" alt=""></p>
-<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">#导入 opencv</span><br><span class="line">import cv2</span><br><span class="line">import numpy as np</span><br><span class="line">import progressbar</span><br><span class="line"></span><br><span class="line">def video2imgs(video_name, size):</span><br><span class="line">    img_list = []</span><br><span class="line"></span><br><span class="line">    # 从指定文件创建一个VideoCapture对象</span><br><span class="line">    cap = cv2.VideoCapture(video_name)</span><br><span class="line">    print(&apos;Please wait a moment...&apos;)</span><br><span class="line">    # 如果cap对象已经初始化完成了，就返回true，换句话说这是一个 while true 循环</span><br><span class="line">    while cap.isOpened():</span><br><span class="line">        # cap.read() 返回值介绍：</span><br><span class="line">        #   ret 表示是否读取到图像</span><br><span class="line">        #   frame 为图像矩阵，类型为 numpy.ndarry.</span><br><span class="line">        ret, frame = cap.read()</span><br><span class="line">        if ret:</span><br><span class="line">            # 转换成灰度图。</span><br><span class="line">            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)</span><br><span class="line"></span><br><span class="line">            # resize 图片，保证图片转换成字符画后，能完整地在命令行中显示。</span><br><span class="line">            img = cv2.resize(gray, size, interpolation=cv2.INTER_AREA)</span><br><span class="line"></span><br><span class="line">            # 分帧保存转换结果</span><br><span class="line">            img_list.append(img)</span><br><span class="line">        else:</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    # 结束时要释放空间</span><br><span class="line">    cap.release()</span><br><span class="line">    return img_list</span><br><span class="line"></span><br><span class="line"># 用于生成字符画的像素，越往后视觉上越明显。</span><br><span class="line">pixels = &quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1&#123;&#125;[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&apos;. &quot;</span><br><span class="line"></span><br><span class="line">def img2chars(img):</span><br><span class="line">    res = []</span><br><span class="line">    height, width = img.shape</span><br><span class="line">    for row in range(height):</span><br><span class="line">        line = &quot;&quot;</span><br><span class="line">        for col in range(width):</span><br><span class="line">            # 灰度是用8位表示的，最大值为255。</span><br><span class="line">            # 这里将灰度转换到0-1之间</span><br><span class="line">            percent = img[row][col] / 255</span><br><span class="line">            </span><br><span class="line">            # 将灰度值进一步转换到 0 到 (len(pixels) - 1) 之间，这样就和 pixels 里的字符对应起来了</span><br><span class="line">            index = int(percent * (len(pixels) - 1))</span><br><span class="line"></span><br><span class="line">            # 添加字符像素（最后面加一个空格，是因为命令行有行距却没几乎有字符间距，用空格当间距）</span><br><span class="line">            line += pixels[index] + &quot; &quot;</span><br><span class="line">        with open(&apos;badapple.html&apos;,&apos;a&apos;) as f:</span><br><span class="line">            f.write(line)</span><br><span class="line">            f.write(&apos;\n&apos;)</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">def imgs2chars(imgs):</span><br><span class="line">    for img in progressbar.progressbar(imgs):</span><br><span class="line">        with open(&apos;badapple.html&apos;,&apos;a&apos;) as f:</span><br><span class="line">            f.write(&apos;&lt;pre&gt;&apos;)</span><br><span class="line">            f.write(&apos;\n&apos;)</span><br><span class="line">        img2chars(img)</span><br><span class="line">        with open(&apos;badapple.html&apos;,&apos;a&apos;) as f:</span><br><span class="line">            f.write(&apos;&lt;/pre&gt;&apos;)</span><br><span class="line">            f.write(&apos;\n&apos;)</span><br><span class="line">    print(&apos;finish!&apos;)</span><br><span class="line"></span><br><span class="line">def start(vedio):</span><br><span class="line">    size = (64, 48)</span><br><span class="line">    head = &apos;&apos;&apos;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;audio autoplay=&quot;autoplay&quot;src=&quot;badapple.mp3&quot;&gt;&lt;/audio&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">pre &#123;display:none;font-size:13px;width:923px;height:692px;margin:auto&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">window.onload = function()&#123;</span><br><span class="line">    var pres = document.getElementsByTagName(&apos;pre&apos;);</span><br><span class="line">    var i = 0;</span><br><span class="line">    var play = function()&#123;</span><br><span class="line">        if(i &gt; 0)&#123;</span><br><span class="line">            pres[i-1].style.display = &apos;none&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        pres[i].style.display = &apos;block&apos;;</span><br><span class="line">        i++;</span><br><span class="line">        if(i == pres.length)&#123;</span><br><span class="line">            clearInterval(run)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    run = setInterval(play, 33.3)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">    foot = &apos;&apos;&apos;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">    with open(&apos;badapple.html&apos;,&apos;a&apos;) as f:</span><br><span class="line">        f.write(head)</span><br><span class="line">    imgs = video2imgs(vedio,size)</span><br><span class="line">    imgs2chars(imgs)</span><br><span class="line">    with open(&apos;badapple.html&apos;,&apos;a&apos;) as f:</span><br><span class="line">        f.write(foot)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    # *.mp4为视频路径</span><br><span class="line">    start(&apos;test.mp4&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><pre><code>#导入 opencv
+import cv2
+import numpy as np
+import progressbar
+
+def video2imgs(video_name, size):
+    img_list = []
+
+    # 从指定文件创建一个VideoCapture对象
+    cap = cv2.VideoCapture(video_name)
+    print(&#39;Please wait a moment...&#39;)
+    # 如果cap对象已经初始化完成了，就返回true，换句话说这是一个 while true 循环
+    while cap.isOpened():
+        # cap.read() 返回值介绍：
+        #   ret 表示是否读取到图像
+        #   frame 为图像矩阵，类型为 numpy.ndarry.
+        ret, frame = cap.read()
+        if ret:
+            # 转换成灰度图。
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+            # resize 图片，保证图片转换成字符画后，能完整地在命令行中显示。
+            img = cv2.resize(gray, size, interpolation=cv2.INTER_AREA)
+
+            # 分帧保存转换结果
+            img_list.append(img)
+        else:
+            break
+
+    # 结束时要释放空间
+    cap.release()
+    return img_list
+
+# 用于生成字符画的像素，越往后视觉上越明显。
+pixels = &quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&#39;. &quot;
+
+def img2chars(img):
+    res = []
+    height, width = img.shape
+    for row in range(height):
+        line = &quot;&quot;
+        for col in range(width):
+            # 灰度是用8位表示的，最大值为255。
+            # 这里将灰度转换到0-1之间
+            percent = img[row][col] / 255
+
+            # 将灰度值进一步转换到 0 到 (len(pixels) - 1) 之间，这样就和 pixels 里的字符对应起来了
+            index = int(percent * (len(pixels) - 1))
+
+            # 添加字符像素（最后面加一个空格，是因为命令行有行距却没几乎有字符间距，用空格当间距）
+            line += pixels[index] + &quot; &quot;
+        with open(&#39;badapple.html&#39;,&#39;a&#39;) as f:
+            f.write(line)
+            f.write(&#39;\n&#39;)
+
+
+def imgs2chars(imgs):
+    for img in progressbar.progressbar(imgs):
+        with open(&#39;badapple.html&#39;,&#39;a&#39;) as f:
+            f.write(&#39;&lt;pre&gt;&#39;)
+            f.write(&#39;\n&#39;)
+        img2chars(img)
+        with open(&#39;badapple.html&#39;,&#39;a&#39;) as f:
+            f.write(&#39;&lt;/pre&gt;&#39;)
+            f.write(&#39;\n&#39;)
+    print(&#39;finish!&#39;)
+
+def start(vedio):
+    size = (64, 48)
+    head = &#39;&#39;&#39;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;audio autoplay=&quot;autoplay&quot;src=&quot;badapple.mp3&quot;&gt;&lt;/audio&gt;
+&lt;/head&gt;
+&lt;style&gt;
+pre {display:none;font-size:13px;width:923px;height:692px;margin:auto}
+&lt;/style&gt;
+&lt;script&gt;
+window.onload = function(){
+    var pres = document.getElementsByTagName(&#39;pre&#39;);
+    var i = 0;
+    var play = function(){
+        if(i &gt; 0){
+            pres[i-1].style.display = &#39;none&#39;;
+        }
+        pres[i].style.display = &#39;block&#39;;
+        i++;
+        if(i == pres.length){
+            clearInterval(run)
+        }
+    }
+    run = setInterval(play, 33.3)
+}
+&lt;/script&gt;
+&lt;body&gt;
+&#39;&#39;&#39;
+    foot = &#39;&#39;&#39;
+&lt;/body&gt;
+&lt;/html&gt;
+&#39;&#39;&#39;
+    with open(&#39;badapple.html&#39;,&#39;a&#39;) as f:
+        f.write(head)
+    imgs = video2imgs(vedio,size)
+    imgs2chars(imgs)
+    with open(&#39;badapple.html&#39;,&#39;a&#39;) as f:
+        f.write(foot)
+
+if __name__ == &quot;__main__&quot;:
+    # *.mp4为视频路径
+    start(&#39;test.mp4&#39;)
+</code></pre>
             </div>
             <hr/>
 
@@ -471,9 +604,6 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
 
 <div id="article-share">
     
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -620,6 +750,269 @@ chrome内核的浏览器似乎不支持audio标签，所以最好这里使用了
     
 
     
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
 
     
 
@@ -746,8 +1139,6 @@ HashMap是基于哈希表的Map接口的非同步实现，提供所有可选的�
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
     
 <!-- 代码块复制 -->
 
@@ -791,7 +1182,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -803,7 +1194,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1032,6 +1423,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     

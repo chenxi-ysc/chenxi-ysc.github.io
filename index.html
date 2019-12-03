@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="chasen">
-    <meta name="description" content="chasen">
+    <meta name="keywords" content="CHASEN">
+    <meta name="description" content="CHASEN">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>chasen</title>
+    <title>CHASEN</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -26,7 +26,8 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -36,7 +37,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">chasen</span>
+                    <span class="logo-span">CHASEN</span>
                 </a>
             </div>
             
@@ -99,6 +100,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -110,7 +122,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">chasen</div>
+        <div class="logo-name">CHASEN</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -173,6 +185,17 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
 		</a>
           
         </li>
@@ -640,13 +663,25 @@ ElasticSearch
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                chasen
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/3-并发/" class="post-category">
+                                    3-并发
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/高并发/">
+                            <span class="chip bg-color">高并发</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -773,7 +808,10 @@ ino
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                二分查找最普遍的写法12345678910111213int bsearch(int a[], int size, int v)&#123;    int mid, low = 0, high = size - 1;    while(lo
+                                二分查找最普遍的写法int bsearch(int a[], int size, int v){
+    int mid, low = 0, high = size - 1;
+    while(low &lt;= high){
+     
                             
                         </div>
                         <div class="publish-info">
@@ -928,7 +966,12 @@ Java流有字符流和字节流两种。
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基本使用1.定义组件12345678910111213141516171819202122232425262728&lt;template&gt;  &lt;div class="hello"&gt;    &lt;h1 @click="i
+                                基本使用1.定义组件
+&lt;template>
+  &lt;div class="hello">
+    &lt;h1 @click="info" :class="color">{{ msg }}&lt;/h1>
+  &lt;/div>
+
                             
                         </div>
                         <div class="publish-info">
@@ -980,7 +1023,8 @@ Java流有字符流和字节流两种。
                         <div class="summary block-with-text">
                             
                                 概述Hibernate是一种ORM框架，全称为 Object_Relative DateBase-Mapping，在Java对象与关系数据库之间建立某种映射，以实现直接存取Java对象。
-使用1.引入pom123456&lt;!-- htt
+使用1.引入pom
+&lt;!-- https://
                             
                         </div>
                         <div class="publish-info">
@@ -1076,6 +1120,337 @@ hibernate是全自动，而mybatis是半自动：hibernate完全可以通过对�
                 </div>
             </div>
             
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/09/02/AOP的深入理解及应用/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="AOP的深入理解及应用">
+                            
+                            <span class="card-title">AOP的深入理解及应用</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                概述
+AOP（Aspect-OrientedProgramming，面向切面编程），可以说是OOP（Object-Oriented Programing，面向对象编程）的补充和完善。
+AOP利用一种称为“横切”的技术，剖解开封装的对象内部，
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Spring/" class="post-category">
+                                    Spring
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/AOP/">
+                            <span class="chip bg-color">AOP</span>
+                        </a>
+                        
+                        <a href="/tags/代理/">
+                            <span class="chip bg-color">代理</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/30/JS模块化编程/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="JS模块化编程">
+                            
+                            <span class="card-title">JS模块化编程</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                第一阶段：无模块化简单的将所有的js文件统统放在一起
+&lt;script src="jquery.js">&lt;/script>
+&lt;script src="jquery_scroller.js">&lt;/script>
+&lt;
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/前端/" class="post-category">
+                                    前端
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/js/">
+                            <span class="chip bg-color">js</span>
+                        </a>
+                        
+                        <a href="/tags/模块化/">
+                            <span class="chip bg-color">模块化</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/27/Controller规范/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Controller规范">
+                            
+                            <span class="card-title">Controller规范</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                概述
+所有函数返回统一的ResultBean格式
+ResultBean是controller专用的，不允许往后传
+Controller做参数格式的转换，不允许把json，map这类对象传到services去，也不允许services返回js
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/1-基础/" class="post-category">
+                                    1-基础
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/规范/">
+                            <span class="chip bg-color">规范</span>
+                        </a>
+                        
+                        <a href="/tags/Controller/">
+                            <span class="chip bg-color">Controller</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/15/java日志框架/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="java日志框架">
+                            
+                            <span class="card-title">java日志框架</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                概述日志体系如下：
+日志级别
+
+
+级别
+描述
+
+
+
+
+FATAL
+导致应用程序终止的严重问题
+
+
+ERROR
+运行时错误
+
+
+WARNING
+在大多数情况下，这种级别的错误是由于使用了已弃用的API
+
+
+INFO
+运行时发生的事件
+
+
+DE
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/1-基础/" class="post-category">
+                                    1-基础
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/logger/">
+                            <span class="chip bg-color">logger</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/08/日常总结/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="日常总结">
+                            
+                            <span class="card-title">日常总结</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一个.java源文件中是否可以包含多个类？一个.java源文件可以包含多个类，但public修饰的类最多只能有一个如果有public修饰的类，则文件名必须是public类的类名如果没有public修饰的类，则文件名可以是随便一个类的类名
+S
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/1-基础/" class="post-category">
+                                    1-基础
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/总结/">
+                            <span class="chip bg-color">总结</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/08/01/jdbcTemplate使用总结/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="JdbcTemplate使用总结">
+                            
+                            <span class="card-title">JdbcTemplate使用总结</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                JDBCJDBC：Java Data Base Connection简单来说JDBC就是为多种关系型数据库提供统一访问的一组接口。
+通过JDBC操作数据库的一般步骤：
+1.注册驱动Class.forName(&quot;com.mysql.
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Spring/" class="post-category">
+                                    Spring
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/jdbc/">
+                            <span class="chip bg-color">jdbc</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
     </article>
 
@@ -1092,7 +1467,7 @@ hibernate是全自动，而mybatis是半自动：hibernate完全可以通过对�
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 9</div>
+            <div class="center-align b-text-gray">1 / 6</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1275,6 +1650,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     

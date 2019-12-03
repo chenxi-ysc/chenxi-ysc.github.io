@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="java线程的暂停和恢复, chasen">
+    <meta name="keywords" content="java线程的暂停和恢复, CHASEN">
     <meta name="description" content="线程状态
 基础前提
 Java中的每个对象都有一个监视器，来监测并发代码的重入。
@@ -17,7 +17,7 @@ synchronized(this){}等同于public s">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>java线程的暂停和恢复 | chasen</title>
+    <title>java线程的暂停和恢复 | CHASEN</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -30,7 +30,8 @@ synchronized(this){}等同于public s">
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -40,7 +41,7 @@ synchronized(this){}等同于public s">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">chasen</span>
+                    <span class="logo-span">CHASEN</span>
                 </a>
             </div>
             
@@ -103,6 +104,17 @@ synchronized(this){}等同于public s">
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -114,7 +126,7 @@ synchronized(this){}等同于public s">
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">chasen</div>
+        <div class="logo-name">CHASEN</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -177,6 +189,17 @@ synchronized(this){}等同于public s">
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
 		</a>
           
         </li>
@@ -356,7 +379,7 @@ synchronized(this){}等同于public s">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    535
+                    469
                 </div>
                 
 
@@ -389,8 +412,74 @@ synchronized(this){}等同于public s">
 <li>notify()方法只会通知等待队列中的第一个相关线程（不会通知优先级比较高的线程）。</li>
 <li>notifyAll()通知所有等待该竞争资源的线程（也不会按照线程的优先级来执行）。</li>
 </ul>
-<h4 id="利用wait-和notify-实现线程的暂停和恢复"><a href="#利用wait-和notify-实现线程的暂停和恢复" class="headerlink" title="利用wait()和notify()实现线程的暂停和恢复"></a>利用wait()和notify()实现线程的暂停和恢复</h4><p>让目标线程轮询一个自定义锁对象。当需要挂起状态时，线程将使用 Object.wait 进行等待。当线程恢复时，将使用 Object.notify 通知目标线程。<br>实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Object lock = new Object();</span><br><span class="line">boolean isPause = false;</span><br><span class="line">public void run()&#123;</span><br><span class="line">    synchronized (lock)&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(600);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        while(isPause)&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                lock.wait();</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="经典生产者消费者问题"><a href="#经典生产者消费者问题" class="headerlink" title="经典生产者消费者问题"></a>经典生产者消费者问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 生产者生产出来的产品交给店员</span><br><span class="line">*/</span><br><span class="line">public synchronized void produce()</span><br><span class="line">&#123;</span><br><span class="line">    if(this.product &gt;= MAX_PRODUCT)</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            wait();  </span><br><span class="line">            System.out.println(&quot;产品已满,请稍候再生产&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        catch(InterruptedException e)</span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.product++;</span><br><span class="line">    System.out.println(&quot;生产者生产第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">    notifyAll();   //通知等待区的消费者可以取出产品了</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 消费者从店员取产品</span><br><span class="line">*/</span><br><span class="line">public synchronized void consume()</span><br><span class="line">&#123;</span><br><span class="line">    if(this.product &lt;= MIN_PRODUCT)</span><br><span class="line">    &#123;</span><br><span class="line">        try </span><br><span class="line">        &#123;</span><br><span class="line">            wait(); </span><br><span class="line">            System.out.println(&quot;缺货,稍候再取&quot;);</span><br><span class="line">        &#125; </span><br><span class="line">        catch (InterruptedException e) </span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;消费者取走了第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">    this.product--;</span><br><span class="line">    notifyAll();   //通知等待去的生产者可以生产产品了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用wait-和notify-实现线程的暂停和恢复"><a href="#利用wait-和notify-实现线程的暂停和恢复" class="headerlink" title="利用wait()和notify()实现线程的暂停和恢复"></a>利用wait()和notify()实现线程的暂停和恢复</h4><p>让目标线程轮询一个自定义锁对象。当需要挂起状态时，线程将使用 Object.wait 进行等待。当线程恢复时，将使用 Object.notify 通知目标线程。<br>实现如下：</p>
+<pre><code>Object lock = new Object();
+boolean isPause = false;
+public void run(){
+    synchronized (lock){
+        try {
+            Thread.sleep(600);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        while(isPause){
+            try {
+                lock.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        doSomething();
+    }
+}
+</code></pre><h4 id="经典生产者消费者问题"><a href="#经典生产者消费者问题" class="headerlink" title="经典生产者消费者问题"></a>经典生产者消费者问题</h4><pre><code>/**
+* 生产者生产出来的产品交给店员
+*/
+public synchronized void produce()
+{
+    if(this.product &gt;= MAX_PRODUCT)
+    {
+        try
+        {
+            wait();  
+            System.out.println(&quot;产品已满,请稍候再生产&quot;);
+        }
+        catch(InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        return;
+    }
+
+    this.product++;
+    System.out.println(&quot;生产者生产第&quot; + this.product + &quot;个产品.&quot;);
+    notifyAll();   //通知等待区的消费者可以取出产品了
+}
+
+/**
+* 消费者从店员取产品
+*/
+public synchronized void consume()
+{
+    if(this.product &lt;= MIN_PRODUCT)
+    {
+        try 
+        {
+            wait(); 
+            System.out.println(&quot;缺货,稍候再取&quot;);
+        } 
+        catch (InterruptedException e) 
+        {
+            e.printStackTrace();
+        }
+        return;
+    }
+
+    System.out.println(&quot;消费者取走了第&quot; + this.product + &quot;个产品.&quot;);
+    this.product--;
+    notifyAll();   //通知等待去的生产者可以生产产品了
+}
+</code></pre>
             </div>
             <hr/>
 
@@ -473,9 +562,6 @@ synchronized(this){}等同于public s">
 
 <div id="article-share">
     
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -622,6 +708,269 @@ synchronized(this){}等同于public s">
     
 
     
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
 
     
 
@@ -645,7 +994,7 @@ synchronized(this){}等同于public s">
                     <div class="summary block-with-text">
                         
                             解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n)
-实现如下1234567891011121314int findK(int[] 
+实现如下int findK(int[] nums1, int i, int[]
                         
                     </div>
                     <div class="publish-info">
@@ -695,7 +1044,8 @@ synchronized(this){}等同于public s">
                     <div class="summary block-with-text">
                         
                             一共三种方法，其中每种方法都能将”j&lt;i”换成”j&lt;i/2”或者”j&lt;sqrt(i)”
-方法一利用条件语句if(j==i)判断除数是否到达末尾，若是，则直接count++。1234567for(int i = 2;i&lt
+方法一利用条件语句if(j==i)判断除数是否到达末尾，若是，则直接count++。
+for(int i = 2;i&lt;=100;
                         
                     </div>
                     <div class="publish-info">
@@ -742,8 +1092,6 @@ synchronized(this){}等同于public s">
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
     
 <!-- 代码块复制 -->
 
@@ -787,7 +1135,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -799,7 +1147,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1028,6 +1376,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     

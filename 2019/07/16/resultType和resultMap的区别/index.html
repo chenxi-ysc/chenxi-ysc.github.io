@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="resultType和resultMap的区别, chasen">
+    <meta name="keywords" content="resultType和resultMap的区别, CHASEN">
     <meta name="description" content="resultMap
 resultMap是在 mapper.xml 文件中通过 resultMap 节点定义出来的
 resultMap将sql查询结果映射为resultMap节点定义的对象
@@ -16,7 +16,7 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>resultType和resultMap的区别 | chasen</title>
+    <title>resultType和resultMap的区别 | CHASEN</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,8 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -39,7 +40,7 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">chasen</span>
+                    <span class="logo-span">CHASEN</span>
                 </a>
             </div>
             
@@ -102,6 +103,17 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -113,7 +125,7 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">chasen</div>
+        <div class="logo-name">CHASEN</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -176,6 +188,17 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
 		</a>
           
         </li>
@@ -347,7 +370,7 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    414
+                    364
                 </div>
                 
 
@@ -380,7 +403,58 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
 <li>resultType将sql查询结果映射为指定类型（pojo、java基本数据类型、hashmap）</li>
 <li>sql查询的列名要和resultType指定pojo的属性名相同</li>
 </ul>
-<h2 id="Mybatis默认定义的别名"><a href="#Mybatis默认定义的别名" class="headerlink" title="Mybatis默认定义的别名"></a>Mybatis默认定义的别名</h2><p>mybatis 默认在 org.apache.ibatis.type.TypeAliasRegistry 中为我们定义了类的别名：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">registerAlias(<span class="string">"string"</span>, String.class);</span><br><span class="line">registerAlias(<span class="string">"byte"</span>, Byte.class);</span><br><span class="line">registerAlias(<span class="string">"long"</span>, Long.class);</span><br><span class="line">registerAlias(<span class="string">"short"</span>, Short.class);</span><br><span class="line">registerAlias(<span class="string">"int"</span>, Integer.class);</span><br><span class="line">registerAlias(<span class="string">"integer"</span>, Integer.class);</span><br><span class="line">registerAlias(<span class="string">"double"</span>, Double.class);</span><br><span class="line">registerAlias(<span class="string">"float"</span>, Float.class);</span><br><span class="line">registerAlias(<span class="string">"boolean"</span>, Boolean.class);</span><br><span class="line">registerAlias(<span class="string">"byte[]"</span>, Byte[].class);</span><br><span class="line">registerAlias(<span class="string">"long[]"</span>, Long[].class);</span><br><span class="line">registerAlias(<span class="string">"short[]"</span>, Short[].class);</span><br><span class="line">registerAlias(<span class="string">"int[]"</span>, Integer[].class);</span><br><span class="line">registerAlias(<span class="string">"integer[]"</span>, Integer[].class);</span><br><span class="line">registerAlias(<span class="string">"double[]"</span>, Double[].class);</span><br><span class="line">registerAlias(<span class="string">"float[]"</span>, Float[].class);</span><br><span class="line">registerAlias(<span class="string">"boolean[]"</span>, Boolean[].class);</span><br><span class="line">registerAlias(<span class="string">"_byte"</span>, <span class="keyword">byte</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_long"</span>, <span class="keyword">long</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_short"</span>, <span class="keyword">short</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_int"</span>, <span class="keyword">int</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_integer"</span>, <span class="keyword">int</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_double"</span>, <span class="keyword">double</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_float"</span>, <span class="keyword">float</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_boolean"</span>, <span class="keyword">boolean</span>.class);</span><br><span class="line">registerAlias(<span class="string">"_byte[]"</span>, <span class="keyword">byte</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_long[]"</span>, <span class="keyword">long</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_short[]"</span>, <span class="keyword">short</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_int[]"</span>, <span class="keyword">int</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_integer[]"</span>, <span class="keyword">int</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_double[]"</span>, <span class="keyword">double</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_float[]"</span>, <span class="keyword">float</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"_boolean[]"</span>, <span class="keyword">boolean</span>[].class);</span><br><span class="line">registerAlias(<span class="string">"date"</span>, Date.class);</span><br><span class="line">registerAlias(<span class="string">"decimal"</span>, BigDecimal.class);</span><br><span class="line">registerAlias(<span class="string">"bigdecimal"</span>, BigDecimal.class);</span><br><span class="line">registerAlias(<span class="string">"biginteger"</span>, BigInteger.class);</span><br><span class="line">registerAlias(<span class="string">"object"</span>, Object.class);</span><br><span class="line">registerAlias(<span class="string">"date[]"</span>, Date[].class);</span><br><span class="line">registerAlias(<span class="string">"decimal[]"</span>, BigDecimal[].class);</span><br><span class="line">registerAlias(<span class="string">"bigdecimal[]"</span>, BigDecimal[].class);</span><br><span class="line">registerAlias(<span class="string">"biginteger[]"</span>, BigInteger[].class);</span><br><span class="line">registerAlias(<span class="string">"object[]"</span>, Object[].class);</span><br><span class="line">registerAlias(<span class="string">"map"</span>, Map.class);</span><br><span class="line">registerAlias(<span class="string">"hashmap"</span>, HashMap.class);</span><br><span class="line">registerAlias(<span class="string">"list"</span>, List.class);</span><br><span class="line">registerAlias(<span class="string">"arraylist"</span>, ArrayList.class);</span><br><span class="line">registerAlias(<span class="string">"collection"</span>, Collection.class);</span><br><span class="line">registerAlias(<span class="string">"iterator"</span>, Iterator.class);</span><br><span class="line">registerAlias(<span class="string">"ResultSet"</span>, ResultSet.class);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Mybatis默认定义的别名"><a href="#Mybatis默认定义的别名" class="headerlink" title="Mybatis默认定义的别名"></a>Mybatis默认定义的别名</h2><p>mybatis 默认在 org.apache.ibatis.type.TypeAliasRegistry 中为我们定义了类的别名：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"string"</span><span class="token punctuation">,</span> String<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"byte"</span><span class="token punctuation">,</span> Byte<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"long"</span><span class="token punctuation">,</span> Long<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"short"</span><span class="token punctuation">,</span> Short<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"int"</span><span class="token punctuation">,</span> Integer<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"integer"</span><span class="token punctuation">,</span> Integer<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"double"</span><span class="token punctuation">,</span> Double<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"float"</span><span class="token punctuation">,</span> Float<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"boolean"</span><span class="token punctuation">,</span> Boolean<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"byte[]"</span><span class="token punctuation">,</span> Byte<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"long[]"</span><span class="token punctuation">,</span> Long<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"short[]"</span><span class="token punctuation">,</span> Short<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"int[]"</span><span class="token punctuation">,</span> Integer<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"integer[]"</span><span class="token punctuation">,</span> Integer<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"double[]"</span><span class="token punctuation">,</span> Double<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"float[]"</span><span class="token punctuation">,</span> Float<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"boolean[]"</span><span class="token punctuation">,</span> Boolean<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_byte"</span><span class="token punctuation">,</span> <span class="token keyword">byte</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_long"</span><span class="token punctuation">,</span> <span class="token keyword">long</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_short"</span><span class="token punctuation">,</span> <span class="token keyword">short</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_int"</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_integer"</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_double"</span><span class="token punctuation">,</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_float"</span><span class="token punctuation">,</span> <span class="token keyword">float</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_boolean"</span><span class="token punctuation">,</span> <span class="token keyword">boolean</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_byte[]"</span><span class="token punctuation">,</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_long[]"</span><span class="token punctuation">,</span> <span class="token keyword">long</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_short[]"</span><span class="token punctuation">,</span> <span class="token keyword">short</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_int[]"</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_integer[]"</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_double[]"</span><span class="token punctuation">,</span> <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_float[]"</span><span class="token punctuation">,</span> <span class="token keyword">float</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"_boolean[]"</span><span class="token punctuation">,</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"date"</span><span class="token punctuation">,</span> Date<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"decimal"</span><span class="token punctuation">,</span> BigDecimal<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"bigdecimal"</span><span class="token punctuation">,</span> BigDecimal<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"biginteger"</span><span class="token punctuation">,</span> BigInteger<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"object"</span><span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"date[]"</span><span class="token punctuation">,</span> Date<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"decimal[]"</span><span class="token punctuation">,</span> BigDecimal<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"bigdecimal[]"</span><span class="token punctuation">,</span> BigDecimal<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"biginteger[]"</span><span class="token punctuation">,</span> BigInteger<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"object[]"</span><span class="token punctuation">,</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">,</span> Map<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"hashmap"</span><span class="token punctuation">,</span> HashMap<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"list"</span><span class="token punctuation">,</span> List<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"arraylist"</span><span class="token punctuation">,</span> ArrayList<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"collection"</span><span class="token punctuation">,</span> Collection<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"iterator"</span><span class="token punctuation">,</span> Iterator<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerAlias</span><span class="token punctuation">(</span><span class="token string">"ResultSet"</span><span class="token punctuation">,</span> ResultSet<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -456,9 +530,6 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
 
 <div id="article-share">
     
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -605,6 +676,269 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
     
 
     
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
 
     
 
@@ -683,7 +1017,12 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
                     <div class="summary block-with-text">
                         
                             概述代理模式即通过创建一个代理对象，用这个代理对象去代表真正的对象，客户端使用这个代理对象来操作真正的对象，主要有静态代理和动态代理两种。
-静态代理接口类：123interface Person &#123;    void speak()
+静态代理接口类：
+interface Person {
+    void speak();
+}
+
+真
                         
                     </div>
                     <div class="publish-info">
@@ -730,8 +1069,6 @@ resultMap将sql查询结果映射为resultMap节点定义的对象
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
     
 <!-- 代码块复制 -->
 
@@ -775,7 +1112,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -787,7 +1124,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1016,6 +1353,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     

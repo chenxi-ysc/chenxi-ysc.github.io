@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="两个排序数组找第k大的数, chasen">
+    <meta name="keywords" content="两个排序数组找第k大的数, CHASEN">
     <meta name="description" content="解法一：游标计数定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。时间复杂度O(m+n)
-实现如下1234567891011121314int findK(int[] ">
+实现如下int findK(int[] nums1, int i, int[]">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>两个排序数组找第k大的数 | chasen</title>
+    <title>两个排序数组找第k大的数 | CHASEN</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -27,7 +27,8 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -37,7 +38,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">chasen</span>
+                    <span class="logo-span">CHASEN</span>
                 </a>
             </div>
             
@@ -100,6 +101,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -111,7 +123,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">chasen</div>
+        <div class="logo-name">CHASEN</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -174,6 +186,17 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
 		</a>
           
         </li>
@@ -345,7 +368,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    454
+                    418
                 </div>
                 
 
@@ -369,8 +392,21 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="解法一：游标计数"><a href="#解法一：游标计数" class="headerlink" title="解法一：游标计数"></a>解法一：游标计数</h4><p>定义两个游标分别指向两个有序数组，按序移动，并用count计数，当count等于k时，返回两个游标指向的数中最小的那一个。<br><strong>时间复杂度O(m+n)</strong></p>
-<h5 id="实现如下"><a href="#实现如下" class="headerlink" title="实现如下"></a>实现如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int findK(int[] nums1, int i, int[] nums2, int j, int k)&#123;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    int count = 1;</span><br><span class="line">    while(count&lt;k)</span><br><span class="line">    &#123;</span><br><span class="line">        if( nums1[i]&lt;=nums2[j] )</span><br><span class="line">            i++;</span><br><span class="line">        else</span><br><span class="line">            j++;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    return nums1[i]&lt;=nums2[j]?nums1[j]:nums2[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="解法二：类二分查找"><a href="#解法二：类二分查找" class="headerlink" title="解法二：类二分查找"></a>解法二：类二分查找</h4><p>充分利用两个数组都是有序的条件：</p>
+<h5 id="实现如下"><a href="#实现如下" class="headerlink" title="实现如下"></a>实现如下</h5><pre><code>int findK(int[] nums1, int i, int[] nums2, int j, int k){
+    int i = 0;
+    int j = 0;
+    int count = 1;
+    while(count&lt;k)
+    {
+        if( nums1[i]&lt;=nums2[j] )
+            i++;
+        else
+            j++;
+        count++;
+    }
+    return nums1[i]&lt;=nums2[j]?nums1[j]:nums2[i];
+}
+</code></pre><h4 id="解法二：类二分查找"><a href="#解法二：类二分查找" class="headerlink" title="解法二：类二分查找"></a>解法二：类二分查找</h4><p>充分利用两个数组都是有序的条件：</p>
 <ul>
 <li>当array1[k/2-1] &gt;= array2[k/2-1]  则array2在[0,k/2-1]范围内的元素一定比array1、array2合并后第k个元素小，可以不用考虑array2在[0,k/2-1]范围内的元素</li>
 <li>当array1[k/2-1] &lt; array2[k/2-1]  则array1在[0,k/2-1]范围内的元素一定比array1、array2合并后第k个元素小，可以不用考虑array1在[0,k/2-1]范围内的元素</li>
@@ -378,8 +414,29 @@
 <p>因此算法可以写成一个递归的形式，递归结束的条件为：</p>
 <ul>
 <li>array1或者array2为空时，return array1[k-1]或者array2[k-1]</li>
-<li>k==1时，return min(array1[0],array2[0])<br><strong>时间复杂度O(log(m+n))</strong><h5 id="实现如下-1"><a href="#实现如下-1" class="headerlink" title="实现如下"></a>实现如下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int findK(int[] nums1, int i, int[] nums2, int j, int k)&#123;</span><br><span class="line">    int mid1=0, mid2=0;</span><br><span class="line">    if(i&gt;=nums1.length) return nums2[j+k-1];</span><br><span class="line">    if(j&gt;=nums2.length) return nums1[i+k-1];</span><br><span class="line">    if(k==1) return Math.min(nums1[i], nums2[j]);</span><br><span class="line">    if(i+k/2-1&lt;nums1.length)&#123;</span><br><span class="line">        mid1 = nums1[i+k/2-1];</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return findK(nums1,i,nums2,j+k/2,k-k/2);</span><br><span class="line">    if(j+k/2-1&lt;nums2.length)&#123;</span><br><span class="line">        mid2 = nums2[j+k/2-1];</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return findK(nums1,i+k/2,nums2,j,k-k/2);</span><br><span class="line">    if(mid1&lt;mid2)&#123;</span><br><span class="line">        return findK(nums1,i+k/2,nums2,j,k-k/2);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        return findK(nums1,i,nums2,j+k/2,k-k/2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>k==1时，return min(array1[0],array2[0])<br><strong>时间复杂度O(log(m+n))</strong><h5 id="实现如下-1"><a href="#实现如下-1" class="headerlink" title="实现如下"></a>实现如下</h5><pre><code>int findK(int[] nums1, int i, int[] nums2, int j, int k){
+  int mid1=0, mid2=0;
+  if(i&gt;=nums1.length) return nums2[j+k-1];
+  if(j&gt;=nums2.length) return nums1[i+k-1];
+  if(k==1) return Math.min(nums1[i], nums2[j]);
+  if(i+k/2-1&lt;nums1.length){
+      mid1 = nums1[i+k/2-1];
+  }
+  else
+      return findK(nums1,i,nums2,j+k/2,k-k/2);
+  if(j+k/2-1&lt;nums2.length){
+      mid2 = nums2[j+k/2-1];
+  }
+  else
+      return findK(nums1,i+k/2,nums2,j,k-k/2);
+  if(mid1&lt;mid2){
+      return findK(nums1,i+k/2,nums2,j,k-k/2);
+  }
+  else{
+      return findK(nums1,i,nums2,j+k/2,k-k/2);
+  }
+}
+</code></pre></li>
 </ul>
 
             </div>
@@ -456,9 +513,6 @@
 
 <div id="article-share">
     
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -605,6 +659,269 @@
     
 
     
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
 
     
 
@@ -736,8 +1053,6 @@ synchronized(this){}等同于public s
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
     
 <!-- 代码块复制 -->
 
@@ -781,7 +1096,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -793,7 +1108,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -1022,6 +1337,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
