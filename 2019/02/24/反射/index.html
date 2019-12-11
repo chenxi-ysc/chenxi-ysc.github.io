@@ -5,8 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Java反射, CHASEN">
-    <meta name="description" content="反射基础反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法， 有多">
+    <meta name="description" content="概述
+JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。
+反射 (Reflection) ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -372,14 +373,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1,124
+                    1,296
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 				
@@ -395,8 +396,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="反射基础"><a href="#反射基础" class="headerlink" title="反射基础"></a>反射基础</h3><p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
-<p>类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法， 有多少属性，有哪些方法。</p>
+                <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。</li>
+<li>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</li>
+<li>反射是指Java程序能够在运行的过程中获取和调用任意一个类或者对象的属性和方法。</li>
+<li>反射可以在运行时提供类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以通过编译。</li>
+<li>类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法，有多少属性，有哪些方法。</li>
+</ul>
 <p>获取类对象的方法有三种：<br>(1) 使用 Class 类的 forName 静态方法:</p>
 <pre><code>//注意，forName()需要传入类的全路径
 //如果当前类与参数类在同一包下即可省略包名
@@ -1334,6 +1340,16 @@ $(function () {
 
 
     <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?931b2f3191a7f78ac65feea0d87e9d0a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
     <!-- Baidu Push -->
 

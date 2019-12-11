@@ -428,8 +428,8 @@
         <category>1-基础</category>
       </categories>
       <tags>
-        <tag>Optional</tag>
         <tag>Java8</tag>
+        <tag>Optional</tag>
       </tags>
   </entry>
   <entry>
@@ -698,8 +698,8 @@
       </categories>
       <tags>
         <tag>mybatis</tag>
-        <tag>逆向工程</tag>
         <tag>Java</tag>
+        <tag>逆向工程</tag>
       </tags>
   </entry>
   <entry>
@@ -836,7 +836,7 @@
   <entry>
     <title><![CDATA[Java反射]]></title>
     <url>%2F2019%2F02%2F24%2F%E5%8F%8D%E5%B0%84%2F</url>
-    <content type="text"><![CDATA[反射基础反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。 类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法， 有多少属性，有哪些方法。 获取类对象的方法有三种：(1) 使用 Class 类的 forName 静态方法: //注意，forName()需要传入类的全路径 //如果当前类与参数类在同一包下即可省略包名 Class.forName(driver); (2)直接获取某一个对象的 class，比如:Class class = MyClass.class;(3)调用某个对象的 getClass() 方法，比如:Class class = mClass.getClass(); 通过反射来创建实例通过反射来生成对象主要有两种方式。 使用Class对象的newInstance()方法来创建Class对象对应类的实例。 Class c = String.class; Object str = c.newInstance(); 先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建实例。这种方法可以用指定的构造器构造类的实例。 //获取String所对应的Class对象 Class c = String.class; //获取String类带一个String参数的构造器 Constructor constructor = c.getConstructor(String.class); //根据构造器创建实例 Object obj = constructor.newInstance(&quot;233&quot;); System.out.println(obj); 通过反射来获取方法获取某个Class对象的方法集合，主要有以下几个方法： getDeclaredMethods 方法返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。public Method[] getDeclaredMethods() throws SecurityException getMethods 方法返回某个类的所有公用（public）方法，包括其继承类的公用方法。public Method[] getMethods() throws SecurityException getMethod 方法返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应的Class对象。public Method getMethod(String name, Class class) 通过反射来获取属性 getDeclaredFields 方法返回类或接口所有已声明的成员变量，但不能得到其父类的成员变量。 getFields 方法返回类的所有公有属性，包括其继承的公有方法。 getField 方法返回特定的属性。 通过反射来调用方法用invoke方法 Class myClass = MyClass.class; //创建实例 Object obj = mClass.newInstance(); //获取方法 Method method = mClass.getMethod(&quot;add&quot;,int.class,int.class); //调用method对应的方法 Object result = method.invoke(obj,1,4); 反射的优点： 可扩展性 ：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。 类浏览器和可视化开发环境 ：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。 调试器和测试工具 ： 调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。 反射的缺点：尽管反射非常强大，但也不能滥用。如果一个功能可以不用反射完成，那么最好就不用。在我们使用反射技术时，下面几条内容应该牢记于心。 性能开销 ：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。 安全限制 ：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。 内部暴露 ：由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用，这可能导致代码功能失调并破坏可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。]]></content>
+    <content type="text"><![CDATA[概述 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。 反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。 反射是指Java程序能够在运行的过程中获取和调用任意一个类或者对象的属性和方法。 反射可以在运行时提供类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以通过编译。 类对象：所有的类，都存在一个类对象，这个类对象用于提供类本身的信息，比如有几种构造方法，有多少属性，有哪些方法。 获取类对象的方法有三种：(1) 使用 Class 类的 forName 静态方法: //注意，forName()需要传入类的全路径 //如果当前类与参数类在同一包下即可省略包名 Class.forName(driver); (2)直接获取某一个对象的 class，比如:Class class = MyClass.class;(3)调用某个对象的 getClass() 方法，比如:Class class = mClass.getClass(); 通过反射来创建实例通过反射来生成对象主要有两种方式。 使用Class对象的newInstance()方法来创建Class对象对应类的实例。 Class c = String.class; Object str = c.newInstance(); 先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建实例。这种方法可以用指定的构造器构造类的实例。 //获取String所对应的Class对象 Class c = String.class; //获取String类带一个String参数的构造器 Constructor constructor = c.getConstructor(String.class); //根据构造器创建实例 Object obj = constructor.newInstance(&quot;233&quot;); System.out.println(obj); 通过反射来获取方法获取某个Class对象的方法集合，主要有以下几个方法： getDeclaredMethods 方法返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。public Method[] getDeclaredMethods() throws SecurityException getMethods 方法返回某个类的所有公用（public）方法，包括其继承类的公用方法。public Method[] getMethods() throws SecurityException getMethod 方法返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应的Class对象。public Method getMethod(String name, Class class) 通过反射来获取属性 getDeclaredFields 方法返回类或接口所有已声明的成员变量，但不能得到其父类的成员变量。 getFields 方法返回类的所有公有属性，包括其继承的公有方法。 getField 方法返回特定的属性。 通过反射来调用方法用invoke方法 Class myClass = MyClass.class; //创建实例 Object obj = mClass.newInstance(); //获取方法 Method method = mClass.getMethod(&quot;add&quot;,int.class,int.class); //调用method对应的方法 Object result = method.invoke(obj,1,4); 反射的优点： 可扩展性 ：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。 类浏览器和可视化开发环境 ：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。 调试器和测试工具 ： 调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。 反射的缺点：尽管反射非常强大，但也不能滥用。如果一个功能可以不用反射完成，那么最好就不用。在我们使用反射技术时，下面几条内容应该牢记于心。 性能开销 ：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。 安全限制 ：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。 内部暴露 ：由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用，这可能导致代码功能失调并破坏可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。]]></content>
       <categories>
         <category>1-基础</category>
       </categories>
